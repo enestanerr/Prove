@@ -138,7 +138,7 @@ def test_every_claim_carries_fixed_wording_for_its_verdict(report):
     assert (
         by_id["c4"]["meaning"] == "The chart reading and the printed number cannot both be right."
     )
-    assert report["sources"][0]["meaning"].startswith("Not checked: Sources were not checked")
+    assert report["sources"][0]["meaning"].startswith("Sources were not checked")
 
 
 def test_markdown_report(report):
@@ -200,3 +200,11 @@ def test_coverage_line_and_exit_codes():
         exit_code({**clean, "contradicted": 1}) == 1
         and exit_code({**clean, "contradicted": 1}, "never") == 0
     )
+
+
+def test_text_prints_each_page_for_copying_quotes(root, capsys, monkeypatch):
+    monkeypatch.chdir(root)
+    assert main(["text", "examples/kestrel-q3/report.md", "--page", "2"]) == 0
+    out = capsys.readouterr().out
+    assert "===== page 2 =====" in out and "North | 1,204" in out and "page 1" not in out
+    assert main(["text", "examples/kestrel-q3/report.md", "--page", "9"]) == 2

@@ -165,6 +165,8 @@ def _scale_confusion(target: Target, value: Value) -> Fraction | None:
     Thousands against millions is almost always a unit left out of the claims
     file, not an error in the document, so it is reported as unverified.
     """
+    if target.contains(0):  # anything scaled down far enough lands near zero
+        return None
     for k in charts.SCALE_FACTORS:
         if value.range.lo > 0 or value.range.hi < 0:
             hit = target.overlaps(value.range.scale(k))
@@ -425,6 +427,28 @@ def _chart(claim: dict, chart_defs: dict[str, dict], numbers: dict[str, NumberIn
     return rec
 
 
+def _note_knock_on_effects(records: list[dict], numbers: dict[str, NumberInfo]) -> None:
+    """Say so when a flagged claim leans on a number that another claim already contradicts.
+
+    A share computed from a wrong total is wrong too, but the cause is the total.
+    """
+    doubted = {
+        rec["target"]["id"]: rec["id"]
+        for rec in records
+        if rec["verdict"] == CONTRADICTED and rec.get("target") and rec["kind"] == "derived"
+    }
+    for rec in records:
+        if rec["verdict"] not in (CONTRADICTED, SUSPECT):
+            continue
+        own = (rec.get("target") or {}).get("id")
+        for number in rec.get("numbers") or []:
+            if number != own and number in doubted and doubted[number] != rec["id"]:
+                rec["notes"].append(
+                    f"This check uses {numbers[number].text}, which claim {doubted[number]} "
+                    "contradicts. The mismatch here may be a knock-on effect of that one."
+                )
+
+
 def _refs(node: object) -> list[str]:
     if not isinstance(node, dict):
         return []
@@ -452,6 +476,8 @@ def check_claims(claims: dict, doc: dict | None = None) -> dict:
             referenced.add(claim["target"])
     for g in chart_defs.values():
         referenced.update(m["printed_label"] for m in g["marks"] if m.get("printed_label"))
+
+    _note_knock_on_effects(records, numbers)
 
     unchecked = []
     for info in numbers.values():

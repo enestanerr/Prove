@@ -70,6 +70,21 @@ def cmd_scan(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_text(args: argparse.Namespace) -> int:
+    from provecheck.ingest import load_doc
+
+    doc = load_doc(args.doc)
+    pages = [p for p in doc["pages"] if args.page in (None, p["page"])]
+    if not pages:
+        raise CliError(
+            f"page {args.page} does not exist (the document has {len(doc['pages'])} pages)"
+        )
+    for page in pages:
+        print(f"===== page {page['page']} =====")
+        print(page["text"] if page["has_text"] else "(no text layer: read the page image)")
+    return 0
+
+
 def cmd_check(args: argparse.Namespace) -> int:
     from provecheck.ingest import load_doc
     from provecheck.report import coverage_line
@@ -221,6 +236,11 @@ def build_parser() -> argparse.ArgumentParser:
     a.add_argument("--json", action="store_true")
     a.add_argument("--locale")
     a.set_defaults(fn=cmd_scan)
+
+    a = sub.add_parser("text", help="print the extracted text of each page, to copy quotes from")
+    a.add_argument("doc", help="a document or a doc.json")
+    a.add_argument("--page", type=int, help="only this page")
+    a.set_defaults(fn=cmd_text)
 
     a = sub.add_parser("check", help="claims.json + doc.json -> verdicts.json")
     a.add_argument("claims")

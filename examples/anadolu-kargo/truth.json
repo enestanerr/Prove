@@ -1,0 +1,19 @@
+{
+  "planted": [
+    {"id": "e1", "type": "pct_change", "page": 1, "text": "%12",
+     "quote": "Teslim edilen gönderi sayısı 1.284.500'den 1.412.920'ye çıktı; bu %12 artış demek."},
+    {"id": "e2", "type": "pct_of", "page": 2, "text": "%38,3",
+     "quote": "Marmara, toplam gönderilerin %38,3'ünü oluşturdu."},
+    {"id": "e3", "type": "chart_text", "page": 2, "text": "520", "quote": "Eylül ayında 520 bin gönderiyle"}
+  ],
+  "traps": [
+    {"id": "t1", "type": "hedge", "page": 3, "text": "%30", "quote": "yaklaşık %30'u elektrikli"},
+    {"id": "t2", "type": "crossref", "page": 1, "text": "1.412.920",
+     "quote": "Teslim edilen gönderi sayısı 1.284.500'den 1.412.920'ye çıktı"},
+    {"id": "t3", "type": "rounding", "page": 1, "text": "%10,9", "quote": "artış %10,9"}
+  ],
+  "charts": [
+    {"figure": "Şekil 1", "page": 2, "axis": [400, 550],
+     "marks": {"Temmuz": 455, "Ağustos": 468, "Eylül": 490}}
+  ]
+}

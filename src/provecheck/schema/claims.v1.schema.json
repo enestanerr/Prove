@@ -29,7 +29,8 @@
       "required": ["page", "quote"],
       "properties": {
         "page": {"type": "integer", "minimum": 1},
-        "quote": {"type": "string", "minLength": 1, "description": "The sentence or table row the number sits in, copied exactly."}
+        "quote": {"type": "string", "minLength": 1, "description": "The sentence or table row the number sits in, copied exactly."},
+        "image": {"type": ["boolean", "null"], "description": "true when the number is printed inside a figure (a value label), not in the page text. It is then tagged `read`."}
       }
     },
     "number": {

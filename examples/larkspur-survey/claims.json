@@ -1,0 +1,142 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "examples/larkspur-survey/report.md", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "3,200", "value": "3200", "decimals": 0, "unit": "members", "exact": "count",
+     "loc": {"page": 1, "quote": "was sent to 3,200 members and 1,184 responded, a response rate of 37.0%."}},
+    {"id": "n2", "text": "1,184", "value": "1184", "decimals": 0, "unit": "respondents", "exact": "count",
+     "loc": {"page": 1, "quote": "was sent to 3,200 members and 1,184 responded, a response rate of 37.0%."}},
+    {"id": "n3", "text": "37.0%", "value": "37.0", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "was sent to 3,200 members and 1,184 responded, a response rate of 37.0%."}},
+
+    {"id": "n4", "text": "71.4%", "value": "71.4", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Overall satisfaction rose from 71.4% in 2025 to 76.9% in 2026, an increase of 5.5%."}},
+    {"id": "n5", "text": "76.9%", "value": "76.9", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Overall satisfaction rose from 71.4% in 2025 to 76.9% in 2026, an increase of 5.5%."}},
+    {"id": "n6", "text": "5.5%", "value": "5.5", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Overall satisfaction rose from 71.4% in 2025 to 76.9% in 2026, an increase of 5.5%."}},
+
+    {"id": "n7", "text": "60%", "value": "60", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "About 60% of respondents visit the library at least once a month."}},
+
+    {"id": "n8", "text": "312", "value": "312", "decimals": 0, "unit": "respondents", "exact": "count",
+     "loc": {"page": 2, "quote": "Weekly | 312"}},
+    {"id": "n9", "text": "405", "value": "405", "decimals": 0, "unit": "respondents", "exact": "count",
+     "loc": {"page": 2, "quote": "Monthly | 405"}},
+    {"id": "n10", "text": "467", "value": "467", "decimals": 0, "unit": "respondents", "exact": "count",
+     "loc": {"page": 2, "quote": "Less often | 467"}},
+    {"id": "n11", "text": "1,184", "value": "1184", "decimals": 0, "unit": "respondents", "exact": "count",
+     "loc": {"page": 2, "quote": "Total | 1,184"}},
+    {"id": "n12", "text": "26.4%", "value": "26.4", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "Weekly visitors make up 26.4% of respondents."}},
+
+    {"id": "n13", "text": "82%", "value": "82", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "Lending scored highest, with 82% of respondents satisfied."}},
+    {"id": "n14", "text": "82", "value": "82", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "82", "image": true}},
+    {"id": "n15", "text": "64", "value": "64", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "64", "image": true}},
+    {"id": "n16", "text": "71", "value": "71", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "71", "image": true}},
+    {"id": "n17", "text": "68", "value": "68", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "68", "image": true}},
+
+    {"id": "n18", "text": "33.3%", "value": "33.3", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 3, "quote": "lending 33.3%"}},
+    {"id": "n19", "text": "33.3%", "value": "33.3", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 3, "quote": "events 33.3%"}},
+    {"id": "n20", "text": "33.3%", "value": "33.3", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 3, "quote": "outreach 33.3%"}},
+    {"id": "n21", "text": "100%", "value": "100", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 3, "quote": "for a total of 100%"}},
+
+    {"id": "n22", "text": "41.7", "value": "41700", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null,
+     "loc": {"page": 3, "quote": "Books | 41.7"}},
+    {"id": "n23", "text": "18.2", "value": "18200", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null,
+     "loc": {"page": 3, "quote": "Events | 18.2"}},
+    {"id": "n24", "text": "12.6", "value": "12600", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null,
+     "loc": {"page": 3, "quote": "Outreach | 12.6"}},
+    {"id": "n25", "text": "72.4", "value": "72400", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null,
+     "loc": {"page": 3, "quote": "Total | 72.4"}},
+    {"id": "n26", "text": "61.15", "value": "61.15", "decimals": 2, "unit": "USD", "exact": null,
+     "loc": {"page": 3, "quote": "Cost per respondent was $61.15."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n2"}, {"ref": "n1"}]},
+     "say": "The response rate should be respondents divided by members surveyed."},
+
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n4"}, {"ref": "n5"}]},
+     "say": "The sentence gives the increase as a percentage, so it should be the relative change from 71.4% to 76.9%."},
+
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [
+        {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}]},
+        {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}]}]},
+     "say": "Members who visit at least monthly are the weekly and monthly rows as a share of all respondents."},
+
+    {"id": "c4", "kind": "derived", "target": "n11", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}]},
+     "say": "The total row should be the sum of the three frequency rows."},
+
+    {"id": "c5", "kind": "derived", "target": "n2", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n11"}]},
+     "say": "The number of respondents in the summary should match the table total."},
+
+    {"id": "c6", "kind": "derived", "target": "n12", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n8"},
+        {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}]}]},
+     "say": "The weekly share should be weekly visitors divided by all respondents."},
+
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "n13",
+     "chart": "g1", "mark": {"label": "Lending"},
+     "say": "The satisfaction figure for lending in the text should match the Lending bar in Figure 1."},
+
+    {"id": "c8", "kind": "chart", "check": "order", "chart": "g1",
+     "mark": {"label": "Lending"}, "relation": "largest",
+     "say": "The Lending bar should be the tallest in Figure 1."},
+
+    {"id": "c9", "kind": "chart", "check": "label_vs_mark", "target": "n14",
+     "chart": "g1", "mark": {"label": "Lending"},
+     "say": "The value label on the Lending bar should match the bar's height."},
+    {"id": "c10", "kind": "chart", "check": "label_vs_mark", "target": "n15",
+     "chart": "g1", "mark": {"label": "Events"},
+     "say": "The value label on the Events bar should match the bar's height."},
+    {"id": "c11", "kind": "chart", "check": "label_vs_mark", "target": "n16",
+     "chart": "g1", "mark": {"label": "Study space"},
+     "say": "The value label on the Study space bar should match the bar's height."},
+    {"id": "c12", "kind": "chart", "check": "label_vs_mark", "target": "n17",
+     "chart": "g1", "mark": {"label": "Digital"},
+     "say": "The value label on the Digital bar should match the bar's height."},
+
+    {"id": "c13", "kind": "derived", "target": "n21", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n18"}, {"ref": "n19"}, {"ref": "n20"}]},
+     "say": "The three staff-time shares should add up to the stated total."},
+
+    {"id": "c14", "kind": "derived", "target": "n25", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n22"}, {"ref": "n23"}, {"ref": "n24"}]},
+     "say": "The total cost should be the sum of the three items."},
+
+    {"id": "c15", "kind": "derived", "target": "n26", "hedge": null,
+     "derivation": {"op": "ratio", "args": [{"ref": "n25"}, {"ref": "n2"}]},
+     "say": "Cost per respondent should be the total cost divided by the number of respondents."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar", "image": "figure1-crop.png",
+     "y_axis": {"min": "0", "max": "100", "scale": "linear", "unit": "%"},
+     "marks": [
+       {"label": "Lending", "read_a": {"lo": "80", "hi": "84"}, "read_b": {"lo": "81", "hi": "83"}, "printed_label": "n14"},
+       {"label": "Events", "read_a": {"lo": "62", "hi": "66"}, "read_b": {"lo": "63", "hi": "65"}, "printed_label": "n15"},
+       {"label": "Study space", "read_a": {"lo": "69", "hi": "73"}, "read_b": {"lo": "70", "hi": "72"}, "printed_label": "n16"},
+       {"label": "Digital", "read_a": {"lo": "56", "hi": "60"}, "read_b": {"lo": "57", "hi": "59"}, "printed_label": "n17"}
+     ],
+     "notes": []}
+  ],
+  "sources": [],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "2025", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1"}, "reason": "figure number"}
+  ]
+}

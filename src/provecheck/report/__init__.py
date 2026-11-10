@@ -78,6 +78,8 @@ RANK_MEANING = {
 
 def meaning(rec: dict) -> str:
     verdict = rec["verdict"]
+    if rec["assurance"] == "resolved" and rec.get("message"):
+        return rec["message"]  # what the registry or the page answered, in plain words
     if verdict == UNVERIFIED:
         why = rec.get("message") or REASONS.get(
             rec.get("reason"), rec.get("reason") or "no reason given"

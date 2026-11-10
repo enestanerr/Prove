@@ -1,0 +1,29 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "fixture.md", "locale": "en"},
+  "numbers": [],
+  "claims": [],
+  "sources": [
+    {"id": "doi-real", "kind": "doi", "value": "10.1177/1948550616673876",
+     "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+     "cited_year": 2017},
+    {"id": "doi-short-title", "kind": "doi", "value": "https://doi.org/10.1177/1948550616673876",
+     "cited_title": "The GRIM Test"},
+    {"id": "doi-missing", "kind": "doi", "value": "10.1234/example.2021.001",
+     "cited_title": "An example cited title", "cited_year": 2021},
+    {"id": "doi-other-work", "kind": "doi", "value": "doi:10.3758/s13428-015-0664-2",
+     "cited_title": "A survey of deep learning methods for image segmentation"},
+    {"id": "doi-datacite", "kind": "doi", "value": "10.48550/arXiv.1706.03762",
+     "cited_title": "Attention Is All You Need"},
+    {"id": "arxiv-real", "kind": "arxiv", "value": "1706.03762", "cited_title": "Attention Is All You Need"},
+    {"id": "arxiv-missing", "kind": "arxiv", "value": "arXiv:9912.99999", "cited_title": "A paper that is not there"},
+    {"id": "url-ok", "kind": "url", "value": "https://www.iana.org/help/example-domains"},
+    {"id": "url-missing", "kind": "url", "value": "https://www.iana.org/help/this-page-does-not-exist"},
+    {"id": "quote-ok", "kind": "quote", "value": "https://www.iana.org/help/example-domains",
+     "quote": "These domains may be used as illustrative examples in documents without prior coordination with us."},
+    {"id": "quote-altered", "kind": "quote", "value": "https://www.iana.org/help/example-domains",
+     "quote": "These domains may be used as illustrative examples in documents only with prior coordination with us."},
+    {"id": "quote-absent", "kind": "quote", "value": "https://www.iana.org/help/example-domains",
+     "quote": "Revenue rose fourteen percent in the third quarter according to the annual report."}
+  ]
+}

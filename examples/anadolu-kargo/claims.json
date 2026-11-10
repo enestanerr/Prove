@@ -1,0 +1,115 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "examples/anadolu-kargo/report.md", "locale": "tr"},
+  "numbers": [
+    {"id": "n1", "text": "48,6 milyon", "value": "48600000", "decimals": 1, "unit": "TL", "exact": null,
+     "loc": {"page": 1, "quote": "Gelir 2. çeyrekteki 48,6 milyon TL'den 3. çeyrekte 53,9 milyon TL'ye yükseldi; artış %10,9."}},
+    {"id": "n2", "text": "53,9 milyon", "value": "53900000", "decimals": 1, "unit": "TL", "exact": null,
+     "loc": {"page": 1, "quote": "Gelir 2. çeyrekteki 48,6 milyon TL'den 3. çeyrekte 53,9 milyon TL'ye yükseldi; artış %10,9."}},
+    {"id": "n3", "text": "%10,9", "value": "10.9", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Gelir 2. çeyrekteki 48,6 milyon TL'den 3. çeyrekte 53,9 milyon TL'ye yükseldi; artış %10,9."}},
+
+    {"id": "n4", "text": "1.284.500", "value": "1284500", "decimals": 0, "unit": "gönderi", "exact": "count",
+     "loc": {"page": 1, "quote": "Teslim edilen gönderi sayısı 1.284.500'den 1.412.920'ye çıktı; bu %12 artış demek."}},
+    {"id": "n5", "text": "1.412.920", "value": "1412920", "decimals": 0, "unit": "gönderi", "exact": "count",
+     "loc": {"page": 1, "quote": "Teslim edilen gönderi sayısı 1.284.500'den 1.412.920'ye çıktı; bu %12 artış demek."}},
+    {"id": "n6", "text": "%12", "value": "12", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Teslim edilen gönderi sayısı 1.284.500'den 1.412.920'ye çıktı; bu %12 artış demek."}},
+
+    {"id": "n7", "text": "%94,2", "value": "94.2", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Zamanında teslimat oranı %94,2'den %96,0'a yükseldi; 1,8 puanlık bir iyileşme."}},
+    {"id": "n8", "text": "%96,0", "value": "96.0", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Zamanında teslimat oranı %94,2'den %96,0'a yükseldi; 1,8 puanlık bir iyileşme."}},
+    {"id": "n9", "text": "1,8", "value": "1.8", "decimals": 1, "unit": "pp", "exact": null,
+     "loc": {"page": 1, "quote": "Zamanında teslimat oranı %94,2'den %96,0'a yükseldi; 1,8 puanlık bir iyileşme."}},
+
+    {"id": "n10", "text": "512,4", "value": "512400", "decimals": 1, "unit": "gönderi", "scale": "1000", "exact": null,
+     "loc": {"page": 2, "quote": "Marmara | 512,4"}},
+    {"id": "n11", "text": "318,7", "value": "318700", "decimals": 1, "unit": "gönderi", "scale": "1000", "exact": null,
+     "loc": {"page": 2, "quote": "İç Anadolu | 318,7"}},
+    {"id": "n12", "text": "271,3", "value": "271300", "decimals": 1, "unit": "gönderi", "scale": "1000", "exact": null,
+     "loc": {"page": 2, "quote": "Ege | 271,3"}},
+    {"id": "n13", "text": "310,5", "value": "310500", "decimals": 1, "unit": "gönderi", "scale": "1000", "exact": null,
+     "loc": {"page": 2, "quote": "Diğer | 310,5"}},
+    {"id": "n14", "text": "1.412,9", "value": "1412900", "decimals": 1, "unit": "gönderi", "scale": "1000", "exact": null,
+     "loc": {"page": 2, "quote": "Toplam | 1.412,9"}},
+    {"id": "n15", "text": "%38,3", "value": "38.3", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "Marmara, toplam gönderilerin %38,3'ünü oluşturdu."}},
+
+    {"id": "n16", "text": "520", "value": "520", "decimals": 0, "unit": "bin adet", "exact": null,
+     "loc": {"page": 2, "quote": "Eylül ayında 520 bin gönderiyle çeyreğin en yüksek aylık değerine ulaşıldı."}},
+
+    {"id": "n17", "text": "420", "value": "420", "decimals": 0, "unit": "araç", "exact": "count",
+     "loc": {"page": 3, "quote": "Filo 420 araçtan oluşuyor; bunların 124'ü, yani yaklaşık %30'u elektrikli."}},
+    {"id": "n18", "text": "124", "value": "124", "decimals": 0, "unit": "araç", "exact": "count",
+     "loc": {"page": 3, "quote": "Filo 420 araçtan oluşuyor; bunların 124'ü, yani yaklaşık %30'u elektrikli."}},
+    {"id": "n19", "text": "%30", "value": "30", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 3, "quote": "Filo 420 araçtan oluşuyor; bunların 124'ü, yani yaklaşık %30'u elektrikli."}},
+
+    {"id": "n20", "text": "92", "value": "92", "decimals": 0, "unit": "gün", "exact": "defined",
+     "loc": {"page": 3, "quote": "92 günlük çeyrekte araç başına günde ortalama 36,6 teslimat yapıldı."}},
+    {"id": "n21", "text": "36,6", "value": "36.6", "decimals": 1, "unit": "teslimat", "exact": null,
+     "loc": {"page": 3, "quote": "92 günlük çeyrekte araç başına günde ortalama 36,6 teslimat yapıldı."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Gelir artışı, 48,6 milyondan 53,9 milyona değişim olmalı."},
+
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n4"}, {"ref": "n5"}]},
+     "say": "Gönderi artışı, 1.284.500'den 1.412.920'ye değişim olmalı."},
+
+    {"id": "c3", "kind": "derived", "target": "n9", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n8"}, {"ref": "n7"}]},
+     "say": "İyileşme, %96,0 ile %94,2 arasındaki puan farkı olmalı."},
+
+    {"id": "c4", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}, {"ref": "n13"}]},
+     "say": "Toplam satırı dört bölgenin toplamı olmalı."},
+
+    {"id": "c5", "kind": "derived", "target": "n5", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n14"}]},
+     "say": "Özetteki gönderi sayısı, tablodaki toplamla aynı olmalı."},
+
+    {"id": "c6", "kind": "derived", "target": "n15", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n10"},
+        {"op": "sum", "args": [{"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}, {"ref": "n13"}]}]},
+     "say": "Marmara'nın payı, Marmara gönderilerinin dört bölge toplamına oranı olmalı."},
+
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "n16",
+     "chart": "g1", "mark": {"label": "Eylül"},
+     "say": "Metindeki Eylül gönderi sayısı, Şekil 1'deki Eylül çubuğuyla uyuşmalı."},
+
+    {"id": "c8", "kind": "chart", "check": "order", "chart": "g1",
+     "mark": {"label": "Eylül"}, "relation": "largest",
+     "say": "Eylül çubuğu, Şekil 1'deki en yüksek çubuk olmalı."},
+
+    {"id": "c9", "kind": "derived", "target": "n19", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n18"}, {"ref": "n17"}]},
+     "say": "Elektrikli araç payı, 124'ün 420'ye oranı olmalı."},
+
+    {"id": "c10", "kind": "derived", "target": "n21", "hedge": null,
+     "derivation": {"op": "ratio", "args": [{"ref": "n5"},
+        {"op": "product", "args": [{"ref": "n17"}, {"ref": "n20"}]}]},
+     "say": "Araç başına günlük teslimat, gönderi sayısının araç sayısı ile gün sayısının çarpımına bölümü olmalı."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Şekil 1"}, "type": "bar", "image": "sekil1-crop.png",
+     "y_axis": {"min": "400", "max": "550", "scale": "linear", "unit": "bin adet"},
+     "marks": [
+       {"label": "Temmuz", "read_a": {"lo": "450", "hi": "460"}, "read_b": {"lo": "452", "hi": "458"}, "printed_label": null},
+       {"label": "Ağustos", "read_a": {"lo": "463", "hi": "473"}, "read_b": {"lo": "465", "hi": "471"}, "printed_label": null},
+       {"label": "Eylül", "read_a": {"lo": "485", "hi": "495"}, "read_b": {"lo": "487", "hi": "493"}, "printed_label": null}
+     ],
+     "notes": ["Dikey eksen sıfırdan değil 400'den başlıyor; çubuklar arasındaki fark olduğundan büyük görünür."]}
+  ],
+  "sources": [],
+  "skipped": [
+    {"text": "2026", "reason": "yıl"},
+    {"text": "3", "loc": {"page": 1, "quote": "2026 3. Çeyrek Faaliyet Özeti"}, "reason": "çeyrek numarası"},
+    {"text": "2", "loc": {"page": 1, "quote": "Gelir 2. çeyrekteki"}, "reason": "çeyrek numarası"},
+    {"text": "3", "loc": {"page": 1, "quote": "TL'den 3. çeyrekte"}, "reason": "çeyrek numarası"},
+    {"text": "1", "loc": {"page": 2, "quote": "Şekil 1"}, "reason": "şekil numarası"}
+  ]
+}

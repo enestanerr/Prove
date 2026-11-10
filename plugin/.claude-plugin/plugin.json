@@ -1,0 +1,11 @@
+{
+  "name": "prove",
+  "displayName": "Prove",
+  "version": "0.1.0",
+  "description": "Audit every checkable claim in a document. Numbers are recomputed by code, charts are read back against the text, sources are resolved. One verdict per claim.",
+  "author": { "name": "enestanerr", "url": "https://github.com/enestanerr" },
+  "homepage": "https://github.com/enestanerr/prove",
+  "repository": "https://github.com/enestanerr/prove",
+  "license": "MIT",
+  "keywords": ["verification", "fact-checking", "numbers", "charts", "citations", "audit"]
+}

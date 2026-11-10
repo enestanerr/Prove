@@ -502,3 +502,42 @@ def test_sha_mismatch_is_a_warning(kestrel_claims, kestrel_doc):
 
 def test_same_input_same_output(kestrel_claims, kestrel_doc):
     assert check_claims(kestrel_claims, kestrel_doc) == check_claims(kestrel_claims, kestrel_doc)
+
+
+def test_knock_on_effect_of_a_contradicted_total_is_noted():
+    """A share computed from a wrong printed total: flagged, with the likely cause named."""
+    text = "North 1,204 South 3,588 Total 4,812. North is 25.1% of the total."
+    entries = [
+        num("a", "1,204", quote=text, exact="count"),
+        num("b", "3,588", quote=text, exact="count"),
+        num("t", "4,812", quote=text, exact="count"),
+        num("s", "25.1%", quote=text),
+    ]
+    claims = [derived("c1", "t", op("sum", "a", "b")), derived("c2", "s", op("pct_of", "a", "t"))]
+    result = run([text], entries, claims)
+    share = verdict_of(result, "c2")
+    assert (
+        verdict_of(result, "c1")["verdict"] == CONTRADICTED
+        and verdict_of(result, "c1")["notes"] == []
+    )
+    assert share["verdict"] == CONTRADICTED
+    assert "uses 4,812, which claim c1 contradicts" in share["notes"][0]
+
+
+def test_a_target_of_zero_is_not_mistaken_for_a_scale_mix_up():
+    v = quick(
+        "120 minus 100 leaves 0",
+        {"a": "120", "b": "100", "t": "0"},
+        "t",
+        op("diff", "a", "b"),
+        exact={"a", "b", "t"},
+    )
+    assert v["verdict"] == CONTRADICTED
+    v = quick(
+        "120 minus 120 leaves 0",
+        {"a": "120", "t": "0"},
+        "t",
+        op("diff", "a", "a"),
+        exact={"a", "t"},
+    )
+    assert v["verdict"] == VERIFIED

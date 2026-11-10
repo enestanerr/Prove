@@ -1,0 +1,5 @@
+{
+ "url": "https://doi.org/api/handles/10.1234/example.2021.001",
+ "status": 404,
+ "body": "{\"responseCode\": 100, \"message\": \"HandleException (SERVICE_NOT_FOUND) Unable to find service for prefix 0.NA/10.1234; prefix resolution response: version=2.10; oc=1; rc=1; snId=0 caCrt noAuth expires:Tue Nov 10 22:53:44 UTC 2026 0.NA/10.1234\\n    index=1 type=HS_NAMESPACE rwr- \\\"<namespace>\\n <contact>contact@doi.org</contact>\\n <status>inactive</status>\\n <statusmsg>This DOI prefix is currently inactive.</statusmsg>\\n </namespace>\\\"\\n\", \"handle\": \"10.1234/example.2021.001\"}"
+}

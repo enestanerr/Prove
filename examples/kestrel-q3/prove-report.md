@@ -39,10 +39,10 @@ Possible only if the inputs sit at the edge of their rounding.
 ## Unverified (2)
 
 **s1 · source lookup · page 4** `doi: 10.1234/example.2021.001` — An example cited title
-Not checked: Sources were not checked. Run `provecheck sources`.
+Sources were not checked. Run `provecheck sources`.
 
 **s2 · source lookup · page 4** `doi: 10.1177/1948550616673876` — The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology
-Not checked: Sources were not checked. Run `provecheck sources`.
+Sources were not checked. Run `provecheck sources`.
 
 ## Verified (4)
 

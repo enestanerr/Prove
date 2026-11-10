@@ -1,0 +1,5 @@
+{
+ "url": "https://api.datacite.org/dois/10.48550/arXiv.1706.03762",
+ "status": 200,
+ "body": "{\"data\": {\"attributes\": {\"doi\": \"10.48550/arxiv.1706.03762\", \"titles\": [{\"title\": \"Attention Is All You Need\"}], \"publicationYear\": 2017}}}"
+}

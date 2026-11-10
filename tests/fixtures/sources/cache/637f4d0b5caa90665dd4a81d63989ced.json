@@ -1,0 +1,5 @@
+{
+ "url": "https://api.crossref.org/works/10.1177/1948550616673876",
+ "status": 200,
+ "body": "{\"status\": \"ok\", \"message\": {\"DOI\": \"10.1177/1948550616673876\", \"title\": [\"The GRIM Test\"], \"issued\": {\"date-parts\": [[2016, 10, 18]]}, \"published\": {\"date-parts\": [[2016, 10, 18]]}, \"type\": \"journal-article\", \"container-title\": [\"Social Psychological and Personality Science\"]}}"
+}

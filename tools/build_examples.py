@@ -19,8 +19,16 @@ sys.path.insert(0, str(ROOT / "tools"))
 EXAMPLES = ROOT / "examples"
 
 
-def bar_chart(path: Path, title: str, labels: list[str], values: list[float], ymax: float, step: float,
-              value_labels: list[str] | None = None, ylabel: str = "") -> None:  # fmt: skip
+def bar_chart(
+    path: Path,
+    title: str,
+    labels: list[str],
+    values: list[float],
+    ymax: float,
+    step: float,
+    ymin: float = 0,
+    value_labels: list[str] | None = None,
+) -> None:
     import matplotlib
 
     matplotlib.use("Agg")
@@ -28,13 +36,11 @@ def bar_chart(path: Path, title: str, labels: list[str], values: list[float], ym
 
     fig, ax = plt.subplots(figsize=(6.4, 3.8), dpi=150)
     bars = ax.bar(labels, values, color="#3b6ea5", width=0.6)
-    ax.set_ylim(0, ymax)
-    ax.set_yticks([step * i for i in range(int(ymax / step) + 1)])
+    ax.set_ylim(ymin, ymax)
+    ax.set_yticks([ymin + step * i for i in range(int((ymax - ymin) / step) + 1)])
     ax.yaxis.grid(True, color="#cccccc", linewidth=0.8)
     ax.set_axisbelow(True)
     ax.set_title(title, fontsize=11)
-    if ylabel:
-        ax.set_ylabel(ylabel)
     for side in ("top", "right"):
         ax.spines[side].set_visible(False)
     if value_labels:
@@ -51,15 +57,37 @@ def bar_chart(path: Path, title: str, labels: list[str], values: list[float], ym
     plt.close(fig)
 
 
-def build_kestrel() -> None:
+# example folder -> (figure file, arguments of bar_chart)
+FIGURES = {
+    "kestrel-q3": (
+        "figure2.png",
+        dict(title="Marketing spend by quarter (USD thousands)", labels=["Q4", "Q1", "Q2", "Q3"],
+             values=[265, 240, 275, 310], ymax=400, step=50),
+    ),
+    "larkspur-survey": (
+        "figure1.png",
+        dict(title="Respondents satisfied with each service (%)",
+             labels=["Lending", "Events", "Study space", "Digital"], values=[82, 64, 71, 58],
+             ymax=100, step=20, value_labels=["82", "64", "71", "68"]),  # the last label is a planted error
+    ),
+    "anadolu-kargo": (
+        "sekil1.png",
+        dict(title="Aylık gönderi sayısı (bin adet)", labels=["Temmuz", "Ağustos", "Eylül"],
+             values=[455, 468, 490], ymin=400, ymax=550, step=25),
+    ),
+}  # fmt: skip
+
+
+def build_documents(name: str) -> None:
+    """Figure, its 2x crop for the report, and the PDF version of the Markdown report."""
     import mdpdf
 
     from provecheck.ingest.pdf import crop
 
-    d = EXAMPLES / "kestrel-q3"
-    bar_chart(d / "figure2.png", "Marketing spend by quarter (USD thousands)",
-              ["Q4", "Q1", "Q2", "Q3"], [265, 240, 275, 310], 400, 50)  # fmt: skip
-    crop(d / "figure2.png", 1, (0.0, 0.0, 1.0, 1.0), 2, d / "figure2-crop.png")
+    d = EXAMPLES / name
+    figure, spec = FIGURES[name]
+    bar_chart(d / figure, **spec)
+    crop(d / figure, 1, (0.0, 0.0, 1.0, 1.0), 2, d / figure.replace(".png", "-crop.png"))
     mdpdf.render(d / "report.md", d / "report.pdf")
 
 
@@ -84,9 +112,9 @@ def main() -> int:
     import os
 
     os.chdir(ROOT)  # document paths in the claims files are relative to the repo root
-    if not args.reports:
-        build_kestrel()
     for name in sorted(p.name for p in EXAMPLES.iterdir() if (p / "claims.json").is_file()):
+        if not args.reports:
+            build_documents(name)
         build_reports(name)
     return 0
 

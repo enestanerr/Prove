@@ -1,0 +1,16 @@
+{
+  "planted": [
+    {"id": "e1", "type": "pct_change", "page": 1, "text": "14%",
+     "quote": "Revenue rose from $2.10M in Q2 to $2.30M in Q3, up 14%."},
+    {"id": "e2", "type": "sum", "page": 2, "text": "4,812", "quote": "Total | 4,812"},
+    {"id": "e3", "type": "chart_text", "page": 3, "text": "350k", "quote": "Q3 marketing spend reached 350k"}
+  ],
+  "traps": [
+    {"id": "t1", "type": "rounding", "page": 1, "text": "14%",
+     "quote": "Newsletter subscribers grew from 2.1M to 2.3M over the same period, also up 14%."}
+  ],
+  "charts": [
+    {"figure": "Figure 2", "page": 3, "axis": [0, 400],
+     "marks": {"Q4": 265, "Q1": 240, "Q2": 275, "Q3": 310}}
+  ]
+}

@@ -68,6 +68,8 @@ class _V:
         quote = self.typed(loc, "quote", str, f"{path}.loc", required=need_quote)
         if quote is not None and not quote.strip():
             self.err(f"{path}.loc.quote", "must not be empty")
+        if loc.get("image") is not None and not isinstance(loc["image"], bool):
+            self.err(f"{path}.loc.image", "must be true or false")
 
 
 def _ids(v: _V, items: list, path: str) -> dict[str, dict]:

@@ -1,0 +1,17 @@
+{
+  "planted": [
+    {"id": "e1", "type": "pp_vs_pct", "page": 1, "text": "5.5%",
+     "quote": "Overall satisfaction rose from 71.4% in 2025 to 76.9% in 2026, an increase of 5.5%."},
+    {"id": "e2", "type": "chart_label", "page": 2, "text": "68", "image": true}
+  ],
+  "traps": [
+    {"id": "t1", "type": "hedge", "page": 1, "text": "60%",
+     "quote": "About 60% of respondents visit the library at least once a month."},
+    {"id": "t2", "type": "rounding", "page": 3, "text": "100%", "quote": "for a total of 100%"},
+    {"id": "t3", "type": "rounding", "page": 3, "text": "72.4", "quote": "Total | 72.4"}
+  ],
+  "charts": [
+    {"figure": "Figure 1", "page": 2, "axis": [0, 100],
+     "marks": {"Lending": 82, "Events": 64, "Study space": 71, "Digital": 58}}
+  ]
+}

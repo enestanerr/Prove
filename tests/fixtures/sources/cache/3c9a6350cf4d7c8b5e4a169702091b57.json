@@ -1,0 +1,5 @@
+{
+ "url": "https://api.crossref.org/works/10.3758/s13428-015-0664-2",
+ "status": 200,
+ "body": "{\"status\": \"ok\", \"message\": {\"DOI\": \"10.3758/s13428-015-0664-2\", \"title\": [\"The prevalence of statistical reporting errors in psychology (1985–2013)\"], \"issued\": {\"date-parts\": [[2015, 10, 23]]}, \"published\": {\"date-parts\": [[2015, 10, 23]]}, \"type\": \"journal-article\", \"container-title\": [\"Behavior Research Methods\"]}}"
+}

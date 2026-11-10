@@ -1,0 +1,5 @@
+{
+ "url": "https://api.crossref.org/works/10.1234/example.2021.001",
+ "status": 404,
+ "body": "Resource not found."
+}

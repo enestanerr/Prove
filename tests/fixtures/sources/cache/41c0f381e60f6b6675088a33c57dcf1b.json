@@ -1,0 +1,5 @@
+{
+ "url": "https://api.datacite.org/dois/10.1234/example.2021.001",
+ "status": 404,
+ "body": "{\"errors\": [{\"status\": \"404\", \"title\": \"The resource you are looking for doesn't exist.\"}]}"
+}

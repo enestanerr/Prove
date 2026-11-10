@@ -1,0 +1,14 @@
+{
+  "name": "enestanerr",
+  "owner": { "name": "enestanerr", "url": "https://github.com/enestanerr" },
+  "description": "Prove: audit every number, chart and citation in a document. Verdicts by code.",
+  "plugins": [
+    {
+      "name": "prove",
+      "source": "./plugin",
+      "description": "Audit every checkable claim in a document. Verdicts by code.",
+      "category": "productivity",
+      "tags": ["verification", "fact-checking", "audit"]
+    }
+  ]
+}

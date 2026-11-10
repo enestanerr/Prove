@@ -1,0 +1,452 @@
+{
+  "schema": "prove.report.v1",
+  "provecheck": "0.1.0",
+  "document": {
+    "path": "examples/anadolu-kargo/report.md",
+    "sha256": "73e6a2142e397784e2b2f63935c1b07b1732a2ced47bad09a81a6c7ca42416e4",
+    "locale": "eu",
+    "pages": 3
+  },
+  "summary": {
+    "contradicted": 3,
+    "suspect": 0,
+    "unverified": 0,
+    "verified": 7,
+    "by_assurance": {
+      "computed": {
+        "contradicted": 2,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 6
+      },
+      "read": {
+        "contradicted": 1,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 1
+      }
+    }
+  },
+  "coverage": {
+    "found": 26,
+    "checked": 21,
+    "skipped": 5,
+    "missed": 0,
+    "missed_tokens": []
+  },
+  "coverage_line": "Numeric statements found: 26   checked: 21   skipped with reason: 5   missed: 0",
+  "claims": [
+    {
+      "id": "c2",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Gönderi artışı, 1.284.500'den 1.412.920'ye değişim olmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n6",
+        "text": "%12",
+        "page": 1,
+        "quote": "Teslim edilen gönderi sayısı 1.284.500'den 1.412.920'ye çıktı; bu %12 artış demek."
+      },
+      "computation": "1.412.920 ÷ 1.284.500 − 1",
+      "point": "25684/2569",
+      "range": [
+        "25684/2569",
+        "25684/2569"
+      ],
+      "display": {
+        "point": "10.00%",
+        "range": null,
+        "printed": "%12"
+      },
+      "sentence": "1.412.920 ÷ 1.284.500 − 1 = 10.00%; the document says %12",
+      "notes": [],
+      "numbers": [
+        "n4",
+        "n5",
+        "n6"
+      ],
+      "meaning": "No rounding of the printed numbers can produce this figure."
+    },
+    {
+      "id": "c6",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Marmara'nın payı, Marmara gönderilerinin dört bölge toplamına oranı olmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n15",
+        "text": "%38,3",
+        "page": 2,
+        "quote": "Marmara, toplam gönderilerin %38,3'ünü oluşturdu."
+      },
+      "computation": "512,4 ÷ (512,4 + 318,7 + 271,3 + 310,5)",
+      "point": "512400/14129",
+      "range": [
+        "512350/14131",
+        "1850/51"
+      ],
+      "display": {
+        "point": "36.27%",
+        "range": "36.26%–36.27%",
+        "printed": "%38,3"
+      },
+      "sentence": "512,4 ÷ (512,4 + 318,7 + 271,3 + 310,5) = 36.27%; possible range 36.26%–36.27%; the document says %38,3",
+      "notes": [],
+      "numbers": [
+        "n10",
+        "n11",
+        "n12",
+        "n13",
+        "n15"
+      ],
+      "meaning": "No rounding of the printed numbers can produce this figure."
+    },
+    {
+      "id": "c7",
+      "kind": "chart",
+      "check": "text_vs_chart",
+      "verdict": "contradicted",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "Metindeki Eylül gönderi sayısı, Şekil 1'deki Eylül çubuğuyla uyuşmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n16",
+        "text": "520",
+        "page": 2,
+        "quote": "Eylül ayında 520 bin gönderiyle çeyreğin en yüksek aylık değerine ulaşıldı."
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Şekil 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "bin adet",
+        "image": "sekil1-crop.png",
+        "notes": [
+          "Dikey eksen sıfırdan değil 400'den başlıyor; çubuklar arasındaki fark olduğundan büyük görünür."
+        ]
+      },
+      "marks": [
+        {
+          "label": "Eylül",
+          "series": null,
+          "status": "ok",
+          "read_a": "485–495",
+          "read_b": "487–493",
+          "final": "485–495"
+        }
+      ],
+      "display": {
+        "reading": "485–495",
+        "printed": "520"
+      },
+      "sentence": "the Eylül bar in Şekil 1 reads 485–495 (first reading 485–495, second reading 487–493); the document says 520",
+      "notes": [],
+      "numbers": [
+        "n16"
+      ],
+      "meaning": "The chart reading and the printed number cannot both be right."
+    },
+    {
+      "id": "c1",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Gelir artışı, 48,6 milyondan 53,9 milyona değişim olmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n3",
+        "text": "%10,9",
+        "page": 1,
+        "quote": "Gelir 2. çeyrekteki 48,6 milyon TL'den 3. çeyrekte 53,9 milyon TL'ye yükseldi; artış %10,9."
+      },
+      "computation": "53,9 milyon ÷ 48,6 milyon − 1",
+      "point": "2650/243",
+      "range": [
+        "10400/973",
+        "10800/971"
+      ],
+      "display": {
+        "point": "10.91%",
+        "range": "10.69%–11.12%",
+        "printed": "%10,9"
+      },
+      "sentence": "53,9 milyon ÷ 48,6 milyon − 1 = 10.91%; possible range 10.69%–11.12%; the document says %10,9",
+      "notes": [],
+      "numbers": [
+        "n1",
+        "n2",
+        "n3"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c3",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "İyileşme, %96,0 ile %94,2 arasındaki puan farkı olmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n9",
+        "text": "1,8",
+        "page": 1,
+        "quote": "Zamanında teslimat oranı %94,2'den %96,0'a yükseldi; 1,8 puanlık bir iyileşme."
+      },
+      "computation": "%96,0 − %94,2",
+      "point": "9/5",
+      "range": [
+        "17/10",
+        "19/10"
+      ],
+      "display": {
+        "point": "1.80 pp",
+        "range": "1.70 pp–1.90 pp",
+        "printed": "1,8 pp"
+      },
+      "sentence": "%96,0 − %94,2 = 1.80 pp; possible range 1.70 pp–1.90 pp; the document says 1,8 pp",
+      "notes": [],
+      "numbers": [
+        "n8",
+        "n7",
+        "n9"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c4",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Toplam satırı dört bölgenin toplamı olmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n14",
+        "text": "1.412,9",
+        "page": 2,
+        "quote": "Toplam | 1.412,9"
+      },
+      "computation": "512,4 + 318,7 + 271,3 + 310,5",
+      "point": "1412900",
+      "range": [
+        "1412700",
+        "1413100"
+      ],
+      "display": {
+        "point": "1,412.9",
+        "range": "1,412.7–1,413.1",
+        "printed": "1.412,9"
+      },
+      "sentence": "512,4 + 318,7 + 271,3 + 310,5 = 1,412.9; possible range 1,412.7–1,413.1; the document says 1.412,9",
+      "notes": [],
+      "numbers": [
+        "n10",
+        "n11",
+        "n12",
+        "n13",
+        "n14"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c5",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Özetteki gönderi sayısı, tablodaki toplamla aynı olmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n5",
+        "text": "1.412.920",
+        "page": 1,
+        "quote": "Teslim edilen gönderi sayısı 1.284.500'den 1.412.920'ye çıktı; bu %12 artış demek."
+      },
+      "computation": "1.412,9",
+      "point": "1412900",
+      "range": [
+        "1412850",
+        "1412950"
+      ],
+      "display": {
+        "point": "1,412,900",
+        "range": "1,412,850–1,412,950",
+        "printed": "1.412.920"
+      },
+      "sentence": "printed as 1.412,9 elsewhere; the document says 1.412.920",
+      "notes": [],
+      "numbers": [
+        "n14",
+        "n5"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c8",
+      "kind": "chart",
+      "check": "order",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "Eylül çubuğu, Şekil 1'deki en yüksek çubuk olmalı.",
+      "hedge": null,
+      "target": null,
+      "chart": {
+        "id": "g1",
+        "figure": "Şekil 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "bin adet",
+        "image": "sekil1-crop.png",
+        "notes": [
+          "Dikey eksen sıfırdan değil 400'den başlıyor; çubuklar arasındaki fark olduğundan büyük görünür."
+        ]
+      },
+      "marks": [
+        {
+          "label": "Eylül",
+          "series": null,
+          "status": "ok",
+          "read_a": "485–495",
+          "read_b": "487–493",
+          "final": "485–495"
+        },
+        {
+          "label": "Temmuz",
+          "series": null,
+          "status": "ok",
+          "read_a": "450–460",
+          "read_b": "452–458",
+          "final": "450–460"
+        },
+        {
+          "label": "Ağustos",
+          "series": null,
+          "status": "ok",
+          "read_a": "463–473",
+          "read_b": "465–471",
+          "final": "463–473"
+        }
+      ],
+      "display": null,
+      "sentence": "the Eylül bar in Şekil 1 reads 485–495; the others read Temmuz 450–460, Ağustos 463–473; the document calls Eylül the largest",
+      "notes": [],
+      "numbers": [],
+      "meaning": "The chart readings do not contradict the stated order."
+    },
+    {
+      "id": "c9",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Elektrikli araç payı, 124'ün 420'ye oranı olmalı.",
+      "hedge": "approx",
+      "target": {
+        "id": "n19",
+        "text": "%30",
+        "page": 3,
+        "quote": "Filo 420 araçtan oluşuyor; bunların 124'ü, yani yaklaşık %30'u elektrikli."
+      },
+      "computation": "124 ÷ 420",
+      "point": "620/21",
+      "range": [
+        "620/21",
+        "620/21"
+      ],
+      "display": {
+        "point": "29.52%",
+        "range": null,
+        "printed": "about %30"
+      },
+      "sentence": "124 ÷ 420 = 29.52%; the document says about %30",
+      "notes": [],
+      "numbers": [
+        "n18",
+        "n17",
+        "n19"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c10",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Araç başına günlük teslimat, gönderi sayısının araç sayısı ile gün sayısının çarpımına bölümü olmalı.",
+      "hedge": null,
+      "target": {
+        "id": "n21",
+        "text": "36,6",
+        "page": 3,
+        "quote": "92 günlük çeyrekte araç başına günde ortalama 36,6 teslimat yapıldı."
+      },
+      "computation": "1.412.920 ÷ (420 × 92)",
+      "point": "35323/966",
+      "range": [
+        "35323/966",
+        "35323/966"
+      ],
+      "display": {
+        "point": "36.566",
+        "range": null,
+        "printed": "36,6"
+      },
+      "sentence": "1.412.920 ÷ (420 × 92) = 36.566; the document says 36,6",
+      "notes": [],
+      "numbers": [
+        "n5",
+        "n17",
+        "n20",
+        "n21"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    }
+  ],
+  "sources": [],
+  "unchecked_numbers": [],
+  "skipped": [
+    {
+      "text": "2026",
+      "reason": "yıl",
+      "count": 1
+    },
+    {
+      "text": "3",
+      "reason": "çeyrek numarası",
+      "count": 2
+    },
+    {
+      "text": "2",
+      "reason": "çeyrek numarası",
+      "count": 1
+    },
+    {
+      "text": "1",
+      "reason": "şekil numarası",
+      "count": 1
+    }
+  ],
+  "warnings": [],
+  "footer": "A clean report means the checked claims passed. It does not mean the document is right: see the coverage line for how many numeric statements were checked. Prove does not judge opinions, forecasts or strategy, and it does not know whether a source is correct, only whether it exists and says what is quoted."
+}

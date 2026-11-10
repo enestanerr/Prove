@@ -375,7 +375,7 @@
       "assurance": "resolved",
       "reason": "not-run",
       "message": "Sources were not checked. Run `provecheck sources`.",
-      "meaning": "Not checked: Sources were not checked. Run `provecheck sources`."
+      "meaning": "Sources were not checked. Run `provecheck sources`."
     },
     {
       "id": "s2",
@@ -387,7 +387,7 @@
       "assurance": "resolved",
       "reason": "not-run",
       "message": "Sources were not checked. Run `provecheck sources`.",
-      "meaning": "Not checked: Sources were not checked. Run `provecheck sources`."
+      "meaning": "Sources were not checked. Run `provecheck sources`."
     }
   ],
   "unchecked_numbers": [],

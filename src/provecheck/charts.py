@@ -94,8 +94,8 @@ def compare(target: Target, reading: Interval) -> str:
 
 def scale_confusion(target: Target, reading: Interval, percent: bool = False) -> Fraction | None:
     """The factor that would reconcile the two, when they are off by a unit scale."""
-    if reading.lo <= 0:  # a reading that touches zero stays near zero at any scale
-        return None
+    if reading.lo <= 0 or target.contains(0):
+        return None  # anything near zero stays near zero at any scale
     for k in SCALE_FACTORS + (PERCENT_FACTORS if percent else ()):
         if target.overlaps(reading.scale(k)):
             return k

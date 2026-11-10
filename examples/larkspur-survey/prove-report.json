@@ -1,0 +1,670 @@
+{
+  "schema": "prove.report.v1",
+  "provecheck": "0.1.0",
+  "document": {
+    "path": "examples/larkspur-survey/report.md",
+    "sha256": "aec48093d7d7bd69b1bd991389d855079b026ca5b78336e9d71870dbce4afeb5",
+    "locale": "en",
+    "pages": 3
+  },
+  "summary": {
+    "contradicted": 2,
+    "suspect": 1,
+    "unverified": 0,
+    "verified": 12,
+    "by_assurance": {
+      "computed": {
+        "contradicted": 1,
+        "suspect": 1,
+        "unverified": 0,
+        "verified": 7
+      },
+      "read": {
+        "contradicted": 1,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 5
+      }
+    }
+  },
+  "coverage": {
+    "found": 27,
+    "checked": 22,
+    "skipped": 5,
+    "missed": 0,
+    "missed_tokens": []
+  },
+  "coverage_line": "Numeric statements found: 27   checked: 22   skipped with reason: 5   missed: 0",
+  "claims": [
+    {
+      "id": "c2",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The sentence gives the increase as a percentage, so it should be the relative change from 71.4% to 76.9%.",
+      "hedge": null,
+      "target": {
+        "id": "n6",
+        "text": "5.5%",
+        "page": 1,
+        "quote": "Overall satisfaction rose from 71.4% in 2025 to 76.9% in 2026, an increase of 5.5%."
+      },
+      "computation": "76.9% ÷ 71.4% − 1",
+      "point": "2750/357",
+      "range": [
+        "10800/1429",
+        "11200/1427"
+      ],
+      "display": {
+        "point": "7.70%",
+        "range": "7.56%–7.85%",
+        "printed": "5.5%"
+      },
+      "sentence": "76.9% ÷ 71.4% − 1 = 7.70%; possible range 7.56%–7.85%; the document says 5.5%",
+      "notes": [],
+      "numbers": [
+        "n4",
+        "n5",
+        "n6"
+      ],
+      "meaning": "No rounding of the printed numbers can produce this figure."
+    },
+    {
+      "id": "c12",
+      "kind": "chart",
+      "check": "label_vs_mark",
+      "verdict": "contradicted",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The value label on the Digital bar should match the bar's height.",
+      "hedge": null,
+      "target": {
+        "id": "n17",
+        "text": "68",
+        "page": 2,
+        "quote": "68"
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "%",
+        "image": "figure1-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Digital",
+          "series": null,
+          "status": "ok",
+          "read_a": "56–60",
+          "read_b": "57–59",
+          "final": "56–60"
+        }
+      ],
+      "display": {
+        "reading": "56–60",
+        "printed": "68"
+      },
+      "sentence": "the Digital bar in Figure 1 reads 56–60 (first reading 56–60, second reading 57–59); the document says 68",
+      "notes": [],
+      "numbers": [
+        "n17"
+      ],
+      "meaning": "The chart reading and the printed number cannot both be right."
+    },
+    {
+      "id": "c14",
+      "kind": "derived",
+      "verdict": "suspect",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The total cost should be the sum of the three items.",
+      "hedge": null,
+      "target": {
+        "id": "n25",
+        "text": "72.4",
+        "page": 3,
+        "quote": "Total | 72.4"
+      },
+      "computation": "41.7 + 18.2 + 12.6",
+      "point": "72500",
+      "range": [
+        "72350",
+        "72650"
+      ],
+      "display": {
+        "point": "72.5",
+        "range": "72.35–72.65",
+        "printed": "72.4"
+      },
+      "sentence": "41.7 + 18.2 + 12.6 = 72.5; possible range 72.35–72.65; the document says 72.4",
+      "notes": [],
+      "numbers": [
+        "n22",
+        "n23",
+        "n24",
+        "n25"
+      ],
+      "meaning": "Possible only if the inputs sit at the edge of their rounding."
+    },
+    {
+      "id": "c1",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The response rate should be respondents divided by members surveyed.",
+      "hedge": null,
+      "target": {
+        "id": "n3",
+        "text": "37.0%",
+        "page": 1,
+        "quote": "was sent to 3,200 members and 1,184 responded, a response rate of 37.0%."
+      },
+      "computation": "1,184 ÷ 3,200",
+      "point": "37",
+      "range": [
+        "37",
+        "37"
+      ],
+      "display": {
+        "point": "37.00%",
+        "range": null,
+        "printed": "37.0%"
+      },
+      "sentence": "1,184 ÷ 3,200 = 37.00%; the document says 37.0%",
+      "notes": [],
+      "numbers": [
+        "n2",
+        "n1",
+        "n3"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c3",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Members who visit at least monthly are the weekly and monthly rows as a share of all respondents.",
+      "hedge": "approx",
+      "target": {
+        "id": "n7",
+        "text": "60%",
+        "page": 1,
+        "quote": "About 60% of respondents visit the library at least once a month."
+      },
+      "computation": "(312 + 405) ÷ (312 + 405 + 467)",
+      "point": "17925/296",
+      "range": [
+        "17925/296",
+        "17925/296"
+      ],
+      "display": {
+        "point": "60.56%",
+        "range": null,
+        "printed": "about 60%"
+      },
+      "sentence": "(312 + 405) ÷ (312 + 405 + 467) = 60.56%; the document says about 60%",
+      "notes": [],
+      "numbers": [
+        "n8",
+        "n9",
+        "n10",
+        "n7"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c4",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The total row should be the sum of the three frequency rows.",
+      "hedge": null,
+      "target": {
+        "id": "n11",
+        "text": "1,184",
+        "page": 2,
+        "quote": "Total | 1,184"
+      },
+      "computation": "312 + 405 + 467",
+      "point": "1184",
+      "range": [
+        "1184",
+        "1184"
+      ],
+      "display": {
+        "point": "1,184",
+        "range": null,
+        "printed": "1,184"
+      },
+      "sentence": "312 + 405 + 467 = 1,184; the document says 1,184",
+      "notes": [],
+      "numbers": [
+        "n8",
+        "n9",
+        "n10",
+        "n11"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c5",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The number of respondents in the summary should match the table total.",
+      "hedge": null,
+      "target": {
+        "id": "n2",
+        "text": "1,184",
+        "page": 1,
+        "quote": "was sent to 3,200 members and 1,184 responded, a response rate of 37.0%."
+      },
+      "computation": "1,184",
+      "point": "1184",
+      "range": [
+        "1184",
+        "1184"
+      ],
+      "display": {
+        "point": "1,184",
+        "range": null,
+        "printed": "1,184"
+      },
+      "sentence": "printed as 1,184 elsewhere; the document says 1,184",
+      "notes": [],
+      "numbers": [
+        "n11",
+        "n2"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c6",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The weekly share should be weekly visitors divided by all respondents.",
+      "hedge": null,
+      "target": {
+        "id": "n12",
+        "text": "26.4%",
+        "page": 2,
+        "quote": "Weekly visitors make up 26.4% of respondents."
+      },
+      "computation": "312 ÷ (312 + 405 + 467)",
+      "point": "975/37",
+      "range": [
+        "975/37",
+        "975/37"
+      ],
+      "display": {
+        "point": "26.35%",
+        "range": null,
+        "printed": "26.4%"
+      },
+      "sentence": "312 ÷ (312 + 405 + 467) = 26.35%; the document says 26.4%",
+      "notes": [],
+      "numbers": [
+        "n8",
+        "n9",
+        "n10",
+        "n12"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c7",
+      "kind": "chart",
+      "check": "text_vs_chart",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The satisfaction figure for lending in the text should match the Lending bar in Figure 1.",
+      "hedge": null,
+      "target": {
+        "id": "n13",
+        "text": "82%",
+        "page": 2,
+        "quote": "Lending scored highest, with 82% of respondents satisfied."
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "%",
+        "image": "figure1-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Lending",
+          "series": null,
+          "status": "ok",
+          "read_a": "80–84",
+          "read_b": "81–83",
+          "final": "80–84"
+        }
+      ],
+      "display": {
+        "reading": "80–84",
+        "printed": "82%"
+      },
+      "sentence": "the Lending bar in Figure 1 reads 80–84 (first reading 80–84, second reading 81–83); the document says 82%",
+      "notes": [],
+      "numbers": [
+        "n13"
+      ],
+      "meaning": "The chart reading agrees with the printed number."
+    },
+    {
+      "id": "c8",
+      "kind": "chart",
+      "check": "order",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The Lending bar should be the tallest in Figure 1.",
+      "hedge": null,
+      "target": null,
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "%",
+        "image": "figure1-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Lending",
+          "series": null,
+          "status": "ok",
+          "read_a": "80–84",
+          "read_b": "81–83",
+          "final": "80–84"
+        },
+        {
+          "label": "Events",
+          "series": null,
+          "status": "ok",
+          "read_a": "62–66",
+          "read_b": "63–65",
+          "final": "62–66"
+        },
+        {
+          "label": "Study space",
+          "series": null,
+          "status": "ok",
+          "read_a": "69–73",
+          "read_b": "70–72",
+          "final": "69–73"
+        },
+        {
+          "label": "Digital",
+          "series": null,
+          "status": "ok",
+          "read_a": "56–60",
+          "read_b": "57–59",
+          "final": "56–60"
+        }
+      ],
+      "display": null,
+      "sentence": "the Lending bar in Figure 1 reads 80–84; the others read Events 62–66, Study space 69–73, Digital 56–60; the document calls Lending the largest",
+      "notes": [],
+      "numbers": [],
+      "meaning": "The chart readings do not contradict the stated order."
+    },
+    {
+      "id": "c9",
+      "kind": "chart",
+      "check": "label_vs_mark",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The value label on the Lending bar should match the bar's height.",
+      "hedge": null,
+      "target": {
+        "id": "n14",
+        "text": "82",
+        "page": 2,
+        "quote": "82"
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "%",
+        "image": "figure1-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Lending",
+          "series": null,
+          "status": "ok",
+          "read_a": "80–84",
+          "read_b": "81–83",
+          "final": "80–84"
+        }
+      ],
+      "display": {
+        "reading": "80–84",
+        "printed": "82"
+      },
+      "sentence": "the Lending bar in Figure 1 reads 80–84 (first reading 80–84, second reading 81–83); the document says 82",
+      "notes": [],
+      "numbers": [
+        "n14"
+      ],
+      "meaning": "The chart reading agrees with the printed number."
+    },
+    {
+      "id": "c10",
+      "kind": "chart",
+      "check": "label_vs_mark",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The value label on the Events bar should match the bar's height.",
+      "hedge": null,
+      "target": {
+        "id": "n15",
+        "text": "64",
+        "page": 2,
+        "quote": "64"
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "%",
+        "image": "figure1-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Events",
+          "series": null,
+          "status": "ok",
+          "read_a": "62–66",
+          "read_b": "63–65",
+          "final": "62–66"
+        }
+      ],
+      "display": {
+        "reading": "62–66",
+        "printed": "64"
+      },
+      "sentence": "the Events bar in Figure 1 reads 62–66 (first reading 62–66, second reading 63–65); the document says 64",
+      "notes": [],
+      "numbers": [
+        "n15"
+      ],
+      "meaning": "The chart reading agrees with the printed number."
+    },
+    {
+      "id": "c11",
+      "kind": "chart",
+      "check": "label_vs_mark",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The value label on the Study space bar should match the bar's height.",
+      "hedge": null,
+      "target": {
+        "id": "n16",
+        "text": "71",
+        "page": 2,
+        "quote": "71"
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "%",
+        "image": "figure1-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Study space",
+          "series": null,
+          "status": "ok",
+          "read_a": "69–73",
+          "read_b": "70–72",
+          "final": "69–73"
+        }
+      ],
+      "display": {
+        "reading": "69–73",
+        "printed": "71"
+      },
+      "sentence": "the Study space bar in Figure 1 reads 69–73 (first reading 69–73, second reading 70–72); the document says 71",
+      "notes": [],
+      "numbers": [
+        "n16"
+      ],
+      "meaning": "The chart reading agrees with the printed number."
+    },
+    {
+      "id": "c13",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The three staff-time shares should add up to the stated total.",
+      "hedge": null,
+      "target": {
+        "id": "n21",
+        "text": "100%",
+        "page": 3,
+        "quote": "for a total of 100%"
+      },
+      "computation": "33.3% + 33.3% + 33.3%",
+      "point": "999/10",
+      "range": [
+        "399/4",
+        "2001/20"
+      ],
+      "display": {
+        "point": "99.90%",
+        "range": "99.75%–100.05%",
+        "printed": "100%"
+      },
+      "sentence": "33.3% + 33.3% + 33.3% = 99.90%; possible range 99.75%–100.05%; the document says 100%",
+      "notes": [],
+      "numbers": [
+        "n18",
+        "n19",
+        "n20",
+        "n21"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c15",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Cost per respondent should be the total cost divided by the number of respondents.",
+      "hedge": null,
+      "target": {
+        "id": "n26",
+        "text": "61.15",
+        "page": 3,
+        "quote": "Cost per respondent was $61.15."
+      },
+      "computation": "72.4 ÷ 1,184",
+      "point": "4525/74",
+      "range": [
+        "36175/592",
+        "36225/592"
+      ],
+      "display": {
+        "point": "61.1486",
+        "range": "61.1064–61.1909",
+        "printed": "61.15"
+      },
+      "sentence": "72.4 ÷ 1,184 = 61.1486; possible range 61.1064–61.1909; the document says 61.15",
+      "notes": [],
+      "numbers": [
+        "n25",
+        "n2",
+        "n26"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    }
+  ],
+  "sources": [],
+  "unchecked_numbers": [],
+  "skipped": [
+    {
+      "text": "2026",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "2025",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "1",
+      "reason": "figure number",
+      "count": 1
+    }
+  ],
+  "warnings": [],
+  "footer": "A clean report means the checked claims passed. It does not mean the document is right: see the coverage line for how many numeric statements were checked. Prove does not judge opinions, forecasts or strategy, and it does not know whether a source is correct, only whether it exists and says what is quoted."
+}

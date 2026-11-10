@@ -103,8 +103,9 @@ def ground_number(entry: dict, index: DocIndex, doc_locale: str) -> NumberInfo:
     # 1 and 2: the quote is on the page, the number is in the quote.
     if text not in quote:
         info.problem = ("not-grounded", f"the text {entry['text']!r} is not inside its quote")
-    elif not index.available or page in index.textless:
-        # No text layer to check against: the number was read from an image.
+    elif loc.get("image") or not index.available or page in index.textless:
+        # Printed inside a figure, or no text layer to check against: the number was
+        # read from an image and cannot be grounded in text.
         info.assurance = "read"
     elif page not in index.pages:
         info.problem = (
