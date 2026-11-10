@@ -2,7 +2,8 @@
 
     uv run python evals/show_transcript.py evals/results/<run>/<doc>/transcript.jsonl
 
-Used to tighten SKILL.md from real transcripts (PLAN Phase 3, step 4).
+Used to tighten SKILL.md from real transcripts: wherever Claude improvised, the skill
+text was unclear.
 """
 
 from __future__ import annotations

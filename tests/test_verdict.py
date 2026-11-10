@@ -16,7 +16,7 @@ def test_judge_is_the_three_way_rule():
 
 
 def test_example_claims_expected_verdicts(reference_claims, kestrel_doc):
-    """PLAN Phase 1: the reference claims file gives its own expected verdicts."""
+    """The reference claims file gives its own expected verdicts."""
     result = check_claims(reference_claims, kestrel_doc)
     got = {r["id"]: r["verdict"] for r in result["claims"]}
     assert got == reference_claims["expected_verdicts"]

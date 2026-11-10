@@ -1,0 +1,37 @@
+name: Proposal
+description: A new relation, source resolver, number format, ingest format or example document.
+title: "Proposal: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Most additions are one file and one test. `CONTRIBUTING.md` walks through a
+        relation start to finish.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Relation
+        - Source resolver
+        - Number format or locale
+        - Ingest format
+        - Example document
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What it should do
+      description: For a relation, give the formula and say how the range follows from the rounding of the operands.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: An example from a document
+      description: A sentence or table where this would catch an error, and one where it must stay quiet.
+    validations:
+      required: true

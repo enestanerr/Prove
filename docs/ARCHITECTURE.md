@@ -15,7 +15,7 @@ trusted with arithmetic or with the verdict. `provecheck` is deterministic: the 
 
 ```
 prove/                              repo root
-├── CLAUDE.md  PLAN.md  docs/       this package (dev instructions)
+├── CLAUDE.md  docs/                dev instructions, spec, architecture, evals
 ├── README.md  LICENSE  CHANGELOG.md  CONTRIBUTING.md
 ├── pyproject.toml                  package "provecheck", console script "provecheck"
 ├── .claude-plugin/

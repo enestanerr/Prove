@@ -18,6 +18,13 @@ evals/results/**/answer*.md
 # The original plan package (its contents were copied to the repo root)
 prove-plan/
 
+# Internal planning and launch notes: kept on disk, not part of the public repo
+PLAN.md
+docs/LAUNCH.md
+docs/LANDSCAPE.md
+docs/GOOD-FIRST-ISSUES.md
+docs/launch/
+
 # Local Obsidian journal (Turkish dev notes, not part of the public repo)
 docs/.obsidian/
 docs/Home.md
@@ -29,4 +36,6 @@ docs/Kararlar/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Generated eval corpus (rebuild with evals/synth/generate.py and the seed)
 evals/corpus/

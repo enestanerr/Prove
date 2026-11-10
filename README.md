@@ -1,5 +1,9 @@
 # Prove
 
+[![CI](https://github.com/enestanerr/prove/actions/workflows/ci.yml/badge.svg)](https://github.com/enestanerr/prove/actions/workflows/ci.yml)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
+
 **Audit every number, chart and citation in a document. Verdicts by code.**
 A skill and plugin for Claude Code, built for Claude Fable 5.2, with a plain Python CLI
 underneath.
@@ -163,11 +167,15 @@ What these numbers do not show:
 | Where | How |
 | :- | :- |
 | Claude Code | `/plugin marketplace add enestanerr/prove`, then `/plugin install prove@enestanerr` |
-| Other agents (Codex, Cursor, …) | `npx skills add enestanerr/prove` |
-| claude.ai and Cowork | upload `prove-skill.zip` from the latest release as a skill; code execution must be on |
-| CLI | `uvx provecheck --help` or `pipx install provecheck` |
+| Other agents (Codex, Cursor, …) | `npx skills add enestanerr/prove`, or copy the folder [`plugin/skills/prove`](plugin/skills/prove) into your agent's skills directory |
+| claude.ai and Cowork | upload `prove-skill.zip` as a skill; code execution must be on. The zip is attached to each release, and `python tools/build_skill_zip.py` builds it from a clone |
+| CLI | `pipx install "git+https://github.com/enestanerr/prove"` |
 
-PDF text and chart crops need PyMuPDF: `pip install "provecheck[pdf]"`. Without it the
+The CLI is not on PyPI yet. From the first tagged release on it will be
+`pipx install provecheck`.
+
+The skill itself needs only Python 3.10 or later: the judge travels with it as a single
+file. PDF text and chart crops need PyMuPDF (`pip install pymupdf`). Without it the
 skill still works on Markdown, HTML, CSV and text, and can crop PNG images.
 
 ## The CLI

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How to contribute
+    url: https://github.com/enestanerr/prove/blob/main/CONTRIBUTING.md
+    about: Set-up, the rules that do not bend, and how to add a relation in one file.
+  - name: The specification
+    url: https://github.com/enestanerr/prove/blob/main/docs/SPEC.md
+    about: The contract between the model and provecheck. Check here before reporting a verdict.
