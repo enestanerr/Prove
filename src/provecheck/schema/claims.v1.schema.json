@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/enestanerr/prove/blob/main/src/provecheck/schema/claims.v1.schema.json",
+  "title": "Prove claims file (prove.claims.v1)",
+  "description": "Written by the model, read by `provecheck check`. See docs/SPEC.md §5.",
+  "type": "object",
+  "required": ["schema", "document", "numbers", "claims"],
+  "properties": {
+    "schema": {"const": "prove.claims.v1"},
+    "document": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {"type": "string"},
+        "sha256": {"type": ["string", "null"]},
+        "locale": {"type": ["string", "null"], "description": "en (1,234.5) or eu/tr/de/fr/... (1.234,5)"}
+      }
+    },
+    "numbers": {"type": "array", "items": {"$ref": "#/$defs/number"}},
+    "claims": {"type": "array", "items": {"oneOf": [{"$ref": "#/$defs/derivedClaim"}, {"$ref": "#/$defs/chartClaim"}]}},
+    "charts": {"type": "array", "items": {"$ref": "#/$defs/chart"}},
+    "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "skipped": {"type": "array", "items": {"$ref": "#/$defs/skipped"}}
+  },
+  "$defs": {
+    "decimal": {"type": "string", "pattern": "^\\s*[+-]?\\d+(\\.\\d+)?\\s*$"},
+    "loc": {
+      "type": "object",
+      "required": ["page", "quote"],
+      "properties": {
+        "page": {"type": "integer", "minimum": 1},
+        "quote": {"type": "string", "minLength": 1, "description": "The sentence or table row the number sits in, copied exactly."}
+      }
+    },
+    "number": {
+      "type": "object",
+      "required": ["id", "text", "value", "loc"],
+      "properties": {
+        "id": {"type": "string"},
+        "text": {"type": "string", "minLength": 1, "description": "The number exactly as printed, e.g. 2.10M or 14%."},
+        "value": {"$ref": "#/$defs/decimal"},
+        "decimals": {"type": ["integer", "null"], "minimum": 0},
+        "unit": {"type": ["string", "null"]},
+        "exact": {"enum": [null, "count", "ledger", "defined", "cell"]},
+        "scale": {"type": ["string", "integer", "null"], "description": "Multiplier from context, e.g. \"1000\" for a table headed 'USD thousands'."},
+        "locale": {"type": ["string", "null"]},
+        "loc": {"$ref": "#/$defs/loc"}
+      }
+    },
+    "node": {
+      "oneOf": [
+        {"type": "object", "required": ["ref"], "properties": {"ref": {"type": "string"}}, "additionalProperties": false},
+        {"type": "object", "required": ["const"], "properties": {"const": {"type": "string", "pattern": "^\\s*[+-]?\\d+(\\.\\d+)?%?\\s*$"}}, "additionalProperties": false},
+        {
+          "type": "object",
+          "required": ["op", "args"],
+          "properties": {
+            "op": {"type": "string", "description": "A relation name; `provecheck relations` lists them (eq, sum, diff, product, ratio, pct_of, pct_change, pp_diff, mean, cagr, max, min, rank)."},
+            "args": {"type": "array", "items": {"$ref": "#/$defs/node"}, "minItems": 1}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "derivedClaim": {
+      "type": "object",
+      "required": ["id", "kind", "derivation", "say"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"const": "derived"},
+        "target": {"type": "string", "description": "Id of the printed number being checked. Omitted for rank."},
+        "hedge": {"enum": [null, "approx", "over", "under", "at_least", "at_most"]},
+        "derivation": {"$ref": "#/$defs/node"},
+        "say": {"type": "string", "minLength": 1, "description": "One plain sentence about the check, never about the verdict."}
+      }
+    },
+    "markRef": {
+      "type": "object",
+      "required": ["label"],
+      "properties": {"label": {"type": "string"}, "series": {"type": ["string", "null"]}}
+    },
+    "chartClaim": {
+      "type": "object",
+      "required": ["id", "kind", "check", "chart", "say"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"const": "chart"},
+        "check": {"enum": ["label_vs_mark", "text_vs_chart", "table_vs_chart", "parts_sum", "order"]},
+        "target": {"type": "string"},
+        "hedge": {"enum": [null, "approx", "over", "under", "at_least", "at_most"]},
+        "chart": {"type": "string"},
+        "mark": {"$ref": "#/$defs/markRef"},
+        "marks": {"type": "array", "items": {"$ref": "#/$defs/markRef"}, "minItems": 1},
+        "relation": {"enum": ["largest", "smallest", "gt", "lt"]},
+        "than": {"$ref": "#/$defs/markRef"},
+        "say": {"type": "string", "minLength": 1}
+      }
+    },
+    "reading": {
+      "type": "object",
+      "required": ["lo", "hi"],
+      "properties": {"lo": {"$ref": "#/$defs/decimal"}, "hi": {"$ref": "#/$defs/decimal"}}
+    },
+    "chart": {
+      "type": "object",
+      "required": ["id", "loc", "type", "marks"],
+      "properties": {
+        "id": {"type": "string"},
+        "loc": {"type": "object", "required": ["page"], "properties": {"page": {"type": "integer", "minimum": 1}, "figure": {"type": ["string", "null"]}}},
+        "type": {"type": "string", "description": "bar, grouped_bar, stacked_bar, line, pie, ..."},
+        "image": {"type": ["string", "null"], "description": "Path of the crop used for the second reading; shown in the report."},
+        "y_axis": {
+          "type": "object",
+          "required": ["min", "max"],
+          "properties": {
+            "min": {"$ref": "#/$defs/decimal"},
+            "max": {"$ref": "#/$defs/decimal"},
+            "scale": {"enum": ["linear", "log"]},
+            "unit": {"type": ["string", "null"]},
+            "multiplier": {"type": ["string", "integer", "null"], "description": "Axis units to base units, e.g. \"1000\" when the axis is in thousands and the text is not."}
+          }
+        },
+        "marks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "read_a"],
+            "properties": {
+              "label": {"type": "string"},
+              "series": {"type": ["string", "null"]},
+              "read_a": {"$ref": "#/$defs/reading"},
+              "read_b": {"oneOf": [{"$ref": "#/$defs/reading"}, {"type": "null"}]},
+              "printed_label": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "kind", "value"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"enum": ["doi", "arxiv", "url", "quote"]},
+        "value": {"type": "string"},
+        "cited_title": {"type": ["string", "null"]},
+        "cited_year": {"type": ["integer", "null"]},
+        "quote": {"type": ["string", "null"]},
+        "loc": {"type": ["object", "null"]}
+      }
+    },
+    "skipped": {
+      "type": "object",
+      "required": ["reason"],
+      "properties": {
+        "text": {"type": ["string", "null"]},
+        "loc": {"type": ["object", "null"], "properties": {"page": {"type": ["integer", "null"]}, "quote": {"type": ["string", "null"]}}},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

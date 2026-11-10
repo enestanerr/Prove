@@ -1,0 +1,413 @@
+{
+  "schema": "prove.report.v1",
+  "provecheck": "0.1.0",
+  "document": {
+    "path": "examples/kestrel-q3/report.md",
+    "sha256": "6600d8dc790da5f6c1840da4d8e1ccb2c89348e92520a2a373311547de860f05",
+    "locale": "en",
+    "pages": 4
+  },
+  "summary": {
+    "contradicted": 3,
+    "suspect": 1,
+    "unverified": 2,
+    "verified": 4,
+    "by_assurance": {
+      "computed": {
+        "contradicted": 2,
+        "suspect": 1,
+        "unverified": 0,
+        "verified": 3
+      },
+      "read": {
+        "contradicted": 1,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 1
+      },
+      "resolved": {
+        "contradicted": 0,
+        "suspect": 0,
+        "unverified": 2,
+        "verified": 0
+      }
+    }
+  },
+  "coverage": {
+    "found": 26,
+    "checked": 16,
+    "skipped": 10,
+    "missed": 0,
+    "missed_tokens": []
+  },
+  "coverage_line": "Numeric statements found: 26   checked: 16   skipped with reason: 10   missed: 0",
+  "claims": [
+    {
+      "id": "c1",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The growth figure should be the change from $2.10M to $2.30M.",
+      "hedge": null,
+      "target": {
+        "id": "n3",
+        "text": "14%",
+        "page": 1,
+        "quote": "Revenue rose from $2.10M in Q2 to $2.30M in Q3, up 14%."
+      },
+      "computation": "2.30M ÷ 2.10M − 1",
+      "point": "200/21",
+      "range": [
+        "3800/421",
+        "4200/419"
+      ],
+      "display": {
+        "point": "9.52%",
+        "range": "9.03%–10.02%",
+        "printed": "14%"
+      },
+      "sentence": "2.30M ÷ 2.10M − 1 = 9.52%; possible range 9.03%–10.02%; the document says 14%",
+      "notes": [],
+      "numbers": [
+        "n1",
+        "n2",
+        "n3"
+      ],
+      "meaning": "No rounding of the printed numbers can produce this figure."
+    },
+    {
+      "id": "c2",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The total row should be the sum of the four regions.",
+      "hedge": null,
+      "target": {
+        "id": "n8",
+        "text": "4,812",
+        "page": 2,
+        "quote": "Total | 4,812"
+      },
+      "computation": "1,204 + 988 + 1,356 + 1,244",
+      "point": "4792",
+      "range": [
+        "4792",
+        "4792"
+      ],
+      "display": {
+        "point": "4,792",
+        "range": null,
+        "printed": "4,812"
+      },
+      "sentence": "1,204 + 988 + 1,356 + 1,244 = 4,792; the document says 4,812",
+      "notes": [],
+      "numbers": [
+        "n4",
+        "n5",
+        "n6",
+        "n7",
+        "n8"
+      ],
+      "meaning": "No rounding of the printed numbers can produce this figure."
+    },
+    {
+      "id": "c4",
+      "kind": "chart",
+      "check": "text_vs_chart",
+      "verdict": "contradicted",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The prose figure for Q3 marketing spend should match the Q3 bar in Figure 2.",
+      "hedge": null,
+      "target": {
+        "id": "n10",
+        "text": "350",
+        "page": 3,
+        "quote": "Q3 marketing spend reached 350k"
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 2",
+        "page": 3,
+        "type": "bar",
+        "unit": "k USD",
+        "image": "figure2-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Q3",
+          "series": "Marketing",
+          "status": "ok",
+          "read_a": "300–320",
+          "read_b": "302–318",
+          "final": "300–320"
+        }
+      ],
+      "display": {
+        "reading": "300–320",
+        "printed": "350"
+      },
+      "sentence": "the Q3 bar in Figure 2 reads 300–320 (first reading 300–320, second reading 302–318); the document says 350",
+      "notes": [],
+      "numbers": [
+        "n10"
+      ],
+      "meaning": "The chart reading and the printed number cannot both be right."
+    },
+    {
+      "id": "c5",
+      "kind": "derived",
+      "verdict": "suspect",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Subscriber growth should be the change from 2.1M to 2.3M.",
+      "hedge": null,
+      "target": {
+        "id": "n13",
+        "text": "14%",
+        "page": 1,
+        "quote": "Newsletter subscribers grew from 2.1M to 2.3M over the same period, also up 14%."
+      },
+      "computation": "2.3M ÷ 2.1M − 1",
+      "point": "200/21",
+      "range": [
+        "200/43",
+        "600/41"
+      ],
+      "display": {
+        "point": "9.52%",
+        "range": "4.65%–14.63%",
+        "printed": "14%"
+      },
+      "sentence": "2.3M ÷ 2.1M − 1 = 9.52%; possible range 4.65%–14.63%; the document says 14%",
+      "notes": [],
+      "numbers": [
+        "n11",
+        "n12",
+        "n13"
+      ],
+      "meaning": "Possible only if the inputs sit at the edge of their rounding."
+    },
+    {
+      "id": "c3",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "East's share should be its orders divided by the sum of all regions.",
+      "hedge": null,
+      "target": {
+        "id": "n9",
+        "text": "28.3%",
+        "page": 2,
+        "quote": "East accounted for 28.3% of orders"
+      },
+      "computation": "1,356 ÷ (1,204 + 988 + 1,356 + 1,244)",
+      "point": "16950/599",
+      "range": [
+        "16950/599",
+        "16950/599"
+      ],
+      "display": {
+        "point": "28.30%",
+        "range": null,
+        "printed": "28.3%"
+      },
+      "sentence": "1,356 ÷ (1,204 + 988 + 1,356 + 1,244) = 28.30%; the document says 28.3%",
+      "notes": [],
+      "numbers": [
+        "n6",
+        "n4",
+        "n5",
+        "n7",
+        "n9"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c6",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The margin gain should be 43.7% minus 41.2%, in percentage points.",
+      "hedge": null,
+      "target": {
+        "id": "n16",
+        "text": "2.5",
+        "page": 1,
+        "quote": "Gross margin improved from 41.2% to 43.7%, a gain of 2.5 percentage points."
+      },
+      "computation": "43.7% − 41.2%",
+      "point": "5/2",
+      "range": [
+        "12/5",
+        "13/5"
+      ],
+      "display": {
+        "point": "2.50 pp",
+        "range": "2.40 pp–2.60 pp",
+        "printed": "2.5 pp"
+      },
+      "sentence": "43.7% − 41.2% = 2.50 pp; possible range 2.40 pp–2.60 pp; the document says 2.5 pp",
+      "notes": [],
+      "numbers": [
+        "n15",
+        "n14",
+        "n16"
+      ],
+      "meaning": "Recomputing from the printed numbers gives the printed figure."
+    },
+    {
+      "id": "c7",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "East should have the most orders of the four regions.",
+      "hedge": null,
+      "target": {
+        "id": "n6",
+        "text": "1,356",
+        "page": 2,
+        "quote": "East | 1,356"
+      },
+      "computation": "place of 1,356 among 4 values",
+      "point": "1",
+      "range": [
+        "1",
+        "1"
+      ],
+      "display": {
+        "point": "1",
+        "range": null,
+        "printed": "place 1"
+      },
+      "sentence": "place of 1,356 among 4 values, counting from the largest: 1; the document claims place 1",
+      "notes": [],
+      "numbers": [
+        "n6",
+        "n4",
+        "n5",
+        "n7"
+      ],
+      "meaning": "The printed numbers give this ranking."
+    },
+    {
+      "id": "c8",
+      "kind": "chart",
+      "check": "order",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The Q3 bar should be the tallest of the four quarters in Figure 2.",
+      "hedge": null,
+      "target": null,
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 2",
+        "page": 3,
+        "type": "bar",
+        "unit": "k USD",
+        "image": "figure2-crop.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Q3",
+          "series": "Marketing",
+          "status": "ok",
+          "read_a": "300–320",
+          "read_b": "302–318",
+          "final": "300–320"
+        },
+        {
+          "label": "Q4",
+          "series": "Marketing",
+          "status": "ok",
+          "read_a": "255–275",
+          "read_b": "260–270",
+          "final": "255–275"
+        },
+        {
+          "label": "Q1",
+          "series": "Marketing",
+          "status": "ok",
+          "read_a": "230–250",
+          "read_b": "235–245",
+          "final": "230–250"
+        },
+        {
+          "label": "Q2",
+          "series": "Marketing",
+          "status": "ok",
+          "read_a": "265–285",
+          "read_b": "270–280",
+          "final": "265–285"
+        }
+      ],
+      "display": null,
+      "sentence": "the Q3 bar in Figure 2 reads 300–320; the others read Q4 255–275, Q1 230–250, Q2 265–285; the document calls Q3 the largest",
+      "notes": [],
+      "numbers": [],
+      "meaning": "The chart readings do not contradict the stated order."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "kind": "doi",
+      "value": "10.1234/example.2021.001",
+      "cited_title": "An example cited title",
+      "page": 4,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`.",
+      "meaning": "Not checked: Sources were not checked. Run `provecheck sources`."
+    },
+    {
+      "id": "s2",
+      "kind": "doi",
+      "value": "10.1177/1948550616673876",
+      "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+      "page": 4,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`.",
+      "meaning": "Not checked: Sources were not checked. Run `provecheck sources`."
+    }
+  ],
+  "unchecked_numbers": [],
+  "skipped": [
+    {
+      "text": "2026",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "2",
+      "reason": "figure number",
+      "count": 1
+    },
+    {
+      "text": "(passage)",
+      "reason": "reference list entry",
+      "count": 2
+    }
+  ],
+  "warnings": [],
+  "footer": "A clean report means the checked claims passed. It does not mean the document is right: see the coverage line for how many numeric statements were checked. Prove does not judge opinions, forecasts or strategy, and it does not know whether a source is correct, only whether it exists and says what is quoted."
+}

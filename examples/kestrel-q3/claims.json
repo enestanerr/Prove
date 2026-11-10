@@ -1,0 +1,108 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "examples/kestrel-q3/report.md", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "2.10M", "value": "2100000", "decimals": 2, "unit": "USD", "exact": null,
+     "loc": {"page": 1, "quote": "Revenue rose from $2.10M in Q2 to $2.30M in Q3, up 14%."}},
+    {"id": "n2", "text": "2.30M", "value": "2300000", "decimals": 2, "unit": "USD", "exact": null,
+     "loc": {"page": 1, "quote": "Revenue rose from $2.10M in Q2 to $2.30M in Q3, up 14%."}},
+    {"id": "n3", "text": "14%", "value": "14", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Revenue rose from $2.10M in Q2 to $2.30M in Q3, up 14%."}},
+
+    {"id": "n4", "text": "1,204", "value": "1204", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 2, "quote": "North | 1,204"}},
+    {"id": "n5", "text": "988", "value": "988", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 2, "quote": "South | 988"}},
+    {"id": "n6", "text": "1,356", "value": "1356", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 2, "quote": "East | 1,356"}},
+    {"id": "n7", "text": "1,244", "value": "1244", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 2, "quote": "West | 1,244"}},
+    {"id": "n8", "text": "4,812", "value": "4812", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 2, "quote": "Total | 4,812"}},
+    {"id": "n9", "text": "28.3%", "value": "28.3", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 2, "quote": "East accounted for 28.3% of orders"}},
+
+    {"id": "n10", "text": "350", "value": "350", "decimals": 0, "unit": "k USD", "exact": null,
+     "loc": {"page": 3, "quote": "Q3 marketing spend reached 350k"}},
+
+    {"id": "n11", "text": "2.1M", "value": "2100000", "decimals": 1, "unit": "subscribers", "exact": null,
+     "loc": {"page": 1, "quote": "Newsletter subscribers grew from 2.1M to 2.3M over the same period, also up 14%."}},
+    {"id": "n12", "text": "2.3M", "value": "2300000", "decimals": 1, "unit": "subscribers", "exact": null,
+     "loc": {"page": 1, "quote": "Newsletter subscribers grew from 2.1M to 2.3M over the same period, also up 14%."}},
+    {"id": "n13", "text": "14%", "value": "14", "decimals": 0, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Newsletter subscribers grew from 2.1M to 2.3M over the same period, also up 14%."}},
+
+    {"id": "n14", "text": "41.2%", "value": "41.2", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Gross margin improved from 41.2% to 43.7%, a gain of 2.5 percentage points."}},
+    {"id": "n15", "text": "43.7%", "value": "43.7", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "Gross margin improved from 41.2% to 43.7%, a gain of 2.5 percentage points."}},
+    {"id": "n16", "text": "2.5", "value": "2.5", "decimals": 1, "unit": "pp", "exact": null,
+     "loc": {"page": 1, "quote": "Gross margin improved from 41.2% to 43.7%, a gain of 2.5 percentage points."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "The growth figure should be the change from $2.10M to $2.30M."},
+
+    {"id": "c2", "kind": "derived", "target": "n8", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n4"}, {"ref": "n5"}, {"ref": "n6"}, {"ref": "n7"}]},
+     "say": "The total row should be the sum of the four regions."},
+
+    {"id": "c3", "kind": "derived", "target": "n9", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n6"},
+        {"op": "sum", "args": [{"ref": "n4"}, {"ref": "n5"}, {"ref": "n6"}, {"ref": "n7"}]}]},
+     "say": "East's share should be its orders divided by the sum of all regions."},
+
+    {"id": "c4", "kind": "chart", "check": "text_vs_chart", "target": "n10",
+     "chart": "g1", "mark": {"label": "Q3", "series": "Marketing"},
+     "say": "The prose figure for Q3 marketing spend should match the Q3 bar in Figure 2."},
+
+    {"id": "c5", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n11"}, {"ref": "n12"}]},
+     "say": "Subscriber growth should be the change from 2.1M to 2.3M."},
+
+    {"id": "c6", "kind": "derived", "target": "n16", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n15"}, {"ref": "n14"}]},
+     "say": "The margin gain should be 43.7% minus 41.2%, in percentage points."},
+
+    {"id": "c7", "kind": "derived", "hedge": null,
+     "derivation": {"op": "rank", "args": [{"ref": "n6"}, {"ref": "n4"}, {"ref": "n5"}, {"ref": "n7"}, {"const": "1"}]},
+     "say": "East should have the most orders of the four regions."},
+
+    {"id": "c8", "kind": "chart", "check": "order", "chart": "g1",
+     "mark": {"label": "Q3", "series": "Marketing"}, "relation": "largest",
+     "say": "The Q3 bar should be the tallest of the four quarters in Figure 2."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 3, "figure": "Figure 2"}, "type": "bar", "image": "figure2-crop.png",
+     "y_axis": {"min": "0", "max": "400", "scale": "linear", "unit": "k USD"},
+     "marks": [
+       {"label": "Q4", "series": "Marketing",
+        "read_a": {"lo": "255", "hi": "275"}, "read_b": {"lo": "260", "hi": "270"}, "printed_label": null},
+       {"label": "Q1", "series": "Marketing",
+        "read_a": {"lo": "230", "hi": "250"}, "read_b": {"lo": "235", "hi": "245"}, "printed_label": null},
+       {"label": "Q2", "series": "Marketing",
+        "read_a": {"lo": "265", "hi": "285"}, "read_b": {"lo": "270", "hi": "280"}, "printed_label": null},
+       {"label": "Q3", "series": "Marketing",
+        "read_a": {"lo": "300", "hi": "320"}, "read_b": {"lo": "302", "hi": "318"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.1234/example.2021.001",
+     "cited_title": "An example cited title", "cited_year": 2021, "quote": null,
+     "loc": {"page": 4, "quote": "[1] An example cited title (2021). doi:10.1234/example.2021.001"}},
+    {"id": "s2", "kind": "doi", "value": "10.1177/1948550616673876",
+     "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+     "cited_year": 2017, "quote": null,
+     "loc": {"page": 4, "quote": "[2] Brown, N. J. L., & Heathers, J. A. J. (2017)."}}
+  ],
+  "skipped": [
+    {"text": "2026", "loc": {"page": 1, "quote": "Kestrel Outdoor Co. — Q3 2026 report"}, "reason": "year"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2"}, "reason": "figure number"},
+    {"loc": {"page": 4, "quote": "[1] An example cited title (2021). doi:10.1234/example.2021.001"},
+     "reason": "reference list entry"},
+    {"loc": {"page": 4, "quote": "[2] Brown, N. J. L., & Heathers, J. A. J. (2017). The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology. doi:10.1177/1948550616673876"},
+     "reason": "reference list entry"}
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/enestanerr/prove/blob/main/src/provecheck/schema/report.v1.schema.json",
+  "title": "Prove report (prove.report.v1)",
+  "description": "Written by `provecheck report --json`. See docs/SPEC.md §11.",
+  "type": "object",
+  "required": ["schema", "provecheck", "document", "summary", "coverage_line", "claims", "sources", "footer"],
+  "properties": {
+    "schema": {"const": "prove.report.v1"},
+    "provecheck": {"type": "string"},
+    "document": {"type": "object"},
+    "summary": {
+      "type": "object",
+      "required": ["contradicted", "suspect", "unverified", "verified", "by_assurance"],
+      "properties": {
+        "contradicted": {"type": "integer"},
+        "suspect": {"type": "integer"},
+        "unverified": {"type": "integer"},
+        "verified": {"type": "integer"},
+        "by_assurance": {"type": "object"}
+      }
+    },
+    "coverage": {
+      "type": ["object", "null"],
+      "properties": {
+        "found": {"type": "integer"},
+        "checked": {"type": "integer"},
+        "skipped": {"type": "integer"},
+        "missed": {"type": "integer"},
+        "missed_tokens": {"type": "array"}
+      }
+    },
+    "coverage_line": {"type": "string"},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "verdict", "assurance", "meaning"],
+        "properties": {
+          "id": {"type": "string"},
+          "kind": {"enum": ["derived", "chart"]},
+          "verdict": {"enum": ["contradicted", "suspect", "unverified", "verified"]},
+          "assurance": {"enum": ["computed", "read", "proved"]},
+          "reason": {"type": ["string", "null"]},
+          "message": {"type": ["string", "null"]},
+          "say": {"type": ["string", "null"]},
+          "sentence": {"type": ["string", "null"]},
+          "meaning": {"type": "string"},
+          "notes": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "value", "verdict", "assurance"],
+        "properties": {
+          "verdict": {"enum": ["contradicted", "unverified", "verified"]},
+          "assurance": {"const": "resolved"}
+        }
+      }
+    },
+    "unchecked_numbers": {"type": "array"},
+    "skipped": {"type": "array"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "footer": {"type": "string"}
+  }
+}
