@@ -1,0 +1,85 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "4.16M", "value": "4160000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $4.16M in Q2 to $4.70M in Q3, up 13%."}},
+    {"id": "n2", "text": "4.70M", "value": "4700000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $4.16M in Q2 to $4.70M in Q3, up 13%."}},
+    {"id": "n3", "text": "13%", "value": "13", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $4.16M in Q2 to $4.70M in Q3, up 13%."}},
+    {"id": "n4", "text": "24.0%", "value": "24.0", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 24.0% to 28.7%, an increase of 4.7%."}},
+    {"id": "n5", "text": "28.7%", "value": "28.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 24.0% to 28.7%, an increase of 4.7%."}},
+    {"id": "n6", "text": "4.7%", "value": "4.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 24.0% to 28.7%, an increase of 4.7%."}},
+    {"id": "n7", "text": "3,752", "value": "3752", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 1, "quote": "In total, 3,752 enrolments were recorded in the quarter."}},
+    {"id": "n8", "text": "26%", "value": "26", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 26% of enrolments came from the West region."}},
+    {"id": "n9", "text": "959", "value": "959", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "West 959 North 874"}},
+    {"id": "n10", "text": "874", "value": "874", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "West 959 North 874"}},
+    {"id": "n11", "text": "745", "value": "745", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Valley 745 Highland 1,174"}},
+    {"id": "n12", "text": "1,174", "value": "1174", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Valley 745 Highland 1,174"}},
+    {"id": "n13", "text": "3,752", "value": "3752", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Highland 1,174 Total 3,752"}},
+    {"id": "n14", "text": "23.3%", "value": "23.3", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The North region accounted for 23.3% of enrolments."}},
+    {"id": "n15", "text": "101", "value": "101", "decimals": 0, "unit": "k tickets", "exact": null, "loc": {"page": 2, "quote": "Support tickets reached 101 thousand in Q2."}},
+    {"id": "n16", "text": "59.0", "value": "59.0", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Utilities 59.0"}},
+    {"id": "n17", "text": "30.3", "value": "30.3", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Staff 30.3"}},
+    {"id": "n18", "text": "70.4", "value": "70.4", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Travel 70.4"}},
+    {"id": "n19", "text": "38.1", "value": "38.1", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Insurance 38.1"}},
+    {"id": "n20", "text": "195.7", "value": "195.7", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Insurance 38.1 Total 195.7"}},
+    {"id": "n21", "text": "338", "value": "338", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 338 thousand in the Rural area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $4.16M to $4.70M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n4"}, {"ref": "n5"}]},
+     "say": "An increase of 4.7% in occupancy should be the relative change from 24.0% to 28.7%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "Total enrolments should be the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n7"}]},
+     "say": "The table total should equal the total in the summary."},
+    {"id": "c5", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n9"}, {"ref": "n13"}]},
+     "say": "West share should be 959 of 3,752 enrolments."},
+    {"id": "c6", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n10"}, {"ref": "n13"}]},
+     "say": "North share should be 874 of 3,752 enrolments."},
+    {"id": "c7", "kind": "derived", "target": "n20", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}, {"ref": "n19"}]},
+     "say": "The cost total should be the sum of the four items."},
+    {"id": "c8", "kind": "chart", "check": "text_vs_chart", "target": "n15",
+     "chart": "g1", "mark": {"label": "Q2"},
+     "say": "The prose figure for Q2 support tickets should match the Q2 bar in Figure 1."},
+    {"id": "c9", "kind": "chart", "check": "parts_sum", "target": "n21",
+     "chart": "g2", "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "The Rural sales figure should match the sum of the Online and Stores segments in Figure 2."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar", "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "900", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Q2", "read_a": {"lo": "268", "hi": "285"}, "read_b": {"lo": "270", "hi": "283"}, "printed_label": null}
+     ],
+     "notes": ["Quarter order on the x axis is Q4, Q1, Q2, Q3."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar", "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "400", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "158", "hi": "170"}, "read_b": {"lo": "160", "hi": "168"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "168", "hi": "182"}, "read_b": {"lo": "170", "hi": "180"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.5555/prove.synth.0030", "cited_title": "Reconciling quarterly service figures in small organisations", "cited_year": 2021, "quote": null, "loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0030"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents only with prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Support tickets by quarter, thousands"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel, thousands"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Okafor, T., & Lindqvist, A. (2021)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "organisations. doi:10.5555/prove.synth.0030"}, "reason": "reference list"}
+  ]
+}

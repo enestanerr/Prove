@@ -1,0 +1,498 @@
+{
+  "schema": "prove.verdicts.v1",
+  "provecheck": "0.1.0",
+  "document": {
+    "path": "report.pdf",
+    "sha256": "1ae2f17e2609fcc9b118e120c3980a8731824494edfd55a710e09b2a2e304136",
+    "locale": "eu",
+    "pages": 3
+  },
+  "summary": {
+    "contradicted": 2,
+    "suspect": 0,
+    "unverified": 3,
+    "verified": 8,
+    "by_assurance": {
+      "computed": {
+        "contradicted": 0,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 7
+      },
+      "read": {
+        "contradicted": 2,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 1
+      },
+      "resolved": {
+        "contradicted": 0,
+        "suspect": 0,
+        "unverified": 3,
+        "verified": 0
+      }
+    }
+  },
+  "coverage": {
+    "found": 38,
+    "checked": 21,
+    "skipped": 17,
+    "missed": 0,
+    "missed_tokens": []
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Revenue growth should be the change from €4,72M to €5,24M.",
+      "hedge": null,
+      "target": {
+        "id": "n3",
+        "text": "11%",
+        "page": 1,
+        "quote": "Revenue rose from €4,72M in Q2 to €5,24M in Q3, up 11%."
+      },
+      "computation": "5,24M ÷ 4,72M − 1",
+      "point": "650/59",
+      "range": [
+        "680/63",
+        "10600/943"
+      ],
+      "display": {
+        "point": "11.02%",
+        "range": "10.79%–11.24%",
+        "printed": "11%"
+      },
+      "sentence": "5,24M ÷ 4,72M − 1 = 11.02%; possible range 10.79%–11.24%; the document says 11%",
+      "notes": [],
+      "numbers": [
+        "n1",
+        "n2",
+        "n3"
+      ]
+    },
+    {
+      "id": "c2",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The retention gain should be 59,8% minus 58,1%.",
+      "hedge": null,
+      "target": {
+        "id": "n6",
+        "text": "1,7",
+        "page": 1,
+        "quote": "a gain of 1,7 percentage points."
+      },
+      "computation": "59,8% − 58,1%",
+      "point": "17/10",
+      "range": [
+        "8/5",
+        "9/5"
+      ],
+      "display": {
+        "point": "1.70 pp",
+        "range": "1.60 pp–1.80 pp",
+        "printed": "1,7 pp"
+      },
+      "sentence": "59,8% − 58,1% = 1.70 pp; possible range 1.60 pp–1.80 pp; the document says 1,7 pp",
+      "notes": [],
+      "numbers": [
+        "n5",
+        "n4",
+        "n6"
+      ]
+    },
+    {
+      "id": "c3",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Total orders should be the sum of the five regions.",
+      "hedge": null,
+      "target": {
+        "id": "n7",
+        "text": "6.867",
+        "page": 1,
+        "quote": "In total, 6.867 orders were recorded in the quarter."
+      },
+      "computation": "984 + 1.182 + 1.392 + 1.703 + 1.606",
+      "point": "6867",
+      "range": [
+        "6867",
+        "6867"
+      ],
+      "display": {
+        "point": "6,867",
+        "range": null,
+        "printed": "6.867"
+      },
+      "sentence": "984 + 1.182 + 1.392 + 1.703 + 1.606 = 6,867; the document says 6.867",
+      "notes": [],
+      "numbers": [
+        "n9",
+        "n10",
+        "n11",
+        "n12",
+        "n13",
+        "n7"
+      ]
+    },
+    {
+      "id": "c4",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The table total should be the sum of the region rows.",
+      "hedge": null,
+      "target": {
+        "id": "n14",
+        "text": "6.867",
+        "page": 2,
+        "quote": "Total 6.867"
+      },
+      "computation": "984 + 1.182 + 1.392 + 1.703 + 1.606",
+      "point": "6867",
+      "range": [
+        "6867",
+        "6867"
+      ],
+      "display": {
+        "point": "6,867",
+        "range": null,
+        "printed": "6.867"
+      },
+      "sentence": "984 + 1.182 + 1.392 + 1.703 + 1.606 = 6,867; the document says 6.867",
+      "notes": [],
+      "numbers": [
+        "n9",
+        "n10",
+        "n11",
+        "n12",
+        "n13",
+        "n14"
+      ]
+    },
+    {
+      "id": "c5",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "South's share should be South orders over total orders.",
+      "hedge": "approx",
+      "target": {
+        "id": "n8",
+        "text": "18%",
+        "page": 1,
+        "quote": "About 18% of orders came from the South region."
+      },
+      "computation": "1.182 ÷ 6.867",
+      "point": "39400/2289",
+      "range": [
+        "39400/2289",
+        "39400/2289"
+      ],
+      "display": {
+        "point": "17.21%",
+        "range": null,
+        "printed": "about 18%"
+      },
+      "sentence": "1.182 ÷ 6.867 = 17.21%; the document says about 18%",
+      "notes": [],
+      "numbers": [
+        "n10",
+        "n14",
+        "n8"
+      ]
+    },
+    {
+      "id": "c6",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "West's share should be West orders over total orders.",
+      "hedge": null,
+      "target": {
+        "id": "n15",
+        "text": "14,3%",
+        "page": 2,
+        "quote": "The West region accounted for 14,3% of orders."
+      },
+      "computation": "984 ÷ 6.867",
+      "point": "32800/2289",
+      "range": [
+        "32800/2289",
+        "32800/2289"
+      ],
+      "display": {
+        "point": "14.33%",
+        "range": null,
+        "printed": "14,3%"
+      },
+      "sentence": "984 ÷ 6.867 = 14.33%; the document says 14,3%",
+      "notes": [],
+      "numbers": [
+        "n9",
+        "n14",
+        "n15"
+      ]
+    },
+    {
+      "id": "c7",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The cost total should be rent plus utilities plus software.",
+      "hedge": null,
+      "target": {
+        "id": "n21",
+        "text": "200,3",
+        "page": 3,
+        "quote": "Total 200,3"
+      },
+      "computation": "61,1 + 79,2 + 60,0",
+      "point": "200300",
+      "range": [
+        "200150",
+        "200450"
+      ],
+      "display": {
+        "point": "200.3",
+        "range": "200.15–200.45",
+        "printed": "200,3"
+      },
+      "sentence": "61,1 + 79,2 + 60,0 = 200.3; possible range 200.15–200.45; the document says 200,3",
+      "notes": [],
+      "numbers": [
+        "n18",
+        "n19",
+        "n20",
+        "n21"
+      ]
+    },
+    {
+      "id": "c8",
+      "kind": "chart",
+      "check": "text_vs_chart",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The 493 thousand in the text should match the Q1 bar in Figure 1.",
+      "hedge": null,
+      "target": {
+        "id": "n16",
+        "text": "493",
+        "page": 2,
+        "quote": "Support tickets reached 493 thousand in Q1."
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "thousands",
+        "image": "prove-work/crops/g1.png",
+        "notes": [
+          "Bar order is Q4, Q1, Q2, Q3 (not chronological)."
+        ]
+      },
+      "marks": [
+        {
+          "label": "Q1",
+          "series": null,
+          "status": "ok",
+          "read_a": "480–505",
+          "read_b": "485–500",
+          "final": "480–505"
+        }
+      ],
+      "display": {
+        "reading": "480–505",
+        "printed": "493"
+      },
+      "sentence": "the Q1 bar in Figure 1 reads 480–505 (first reading 480–505, second reading 485–500); the document says 493",
+      "notes": [],
+      "numbers": [
+        "n16"
+      ]
+    },
+    {
+      "id": "c9",
+      "kind": "chart",
+      "check": "label_vs_mark",
+      "verdict": "contradicted",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The value label 655 on the Q1 bar should match where the bar ends.",
+      "hedge": null,
+      "target": {
+        "id": "n17",
+        "text": "655",
+        "page": 2,
+        "quote": "655"
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "thousands",
+        "image": "prove-work/crops/g1.png",
+        "notes": [
+          "Bar order is Q4, Q1, Q2, Q3 (not chronological)."
+        ]
+      },
+      "marks": [
+        {
+          "label": "Q1",
+          "series": null,
+          "status": "ok",
+          "read_a": "480–505",
+          "read_b": "485–500",
+          "final": "480–505"
+        }
+      ],
+      "display": {
+        "reading": "480–505",
+        "printed": "655"
+      },
+      "sentence": "the Q1 bar in Figure 1 reads 480–505 (first reading 480–505, second reading 485–500); the document says 655",
+      "notes": [],
+      "numbers": [
+        "n17"
+      ]
+    },
+    {
+      "id": "c10",
+      "kind": "chart",
+      "check": "parts_sum",
+      "verdict": "contradicted",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "Online plus store sales in Suburban should match the text's 106 thousand.",
+      "hedge": null,
+      "target": {
+        "id": "n22",
+        "text": "106",
+        "page": 3,
+        "quote": "together reached 106 thousand in the Suburban area."
+      },
+      "chart": {
+        "id": "g2",
+        "figure": "Figure 2",
+        "page": 3,
+        "type": "stacked_bar",
+        "unit": "thousands",
+        "image": "prove-work/crops/g2.png",
+        "notes": [
+          "Segments read as top minus bottom; Suburban stack total reads about 165."
+        ]
+      },
+      "marks": [
+        {
+          "label": "Suburban",
+          "series": "Online",
+          "status": "ok",
+          "read_a": "62–72",
+          "read_b": "64–70",
+          "final": "62–72"
+        },
+        {
+          "label": "Suburban",
+          "series": "Stores",
+          "status": "ok",
+          "read_a": "90–106",
+          "read_b": "94–102",
+          "final": "90–106"
+        }
+      ],
+      "display": {
+        "reading": "152–178",
+        "printed": "106"
+      },
+      "sentence": "the 2 segments in Figure 2 add up to 152–178; the document says 106",
+      "notes": [],
+      "numbers": [
+        "n22"
+      ]
+    }
+  ],
+  "unchecked_numbers": [],
+  "sources": [
+    {
+      "id": "s1",
+      "kind": "doi",
+      "value": "10.1177/1948550616673876",
+      "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    },
+    {
+      "id": "s2",
+      "kind": "doi",
+      "value": "10.3758/s13428-015-0664-2",
+      "cited_title": "The prevalence of statistical reporting errors in psychology (1985–2013)",
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    },
+    {
+      "id": "s3",
+      "kind": "quote",
+      "value": "https://www.iana.org/help/example-domains",
+      "cited_title": null,
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    }
+  ],
+  "skipped": [
+    {
+      "text": "2026",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "(passage)",
+      "reason": "reference list",
+      "count": 4
+    },
+    {
+      "text": "1",
+      "reason": "figure number",
+      "count": 1
+    },
+    {
+      "text": "2",
+      "reason": "figure number",
+      "count": 1
+    }
+  ],
+  "warnings": []
+}

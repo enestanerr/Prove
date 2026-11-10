@@ -242,3 +242,27 @@ def test_sources_command_and_report_merge(root, tmp_path, capsys, monkeypatch):
     report = (tmp_path / "prove-report.md").read_text(encoding="utf-8")
     assert "**4 contradicted · 1 suspect · 0 unverified · 5 verified**" in report
     assert "does not resolve: Crossref, DataCite and doi.org answer “not found”" in report
+
+
+@pytest.mark.parametrize(
+    "address, public",
+    [
+        ("https://example.org/report", True),
+        ("http://93.184.216.34/x", True),
+        ("http://localhost:8080/admin", False),
+        ("http://127.0.0.1/", False),
+        ("http://192.168.1.1/router", False),
+        ("http://169.254.169.254/latest/meta-data", False),
+        ("http://[::1]/", False),
+        ("http://intranet.local/wiki", False),
+        ("file:///etc/passwd", False),
+        ("ftp://example.org/x", False),
+    ],
+)
+def test_only_public_web_addresses_are_fetched(address, public, tmp_path):
+    from provecheck.sources.client import is_public_web_address
+
+    assert is_public_web_address(address) is public
+    if not public:
+        rec = resolve_one(tmp_path, {"kind": "quote", "value": address, "quote": "some words"})
+        assert rec["verdict"] == UNVERIFIED and rec["reason"] == "not-a-url"

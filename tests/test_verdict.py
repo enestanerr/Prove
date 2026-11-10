@@ -541,3 +541,29 @@ def test_a_target_of_zero_is_not_mistaken_for_a_scale_mix_up():
         exact={"a", "t"},
     )
     assert v["verdict"] == VERIFIED
+
+
+def test_one_number_among_like_formatted_ones_is_never_reread_alone():
+    """Regression (judge eval, corpus v1 seed 1 doc-129).
+
+    East 1,038 of 8,025 is 12.9%, the document says 17.2%. Reading only "1,994" as 1.994
+    happens to give 17.2%, but the other rows use the comma the same way and are counts.
+    """
+    text = (
+        "East 1,038 Central 1,994 Highland 2,320 North 2,062 Valley 611. East has 17.2% of calls."
+    )
+    rows = {"a": "1,038", "b": "1,994", "c": "2,320", "d": "2,062", "e": "611"}
+    numbers = [num(i, t, quote=text, exact="count") for i, t in rows.items()]
+    numbers.append(num("t", "17.2%", quote=text))
+    claim = derived("c1", "t", op("pct_of", "a", op("sum", *rows)))
+    v = verdict_of(run([text], numbers, [claim]))
+    assert v["verdict"] == CONTRADICTED
+
+
+def test_a_count_cannot_be_reread_as_a_decimal():
+    v = quick("1,234 people plus 766 people is 2 thousand", {"a": "1,234", "b": "766", "t": "2"}, "t",
+              op("sum", "a", "b"), exact={"a", "b"}, t={"scale": "1000"})  # fmt: skip
+    assert v["verdict"] == VERIFIED
+    v = quick("1,234 people plus 0.766 is 2.000", {"a": "1,234", "b": "0.766", "t": "2.000"}, "t",
+              op("sum", "a", "b"), exact={"a"})  # fmt: skip
+    assert v["verdict"] == CONTRADICTED  # 1.234 people is not a reading worth considering

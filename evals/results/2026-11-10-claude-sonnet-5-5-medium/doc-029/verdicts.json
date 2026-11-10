@@ -1,0 +1,417 @@
+{
+  "schema": "prove.verdicts.v1",
+  "provecheck": "0.1.0",
+  "document": {
+    "path": "report.pdf",
+    "sha256": "72c7fb6c4ba0206070cdb8a59016d44536ba082b4332f12fc588e460e4941815",
+    "locale": "en",
+    "pages": 3
+  },
+  "summary": {
+    "contradicted": 4,
+    "suspect": 0,
+    "unverified": 3,
+    "verified": 4,
+    "by_assurance": {
+      "computed": {
+        "contradicted": 4,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 2
+      },
+      "read": {
+        "contradicted": 0,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 2
+      },
+      "resolved": {
+        "contradicted": 0,
+        "suspect": 0,
+        "unverified": 3,
+        "verified": 0
+      }
+    }
+  },
+  "coverage": {
+    "found": 36,
+    "checked": 21,
+    "skipped": 15,
+    "missed": 0,
+    "missed_tokens": []
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Revenue growth should be the change from $4.58M to $5.36M.",
+      "hedge": null,
+      "target": {
+        "id": "n3",
+        "text": "17%",
+        "page": 1,
+        "quote": "Revenue rose from $4.58M in Q2 to $5.36M in Q3, up 17%."
+      },
+      "computation": "5.36M ÷ 4.58M − 1",
+      "point": "3900/229",
+      "range": [
+        "2200/131",
+        "3160/183"
+      ],
+      "display": {
+        "point": "17.03%",
+        "range": "16.79%–17.27%",
+        "printed": "17%"
+      },
+      "sentence": "5.36M ÷ 4.58M − 1 = 17.03%; possible range 16.79%–17.27%; the document says 17%",
+      "notes": [],
+      "numbers": [
+        "n1",
+        "n2",
+        "n3"
+      ]
+    },
+    {
+      "id": "c2",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "An 'increase of 5.3%' in retention, read literally as a relative change from 21.4% to 26.7%.",
+      "hedge": null,
+      "target": {
+        "id": "n6",
+        "text": "5.3%",
+        "page": 1,
+        "quote": "Retention rate improved from 21.4% to 26.7%, an increase of 5.3%."
+      },
+      "computation": "26.7% ÷ 21.4% − 1",
+      "point": "2650/107",
+      "range": [
+        "800/33",
+        "10800/427"
+      ],
+      "display": {
+        "point": "24.77%",
+        "range": "24.24%–25.29%",
+        "printed": "5.3%"
+      },
+      "sentence": "26.7% ÷ 21.4% − 1 = 24.77%; possible range 24.24%–25.29%; the document says 5.3%",
+      "notes": [],
+      "numbers": [
+        "n4",
+        "n5",
+        "n6"
+      ]
+    },
+    {
+      "id": "c3",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "West's share should be its calls divided by the sum of the five regions.",
+      "hedge": "approx",
+      "target": {
+        "id": "n7",
+        "text": "27%",
+        "page": 1,
+        "quote": "About 27% of service calls came from the West region."
+      },
+      "computation": "2,290 ÷ (1,726 + 1,333 + 1,543 + 1,529 + 2,290)",
+      "point": "229000/8421",
+      "range": [
+        "229000/8421",
+        "229000/8421"
+      ],
+      "display": {
+        "point": "27.19%",
+        "range": null,
+        "printed": "about 27%"
+      },
+      "sentence": "2,290 ÷ (1,726 + 1,333 + 1,543 + 1,529 + 2,290) = 27.19%; the document says about 27%",
+      "notes": [],
+      "numbers": [
+        "n12",
+        "n8",
+        "n9",
+        "n10",
+        "n11",
+        "n7"
+      ]
+    },
+    {
+      "id": "c4",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The total should be the sum of the five regions.",
+      "hedge": null,
+      "target": {
+        "id": "n13",
+        "text": "8,401",
+        "page": 2,
+        "quote": "Total 8,401"
+      },
+      "computation": "1,726 + 1,333 + 1,543 + 1,529 + 2,290",
+      "point": "8421",
+      "range": [
+        "8421",
+        "8421"
+      ],
+      "display": {
+        "point": "8,421",
+        "range": null,
+        "printed": "8,401"
+      },
+      "sentence": "1,726 + 1,333 + 1,543 + 1,529 + 2,290 = 8,421; the document says 8,401",
+      "notes": [],
+      "numbers": [
+        "n8",
+        "n9",
+        "n10",
+        "n11",
+        "n12",
+        "n13"
+      ]
+    },
+    {
+      "id": "c5",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Valley's share should be its calls divided by the sum of the five regions.",
+      "hedge": null,
+      "target": {
+        "id": "n14",
+        "text": "19.5%",
+        "page": 2,
+        "quote": "The Valley region accounted for 19.5% of service calls."
+      },
+      "computation": "1,333 ÷ (1,726 + 1,333 + 1,543 + 1,529 + 2,290)",
+      "point": "133300/8421",
+      "range": [
+        "133300/8421",
+        "133300/8421"
+      ],
+      "display": {
+        "point": "15.83%",
+        "range": null,
+        "printed": "19.5%"
+      },
+      "sentence": "1,333 ÷ (1,726 + 1,333 + 1,543 + 1,529 + 2,290) = 15.83%; the document says 19.5%",
+      "notes": [],
+      "numbers": [
+        "n9",
+        "n8",
+        "n10",
+        "n11",
+        "n12",
+        "n14"
+      ]
+    },
+    {
+      "id": "c6",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The cost total should be the sum of the four items.",
+      "hedge": null,
+      "target": {
+        "id": "n20",
+        "text": "213.4",
+        "page": 3,
+        "quote": "Total 213.4"
+      },
+      "computation": "27.7 + 80.4 + 89.4 + 18.5",
+      "point": "216000",
+      "range": [
+        "215800",
+        "216200"
+      ],
+      "display": {
+        "point": "216.0",
+        "range": "215.8–216.2",
+        "printed": "213.4"
+      },
+      "sentence": "27.7 + 80.4 + 89.4 + 18.5 = 216.0; possible range 215.8–216.2; the document says 213.4",
+      "notes": [],
+      "numbers": [
+        "n16",
+        "n17",
+        "n18",
+        "n19",
+        "n20"
+      ]
+    },
+    {
+      "id": "c7",
+      "kind": "chart",
+      "check": "text_vs_chart",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The prose figure for Q1 support tickets should match the Q1 bar in Figure 1.",
+      "hedge": null,
+      "target": {
+        "id": "n15",
+        "text": "434 thousand",
+        "page": 2,
+        "quote": "Support tickets reached 434 thousand in Q1."
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "bar",
+        "unit": "thousands",
+        "image": "prove-work/crops/g1.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Q1",
+          "series": null,
+          "status": "ok",
+          "read_a": "420–445",
+          "read_b": "425–440",
+          "final": "420–445"
+        }
+      ],
+      "display": {
+        "reading": "420–445",
+        "printed": "434 thousand"
+      },
+      "sentence": "the Q1 bar in Figure 1 reads 420–445 (first reading 420–445, second reading 425–440); the document says 434 thousand",
+      "notes": [],
+      "numbers": [
+        "n15"
+      ]
+    },
+    {
+      "id": "c8",
+      "kind": "chart",
+      "check": "parts_sum",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "Online plus store sales for Rural should match the stated 134 thousand.",
+      "hedge": null,
+      "target": {
+        "id": "n21",
+        "text": "134 thousand",
+        "page": 3,
+        "quote": "Online and store sales together reached 134 thousand in the Rural area."
+      },
+      "chart": {
+        "id": "g2",
+        "figure": "Figure 2",
+        "page": 3,
+        "type": "stacked_bar",
+        "unit": "thousands",
+        "image": "prove-work/crops/g2.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Rural",
+          "series": "Online",
+          "status": "ok",
+          "read_a": "69–77",
+          "read_b": "70–76",
+          "final": "69–77"
+        },
+        {
+          "label": "Rural",
+          "series": "Stores",
+          "status": "ok",
+          "read_a": "58–66",
+          "read_b": "59–64",
+          "final": "58–66"
+        }
+      ],
+      "display": {
+        "reading": "127–143",
+        "printed": "134 thousand"
+      },
+      "sentence": "the 2 segments in Figure 2 add up to 127–143; the document says 134 thousand",
+      "notes": [],
+      "numbers": [
+        "n21"
+      ]
+    }
+  ],
+  "unchecked_numbers": [],
+  "sources": [
+    {
+      "id": "s1",
+      "kind": "doi",
+      "value": "10.3758/s13428-015-0664-2",
+      "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)",
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    },
+    {
+      "id": "s2",
+      "kind": "doi",
+      "value": "10.1177/1948550616673876",
+      "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    },
+    {
+      "id": "s3",
+      "kind": "quote",
+      "value": "https://www.iana.org/help/example-domains",
+      "cited_title": null,
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    }
+  ],
+  "skipped": [
+    {
+      "text": "2026",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "1",
+      "reason": "figure number",
+      "count": 1
+    },
+    {
+      "text": "2",
+      "reason": "figure number",
+      "count": 1
+    },
+    {
+      "text": "(passage)",
+      "reason": "reference list",
+      "count": 4
+    }
+  ],
+  "warnings": []
+}

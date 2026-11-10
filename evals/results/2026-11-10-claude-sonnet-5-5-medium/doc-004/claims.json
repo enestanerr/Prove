@@ -1,0 +1,84 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "$8.4M", "value": "8400000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $8.4M in Q2 to $9.5M in Q3, up 12%."}},
+    {"id": "n2", "text": "$9.5M", "value": "9500000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $8.4M in Q2 to $9.5M in Q3, up 12%."}},
+    {"id": "n3", "text": "12%", "value": "12", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $8.4M in Q2 to $9.5M in Q3, up 12%."}},
+    {"id": "n4", "text": "20.1%", "value": "20.1", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 20.1% to 24.9%, a gain of 4.8 percentage points."}},
+    {"id": "n5", "text": "24.9%", "value": "24.9", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 20.1% to 24.9%, a gain of 4.8 percentage points."}},
+    {"id": "n6", "text": "4.8", "value": "4.8", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 4.8 percentage points"}},
+    {"id": "n7", "text": "6,164", "value": "6164", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 1, "quote": "In total, 6,164 service calls were recorded in the quarter."}},
+    {"id": "n8", "text": "16%", "value": "16", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 16% of service calls came from the Coastal region."}},
+    {"id": "n9", "text": "1,552", "value": "1552", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "East 1,552"}},
+    {"id": "n10", "text": "964", "value": "964", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "Coastal 964"}},
+    {"id": "n11", "text": "1,610", "value": "1610", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "South 1,610"}},
+    {"id": "n12", "text": "1,948", "value": "1948", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "North 1,948"}},
+    {"id": "n13", "text": "6,074", "value": "6074", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "Total 6,074"}},
+    {"id": "n14", "text": "25.6%", "value": "25.6", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The East region accounted for 25.6% of service calls."}},
+    {"id": "n15", "text": "167", "value": "167", "decimals": 0, "unit": "k hours", "exact": null, "loc": {"page": 2, "quote": "Training hours reached 167 thousand in Q2."}},
+    {"id": "n16", "text": "80.3", "value": "80300", "decimals": 1, "unit": "USD thousands", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Utilities 80.3"}},
+    {"id": "n17", "text": "92.2", "value": "92200", "decimals": 1, "unit": "USD thousands", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Travel 92.2"}},
+    {"id": "n18", "text": "43.9", "value": "43900", "decimals": 1, "unit": "USD thousands", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Software 43.9"}},
+    {"id": "n19", "text": "216.4", "value": "216400", "decimals": 1, "unit": "USD thousands", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Total 216.4"}},
+    {"id": "n20", "text": "142", "value": "142", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 142 thousand in the Rural area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $8.4M to $9.5M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The occupancy gain should be 24.9% minus 20.1%."},
+    {"id": "c3", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The table total should be the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n13"}]},
+     "say": "The total service calls in the summary should equal the table total."},
+    {"id": "c5", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n10"}, {"ref": "n13"}]},
+     "say": "The Coastal share should be Coastal calls over the total."},
+    {"id": "c6", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n9"}, {"ref": "n13"}]},
+     "say": "The East share should be East calls over the total."},
+    {"id": "c7", "kind": "derived", "target": "n19", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}]},
+     "say": "The cost total should be the sum of the three items."},
+    {"id": "c8", "kind": "chart", "check": "text_vs_chart", "target": "n15", "chart": "g1",
+     "mark": {"label": "Q2"},
+     "say": "The prose figure for Q2 training hours should match the Q2 bar in Figure 1."},
+    {"id": "c9", "kind": "chart", "check": "parts_sum", "target": "n20", "chart": "g2",
+     "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "The Rural total in the prose should equal the Online and Stores segments of the Rural bar in Figure 2."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "150", "max": "500", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Q2", "read_a": {"lo": "233", "hi": "242"}, "read_b": {"lo": "234", "hi": "240"}, "printed_label": null}
+     ],
+     "notes": ["The value axis starts at 150, not zero."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "350", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "60", "hi": "66"}, "read_b": {"lo": "61", "hi": "65"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "76", "hi": "82"}, "read_b": {"lo": "77", "hi": "81"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"loc": {"page": 2, "quote": "Figure 1: Training hours by quarter, thousands"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "Figure 2: Sales by area and channel, thousands"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016). The prevalence of statistical reporting errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Brown, N. J. L., & Heathers, J. A. J. (2017). The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology. doi:10.1177/1948550616673876"}, "reason": "reference list"}
+  ]
+}

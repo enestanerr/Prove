@@ -130,6 +130,8 @@ def _mantissa(body: str, locale: str) -> tuple[int, int, int]:
         groups = whole.split(sep)
         if not (1 <= len(groups[0]) <= 3) or any(len(g) != 3 for g in groups[1:]):
             raise NumberParseError(f"digit groups in {body!r} are not thousands groups")
+        if groups[0].isdigit() and int(groups[0]) == 0:  # 0.766 is not "766" with a zero group
+            raise NumberParseError(f"{body!r} starts with a zero group")
         whole = "".join(groups)
     if not whole.isdigit():
         raise NumberParseError(f"not a number: {body!r}")

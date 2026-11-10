@@ -1,0 +1,84 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "3.6M", "value": "3600000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $3.6M in Q2 to $4.2M in Q3, up 15%."}},
+    {"id": "n2", "text": "4.2M", "value": "4200000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $3.6M in Q2 to $4.2M in Q3, up 15%."}},
+    {"id": "n3", "text": "15%", "value": "15", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $3.6M in Q2 to $4.2M in Q3, up 15%."}},
+    {"id": "n4", "text": "31.3%", "value": "31.3", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 31.3% to 36.5%, an increase of 5.2%."}},
+    {"id": "n5", "text": "36.5%", "value": "36.5", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 31.3% to 36.5%, an increase of 5.2%."}},
+    {"id": "n6", "text": "5.2%", "value": "5.2", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 31.3% to 36.5%, an increase of 5.2%."}},
+    {"id": "n7", "text": "5,716", "value": "5716", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 1, "quote": "In total, 5,716 shipments were recorded in the quarter."}},
+    {"id": "n8", "text": "11%", "value": "11", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 11% of shipments came from the West region."}},
+    {"id": "n9", "text": "2,465", "value": "2465", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Highland 2,465"}},
+    {"id": "n10", "text": "636", "value": "636", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "West 636"}},
+    {"id": "n11", "text": "1,374", "value": "1374", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Valley 1,374"}},
+    {"id": "n12", "text": "1,241", "value": "1241", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Central 1,241"}},
+    {"id": "n13", "text": "5,716", "value": "5716", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Total 5,716"}},
+    {"id": "n14", "text": "25.7%", "value": "25.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Central region accounted for 25.7% of shipments."}},
+    {"id": "n15", "text": "831", "value": "831", "decimals": 0, "unit": "k tickets", "exact": null, "loc": {"page": 2, "quote": "Support tickets reached 831 thousand in Q4."}},
+    {"id": "n16", "text": "41.6", "value": "41.6", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Insurance 41.6"}},
+    {"id": "n17", "text": "86.8", "value": "86.8", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Utilities 86.8"}},
+    {"id": "n18", "text": "85.6", "value": "85.6", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Staff 85.6"}},
+    {"id": "n19", "text": "214.0", "value": "214.0", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Total 214.0"}},
+    {"id": "n20", "text": "239", "value": "239", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 3, "quote": "together reached 239 thousand in the Metro area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $3.6M to $4.2M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The occupancy increase should be the gap in points between 36.5% and 31.3%."},
+    {"id": "c3", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The table total should be the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n13"}]},
+     "say": "The summary total should equal the table total."},
+    {"id": "c5", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n10"}, {"ref": "n13"}]},
+     "say": "West share should be West shipments over the total."},
+    {"id": "c6", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n12"}, {"ref": "n13"}]},
+     "say": "Central share should be Central shipments over the total."},
+    {"id": "c7", "kind": "derived", "target": "n19", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}]},
+     "say": "The cost total should be the sum of the three items."},
+    {"id": "c8", "kind": "chart", "check": "text_vs_chart", "target": "n15", "chart": "g1",
+     "mark": {"label": "Q4"},
+     "say": "The 831 thousand in the text should match the Q4 bar in Figure 1."},
+    {"id": "c9", "kind": "chart", "check": "parts_sum", "target": "n20", "chart": "g2",
+     "marks": [{"label": "Metro", "series": "Online"}, {"label": "Metro", "series": "Stores"}],
+     "say": "The Metro Online and Stores segments should add up to 239 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar", "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "1000", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Q4", "read_a": {"lo": "818", "hi": "845"}, "read_b": {"lo": "822", "hi": "840"}, "printed_label": null}
+     ],
+     "notes": ["Quarter order on the x axis is Q4, Q1, Q2, Q3."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar", "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "300", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Metro", "series": "Online", "read_a": {"lo": "66", "hi": "77"}, "read_b": {"lo": "68", "hi": "74"}, "printed_label": null},
+       {"label": "Metro", "series": "Stores", "read_a": {"lo": "162", "hi": "174"}, "read_b": {"lo": "165", "hi": "171"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s2", "kind": "doi", "value": "10.5555/prove.synth.0021", "cited_title": "Reconciling quarterly service figures in small organisations", "cited_year": 2021, "quote": null, "loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0021"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Support tickets by quarter, thousands"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel, thousands"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Brown, N. J. L., & Heathers, J. A. J. (2017)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}, "reason": "reference list identifier"},
+    {"loc": {"page": 3, "quote": "[2] Okafor, T., & Lindqvist, A. (2021)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0021"}, "reason": "reference list identifier"}
+  ]
+}

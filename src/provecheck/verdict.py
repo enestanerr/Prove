@@ -135,22 +135,25 @@ def _factor(k: Fraction) -> str:
 
 
 def _verified_in_other_locale(attempt, infos: list[NumberInfo]) -> frozenset | None:
-    """Would the claim hold if some numbers were read with the other decimal separator?
+    """Would the claim hold if numbers were read with the other decimal separator?
 
     1,234 is 1234 in English notation and 1.234 in European notation (SPEC §3.1).
-    Tried: all ambiguous numbers, those read as thousands, those read as decimals,
-    then each one alone.
+    Numbers written the same way are re-read together: all ambiguous numbers, those
+    read as thousands, those read as decimals. One number among like-formatted ones
+    is never re-read alone, and a count is never re-read as a fraction.
     """
     amb = [i for i in infos if i.printed.alt is not None]
-    if not amb:
-        return None
     candidates = [
         frozenset(i.id for i in amb),
         frozenset(i.id for i in amb if i.printed.decimals == 0),
         frozenset(i.id for i in amb if i.printed.decimals != 0),
-        *[frozenset([i.id]) for i in amb[:12]],
     ]
     for ids in dict.fromkeys(c for c in candidates if c):
+        flipped = [i for i in amb if i.id in ids]
+        if any(
+            i.entry.get("exact") == "count" and i.printed.alt[0].denominator != 1 for i in flipped
+        ):
+            continue
         try:
             if attempt(ids)[0] == VERIFIED:
                 return ids

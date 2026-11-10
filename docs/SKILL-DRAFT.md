@@ -129,3 +129,28 @@ An opt-in hook that reminds Claude to audit a deliverable before finishing a tur
   the prove skill on <file> before finishing."
 - Off by default. A boolean `userConfig` value turns it on. No `options` field.
 - It must be fast (< 300 ms) and must never block more than once per file per turn.
+
+## Verified against the live docs (10 Nov 2026, Claude Code 2.1.319)
+
+What was read and what was decided from it. Pages are listed in `docs/DOC-LINKS.md`.
+
+| Point | Source | Outcome |
+| :- | :- | :- |
+| `plugin.json` fields | manifest reference | `name`, `displayName`, `version`, `description`, `author{name,url}`, `homepage`, `repository`, `license`, `keywords` are all recognised. No `userConfig`, no hooks in v0.1 |
+| Only `plugin.json` in `.claude-plugin/` | manifest reference | Kept; a test enforces it |
+| Path of bundled files in a skill | skills page | `${CLAUDE_SKILL_DIR}` is replaced in the skill body and in `allowed-tools`, at every install level, so the skill uses it instead of `${CLAUDE_PLUGIN_ROOT}`. The body also says what the path is where the variable is not replaced (claude.ai, other agents) |
+| Frontmatter for claude.ai uploads | skills page | Only `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools` are accepted there. `SKILL.md` uses four of them; a test enforces the limit |
+| Invocation name | skills page | The plugin prefix stays: `/prove:prove`. Plain requests trigger it through the description (seen in headless runs) |
+| No top-level `bin/` | components page | Kept; a test enforces it |
+| `marketplace.json` | marketplace reference | `name`, `owner`, `description`, `plugins[]` with a relative `source: "./plugin"`; the name `enestanerr` is not reserved |
+| Validation | `claude plugin validate ./plugin --strict` and `claude plugin validate . --strict` | Both print `Validation passed`. One directory advice remains: no icon. Add a square PNG (512–2048 px) at `plugin/.claude-plugin/icon.png` before submitting to Anthropic's directory |
+| One-step install | validator advice | `/plugin install prove --marketplace enestanerr/prove` works on Claude Code 2.1.275 or later; the README gives both forms |
+| Headless flags | headless page, `claude --help` | `-p`, `--model`, `--effort`, `--plugin-dir`, `--setting-sources`, `--permission-mode acceptEdits`, `--allowedTools`, `--output-format stream-json --verbose`. Used in `evals/run_e2e.py` |
+
+Seen in real runs and fixed in `SKILL.md`: paths kept in a shell variable are refused by
+the permission check; `cat` of a reference file outside the working folder is blocked;
+a shell heredoc that writes JSON is refused; a share computed from a printed total that
+is itself wrong causes a second, knock-on flag.
+
+Not verified here (needs the public repo): `/plugin marketplace add enestanerr/prove`
+from GitHub, `npx skills add enestanerr/prove`, and the zip upload on claude.ai.

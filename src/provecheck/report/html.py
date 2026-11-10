@@ -37,7 +37,8 @@ blockquote{margin:0 0 8px;padding:2px 0 2px 12px;border-left:3px solid var(--lin
 .say{margin:0 0 8px}.calc{background:var(--code);border-radius:6px;padding:8px 10px;margin:0 0 8px;
 font:13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
 .mean{margin:0;font-weight:600}.note{margin:6px 0 0;color:var(--mute);font-size:13.5px}
-.fig{max-width:100%;border:1px solid var(--line);border-radius:6px;margin:0 0 8px;background:#fff}
+.fig{display:block;max-width:100%;max-height:340px;border:1px solid var(--line);border-radius:6px;
+margin:0 0 8px;background:#fff}
 table{border-collapse:collapse;font-size:13px;margin:0 0 8px}td,th{border:1px solid var(--line);padding:3px 9px;text-align:left}
 ul.plain{margin:0;padding-left:20px}details{margin:0 0 12px}summary{cursor:pointer;color:var(--mute)}
 footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
@@ -81,7 +82,7 @@ def _card(rec: dict, base: Path) -> str:
         f'<div class="card" style="--c:var(--{rec["verdict"]})" id="{escape(rec["id"])}">',
         f'<div class="meta"><span class="verdict">{rec["verdict"]}</span>'
         f'<span class="tag">{escape(ASSURANCE_LABEL.get(rec["assurance"], rec["assurance"]))}</span>'
-        f"<span>{escape(where(rec))}</span></div>",
+        f"<span>{escape(where(rec, assurance=False))}</span></div>",
     ]
     quote = (rec.get("target") or {}).get("quote")
     if quote:
@@ -130,7 +131,8 @@ def render(report: dict, base: Path | None = None) -> str:
         + "</ul>"
     )
     missed = (cov or {}).get("missed_tokens") or []
-    out.append(f'<p class="cov{" miss" if missed else ""}">{escape(report["coverage_line"])}</p>')
+    line = escape(report["coverage_line"]).replace("   ", " &nbsp;·&nbsp; ")
+    out.append(f'<p class="cov{" miss" if missed else ""}">{line}</p>')
     out.extend(f'<p class="warn">{escape(w)}</p>' for w in report["warnings"])
 
     for verdict in ORDER:

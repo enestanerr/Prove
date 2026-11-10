@@ -40,3 +40,7 @@ jobs:
         run: uv run python tools/build_pyz.py --check
       - name: Examples and reference validate against the schema
         run: uv run python tools/validate_examples.py
+      - name: README results block matches the result files
+        run: uv run python tools/readme_table.py --check
+      - name: Plugin manifest and marketplace are valid
+        run: uv run pytest -q tests/test_plugin.py

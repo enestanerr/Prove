@@ -1,0 +1,46 @@
+{
+  "schema": "prove.sources.v1",
+  "offline": false,
+  "sources": [
+    {
+      "id": "s1",
+      "kind": "doi",
+      "value": "10.1177/1948550616673876",
+      "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+      "page": 3,
+      "verdict": "verified",
+      "assurance": "resolved",
+      "reason": null,
+      "message": "DOI 10.1177/1948550616673876 resolves to “The GRIM Test” (2016), matching the cited title.",
+      "found": {
+        "title": "The GRIM Test",
+        "year": 2016,
+        "similarity": 1.0
+      }
+    },
+    {
+      "id": "s2",
+      "kind": "doi",
+      "value": "10.5555/prove.synth.0011",
+      "cited_title": "Reconciling quarterly service figures in small organisations",
+      "page": 3,
+      "verdict": "contradicted",
+      "assurance": "resolved",
+      "reason": null,
+      "message": "DOI 10.5555/prove.synth.0011 does not resolve: Crossref, DataCite and doi.org answer “not found”.",
+      "found": {}
+    },
+    {
+      "id": "s3",
+      "kind": "quote",
+      "value": "https://www.iana.org/help/example-domains",
+      "cited_title": null,
+      "page": 3,
+      "verdict": "verified",
+      "assurance": "resolved",
+      "reason": null,
+      "message": "The quoted words appear on the source page.",
+      "found": {}
+    }
+  ]
+}

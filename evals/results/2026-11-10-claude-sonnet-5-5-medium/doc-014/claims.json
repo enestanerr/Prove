@@ -1,0 +1,83 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "7.7M", "value": "7700000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.7M in Q2 to $8.4M in Q3, up 8%."}},
+    {"id": "n2", "text": "8.4M", "value": "8400000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.7M in Q2 to $8.4M in Q3, up 8%."}},
+    {"id": "n3", "text": "8%", "value": "8", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.7M in Q2 to $8.4M in Q3, up 8%."}},
+    {"id": "n4", "text": "43.3%", "value": "43.3", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 43.3% to 47.9%"}},
+    {"id": "n5", "text": "47.9%", "value": "47.9", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 43.3% to 47.9%"}},
+    {"id": "n6", "text": "4.6", "value": "4.6", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 4.6 percentage points"}},
+    {"id": "n7", "text": "23%", "value": "23", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 23% of orders came from the Valley region."}},
+    {"id": "n8", "text": "2,375", "value": "2375", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Central 2,375"}},
+    {"id": "n9", "text": "557", "value": "557", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "East 557"}},
+    {"id": "n10", "text": "1,502", "value": "1502", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Valley 1,502"}},
+    {"id": "n11", "text": "2,444", "value": "2444", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "South 2,444"}},
+    {"id": "n12", "text": "6,908", "value": "6908", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Total 6,908"}},
+    {"id": "n13", "text": "8.1%", "value": "8.1", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The East region accounted for 8.1% of orders."}},
+    {"id": "n14", "text": "839 thousand", "value": "839000", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 2, "quote": "Marketing spend reached 839 thousand in Sep."}},
+    {"id": "n15", "text": "11.3", "value": "11.3", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Software 11.3"}},
+    {"id": "n16", "text": "42.2", "value": "42.2", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Utilities 42.2"}},
+    {"id": "n17", "text": "12.4", "value": "12.4", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Insurance 12.4"}},
+    {"id": "n18", "text": "9.7", "value": "9.7", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Staff 9.7"}},
+    {"id": "n19", "text": "77.2", "value": "77.2", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Total 77.2"}},
+    {"id": "n20", "text": "322 thousand", "value": "322000", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 3, "quote": "reached 322 thousand in the Rural area"}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $7.7M to $8.4M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The retention gain should be 47.9% minus 43.3%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n10"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]}]},
+     "say": "The Valley share should be Valley orders over the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n12", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]},
+     "say": "The orders total should be the sum of the four regions."},
+    {"id": "c5", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n9"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]}]},
+     "say": "The East share should be East orders over the sum of the four regions."},
+    {"id": "c6", "kind": "derived", "target": "n19", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n15"}, {"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}]},
+     "say": "The cost total should be the sum of the four items."},
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "n14",
+     "chart": "g1", "mark": {"label": "Sep", "series": "Marketing spend"},
+     "say": "The prose figure for September spend should match the Sep point in Figure 1."},
+    {"id": "c8", "kind": "chart", "check": "parts_sum", "target": "n20",
+     "chart": "g2", "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "Online plus store sales in Rural should match the stated 322 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "line",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "1000", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Sep", "series": "Marketing spend", "read_a": {"lo": "825", "hi": "855"}, "read_b": {"lo": "828", "hi": "852"}, "printed_label": null}
+     ],
+     "notes": []},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "400", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "170", "hi": "180"}, "read_b": {"lo": "171", "hi": "179"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "142", "hi": "152"}, "read_b": {"lo": "143", "hi": "151"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s2", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985–2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Marketing spend by month"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Brown, N. J. L., & Heathers, J. A. J. (2017)"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}, "reason": "reference list / DOI"},
+    {"loc": {"page": 3, "quote": "[2] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016)"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list / DOI"}
+  ]
+}

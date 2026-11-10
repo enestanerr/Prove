@@ -1,0 +1,81 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "7.06M", "value": "7060000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.06M in Q2 to $7.51M in Q3, up 6%."}},
+    {"id": "n2", "text": "7.51M", "value": "7510000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.06M in Q2 to $7.51M in Q3, up 6%."}},
+    {"id": "n3", "text": "6%", "value": "6", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.06M in Q2 to $7.51M in Q3, up 6%."}},
+    {"id": "n4", "text": "46.5%", "value": "46.5", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 46.5% to 50.7%"}},
+    {"id": "n5", "text": "50.7%", "value": "50.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 46.5% to 50.7%"}},
+    {"id": "n6", "text": "4.2", "value": "4.2", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 4.2 percentage points"}},
+    {"id": "n7", "text": "27%", "value": "27", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 27% of orders came from the South region."}},
+    {"id": "n8", "text": "1,486", "value": "1486", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Central 1,486"}},
+    {"id": "n9", "text": "425", "value": "425", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Highland 425"}},
+    {"id": "n10", "text": "2,364", "value": "2364", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Valley 2,364"}},
+    {"id": "n11", "text": "1,651", "value": "1651", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "South 1,651"}},
+    {"id": "n12", "text": "5,956", "value": "5956", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Total 5,956"}},
+    {"id": "n13", "text": "37.6%", "value": "37.6", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Valley region accounted for 37.6% of orders."}},
+    {"id": "n14", "text": "307 thousand", "value": "307000", "decimals": 0, "unit": "k tickets", "exact": null, "loc": {"page": 2, "quote": "Support tickets reached 307 thousand in Q4."}},
+    {"id": "n15", "text": "75.3", "value": "75300", "decimals": 1, "scale": "1000", "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Software 75.3"}},
+    {"id": "n16", "text": "25.2", "value": "25200", "decimals": 1, "scale": "1000", "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Rent 25.2"}},
+    {"id": "n17", "text": "18.9", "value": "18900", "decimals": 1, "scale": "1000", "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Travel 18.9"}},
+    {"id": "n18", "text": "35.9", "value": "35900", "decimals": 1, "scale": "1000", "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Insurance 35.9"}},
+    {"id": "n19", "text": "67.2", "value": "67200", "decimals": 1, "scale": "1000", "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Utilities 67.2"}},
+    {"id": "n20", "text": "222.6", "value": "222600", "decimals": 1, "scale": "1000", "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Total 222.6"}},
+    {"id": "n21", "text": "271 thousand", "value": "271000", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 3, "quote": "together reached 271 thousand in the Metro area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $7.06M to $7.51M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The retention gain should be 50.7% minus 46.5%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n11"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]}]},
+     "say": "South's share should be its orders over the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n12", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]},
+     "say": "The orders total should be the sum of the four regions."},
+    {"id": "c5", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n10"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]}]},
+     "say": "Valley's share should be its orders over the sum of the four regions."},
+    {"id": "c6", "kind": "derived", "target": "n20", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n15"}, {"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}, {"ref": "n19"}]},
+     "say": "The cost total should be the sum of the five items."},
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "n14", "chart": "g1", "mark": {"label": "Q4"},
+     "say": "The prose figure for Q4 tickets should match the Q4 bar in Figure 1."},
+    {"id": "c8", "kind": "chart", "check": "parts_sum", "target": "n21", "chart": "g2",
+     "marks": [{"label": "Metro", "series": "Online"}, {"label": "Metro", "series": "Stores"}],
+     "say": "Metro online plus store sales should match the 271 thousand in the prose."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar", "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "800", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Q4", "read_a": {"lo": "298", "hi": "312"}, "read_b": {"lo": "300", "hi": "311"}, "printed_label": null}
+     ],
+     "notes": []},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar", "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "350", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Metro", "series": "Online", "read_a": {"lo": "105", "hi": "117"}, "read_b": {"lo": "107", "hi": "115"}, "printed_label": null},
+       {"label": "Metro", "series": "Stores", "read_a": {"lo": "154", "hi": "166"}, "read_b": {"lo": "156", "hi": "164"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016)"}},
+    {"id": "s2", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "[2] Brown, N. J. L., & Heathers, J. A. J. (2017)"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "loc": {"page": 1, "quote": "Q3 2026 report"}, "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Support tickets by quarter"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016). The prevalence of statistical reporting"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Brown, N. J. L., & Heathers, J. A. J. (2017)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}, "reason": "reference list"}
+  ]
+}

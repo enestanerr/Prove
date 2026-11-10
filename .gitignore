@@ -13,6 +13,7 @@ build/
 work/
 .provecheck-cache/
 evals/results/**/transcript*.jsonl
+evals/results/**/answer*.md
 
 # The original plan package (its contents were copied to the repo root)
 prove-plan/
@@ -28,3 +29,4 @@ docs/Kararlar/
 .idea/
 .DS_Store
 Thumbs.db
+evals/corpus/

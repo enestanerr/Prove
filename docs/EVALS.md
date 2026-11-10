@@ -84,6 +84,32 @@ Under it, two sentences: this is our own synthetic set, and the corpus generator
 every result file are in the repo so anyone can rerun it. The per-model rows are where
 readers see what Fable 5.2's chart reading adds; do not editorialise beyond the numbers.
 
+## How it is implemented
+
+| File | Role |
+| :- | :- |
+| `evals/synth/generate.py` | `build(seed, index)` makes one report in memory: Markdown, gold claims, truth. `main` also renders figures and PDFs into `evals/corpus/` (not committed; rebuild with the seed) |
+| `evals/score.py` | Matches each claim to the truth by **where its target number sits in the document**, so model-written and gold claims are scored the same way |
+| `evals/run_judge.py` | Gold claims of 200 synthetic reports plus the three examples. Exit code 1 on any false alarm or judge miss. Runs in CI |
+| `evals/run_e2e.py` | Headless Claude Code, one document per run, in an empty folder outside the repo. `--model` is required. `--jobs`, `--resume` |
+| `evals/show_transcript.py` | Prints the tool calls and errors of one run, for tightening `SKILL.md` |
+| `tools/readme_table.py` | Writes the README results block from `evals/results/`; a test fails if they differ |
+
+Corpus v1 plants these types: `sum`, `pct_change`, `pct_of`, `crossref`, `pp_vs_pct`,
+`chart_label`, `chart_text`, `parts_sum` (stacked bars), `doi_missing`, `misquote`.
+Traps: rounded growth rates, totals of rounded rows, hedged shares; some charts have a
+non-zero baseline; one report in five uses European number formats. Pies and log axes
+are covered by unit tests, not by corpus v1.
+
+Scoring terms:
+
+- **caught** — the planted number's claim ended `contradicted`.
+- **false alarm** — `contradicted` on a trap or on a clean number.
+- **knock-on flag** (`cascade`) — `contradicted` on a clean number whose derivation uses
+  a planted wrong number. Reported separately: the document is inconsistent there, but
+  the cause is elsewhere. The report marks these with a note.
+- **numbers missed** — numeric tokens that ended in neither `numbers` nor `skipped`.
+
 ## Regression rule
 
 Every bug report that turns out to be a wrong verdict becomes a fixture in the judge

@@ -8,7 +8,7 @@ description: >-
   citations. Verdicts are computed by a bundled script, not by the model.
 license: MIT
 compatibility: Needs Python 3.10 or later for the bundled provecheck.pyz. PDF text and chart crops need PyMuPDF (pip install pymupdf), which is optional.
-allowed-tools: Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/provecheck.pyz *) Bash(python ${CLAUDE_SKILL_DIR}/scripts/provecheck.pyz *)
+allowed-tools: Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/provecheck.pyz *) Bash(python ${CLAUDE_SKILL_DIR}/scripts/provecheck.pyz *) Bash(py -3 ${CLAUDE_SKILL_DIR}/scripts/provecheck.pyz *)
 ---
 
 # Prove
@@ -17,10 +17,15 @@ You read the document and propose checks. `provecheck` decides every verdict.
 
 `PROVE` below means `python3 ${CLAUDE_SKILL_DIR}/scripts/provecheck.pyz`.
 If `${CLAUDE_SKILL_DIR}` is not replaced by a path where you read this, it is the folder
-that holds this `SKILL.md`. Use `python` if `python3` is not on the machine, and quote
-the path if it contains spaces. Write the full path in every command: do not store it
-in a shell variable, and run one `PROVE` command per call. Open the `reference/` files
-with your file-reading tool, not with `cat`.
+that holds this `SKILL.md`.
+
+- If `python3` is missing or fails (on Windows it is often only a Store shortcut), run
+  the very same command with `python`, and if that fails too, with `py -3`. Do not
+  search the machine for an interpreter.
+- Write the full path in every command: do not store it in a shell variable. Run one
+  `PROVE` command per call. Quote the path if it contains spaces.
+- Open the `reference/` files with your file-reading tool and write `claims.json` with
+  your file-writing tool, not with `cat` or a shell heredoc.
 
 ## Rules you must not break
 

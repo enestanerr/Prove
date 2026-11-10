@@ -124,8 +124,16 @@ def _same(a: str | None, b: str | None) -> bool:
     return normalize(a or "").casefold() == normalize(b or "").casefold()
 
 
+def _true_marks(chart: dict) -> list[dict]:
+    """Truth marks as a list: {"Q3": 310} or [{"label": "Q3", "series": "Online", "value": 310}]."""
+    marks = chart["marks"]
+    if isinstance(marks, dict):
+        return [{"label": label, "value": value} for label, value in marks.items()]
+    return marks
+
+
 def score_charts(truth: dict, claims: dict) -> list[dict]:
-    """Reading error per mark: |midpoint − true| as a share of the axis span."""
+    """Reading error per mark: |midpoint - true| as a share of the axis span."""
     out = []
     for true_chart in truth.get("charts") or []:
         lo, hi = (Fraction(str(v)) for v in true_chart["axis"])
@@ -134,32 +142,74 @@ def score_charts(truth: dict, claims: dict) -> list[dict]:
                 g
                 for g in claims.get("charts") or []
                 if _same((g.get("loc") or {}).get("figure"), true_chart["figure"])
-                or (g.get("loc") or {}).get("page") == true_chart["page"]
+            ),
+            None,
+        ) or next(
+            (
+                g
+                for g in claims.get("charts") or []
+                if (g.get("loc") or {}).get("page") == true_chart["page"]
             ),
             None,
         )
-        for label, value in true_chart["marks"].items():
+        for true_mark in _true_marks(true_chart):
+            label, series, value = true_mark["label"], true_mark.get("series"), true_mark["value"]
             row = {
                 "figure": true_chart["figure"],
                 "label": label,
                 "true": value,
                 "status": "not-read",
             }
+            if series:
+                row["series"] = series
             mark = next(
-                (k for k in (read or {}).get("marks") or [] if _same(k.get("label"), label)), None
+                (
+                    k
+                    for k in (read or {}).get("marks") or []
+                    if _same(k.get("label"), label)
+                    and (not series or _same(k.get("series"), series))
+                ),
+                None,
             )
             if mark is not None:
                 try:
-                    reading = chartlib.read_mark(mark, chartlib.Axis.of(read))
-                except (KeyError, ValueError):
+                    axis = chartlib.Axis.of(read)
+                    reading = chartlib.read_mark(mark, axis)
+                except (KeyError, ValueError, TypeError):
                     reading = None
                 if reading is not None:
                     row["status"] = reading.status
-                    final = reading.final or reading.a
-                    true = Fraction(str(value)) * chartlib.Axis.of(read).multiplier
-                    if reading.final is None:
-                        final = final.scale(chartlib.Axis.of(read).multiplier)
-                    row["error_share_of_span"] = round(float(abs(final.mid - true) / (hi - lo)), 4)
+                    final = reading.final or reading.a.scale(axis.multiplier)
+                    true = Fraction(str(value)) * axis.multiplier
+                    row["error_share_of_span"] = round(
+                        float(abs(final.mid - true) / ((hi - lo) * axis.multiplier)), 4
+                    )
                     row["contains_true_value"] = final.contains(true)
             out.append(row)
     return out
+
+
+def _source_key(kind: str, value: str) -> str:
+    value = value.strip().lower().rstrip("/.")
+    for prefix in ("https://doi.org/", "http://doi.org/", "doi:", "arxiv:"):
+        value = value.removeprefix(prefix)
+    return f"{kind}:{value.strip()}"
+
+
+def score_sources(truth: dict, resolved: dict | None) -> list[dict]:
+    """What happened to each cited source: planted ones should end contradicted."""
+    records = {}
+    for rec in (resolved or {}).get("sources") or []:
+        records.setdefault(_source_key(rec["kind"], rec["value"]), rec)
+    rows = []
+    for item in truth.get("sources") or []:
+        rec = records.get(_source_key(item["kind"], item["value"]))
+        rows.append(
+            {
+                "id": item["id"],
+                "type": item["type"],
+                "planted": bool(item.get("planted")),
+                "outcome": rec["verdict"] if rec else "no-claim",
+            }
+        )
+    return rows

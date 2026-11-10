@@ -1,0 +1,28 @@
+{
+  "corpus": "v1",
+  "seed": 1,
+  "synthetic_reports": 200,
+  "examples": 3,
+  "claims": 2577,
+  "planted": 627,
+  "caught": 627,
+  "by_type": {
+    "chart_label": "20/20",
+    "chart_text": "78/78",
+    "crossref": "30/30",
+    "doi_missing": "76/76",
+    "misquote": "56/56",
+    "parts_sum": "63/63",
+    "pct_change": "61/61",
+    "pct_of": "65/65",
+    "pp_vs_pct": "72/72",
+    "sum": "106/106"
+  },
+  "traps": 412,
+  "trap_outcomes": {
+    "not-flagged": 322,
+    "suspect": 90
+  },
+  "false_alarms": 0,
+  "judge_misses": 0
+}

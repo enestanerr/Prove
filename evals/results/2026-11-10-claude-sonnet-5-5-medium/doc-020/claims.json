@@ -1,0 +1,91 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "6.47M", "value": "6470000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $6.47M in Q2 to $7.38M in Q3, up 11%."}},
+    {"id": "n2", "text": "7.38M", "value": "7380000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $6.47M in Q2 to $7.38M in Q3, up 11%."}},
+    {"id": "n3", "text": "11%", "value": "11", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "to $7.38M in Q3, up 11%."}},
+    {"id": "n4", "text": "49.7%", "value": "49.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "On-time rate improved from 49.7% to 51.9%, an increase of 2.2%."}},
+    {"id": "n5", "text": "51.9%", "value": "51.9", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "On-time rate improved from 49.7% to 51.9%, an increase of 2.2%."}},
+    {"id": "n6", "text": "2.2%", "value": "2.2", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "to 51.9%, an increase of 2.2%."}},
+    {"id": "n7", "text": "7,134", "value": "7134", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 1, "quote": "In total, 7,134 shipments were recorded in the quarter."}},
+    {"id": "n8", "text": "11%", "value": "11", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 11% of shipments came from the Highland region."}},
+    {"id": "n9", "text": "2,370", "value": "2370", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Coastal 2,370"}},
+    {"id": "n10", "text": "1,877", "value": "1877", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "East 1,877"}},
+    {"id": "n11", "text": "2,115", "value": "2115", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "West 2,115"}},
+    {"id": "n12", "text": "772", "value": "772", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Highland 772"}},
+    {"id": "n13", "text": "7,134", "value": "7134", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Total 7,134"}},
+    {"id": "n14", "text": "29.6%", "value": "29.6", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The West region accounted for 29.6% of shipments."}},
+    {"id": "n15", "text": "303 thousand", "value": "303000", "decimals": 0, "unit": "USD", "exact": null, "loc": {"page": 2, "quote": "Marketing spend reached 303 thousand in Aug."}},
+    {"id": "n16", "text": "42.2", "value": "42.2", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Utilities 42.2"}},
+    {"id": "n17", "text": "79.4", "value": "79.4", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Travel 79.4"}},
+    {"id": "n18", "text": "45.7", "value": "45.7", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Staff 45.7"}},
+    {"id": "n19", "text": "170.2", "value": "170.2", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Total 170.2"}},
+    {"id": "n20", "text": "203 thousand", "value": "203000", "decimals": 0, "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 203 thousand in the Suburban area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $6.47M to $7.38M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The on-time increase should be the point difference between 51.9% and 49.7%."},
+    {"id": "c3", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The regional total should be the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n13"}]},
+     "say": "The shipment total on page 1 should equal the table total on page 2."},
+    {"id": "c5", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n12"}, {"ref": "n13"}]},
+     "say": "Highland's share should be 772 of the shipment total."},
+    {"id": "c6", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n11"}, {"ref": "n13"}]},
+     "say": "West's share should be 2,115 of the shipment total."},
+    {"id": "c7", "kind": "derived", "target": "n19", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}]},
+     "say": "The cost total should be the sum of the three items."},
+    {"id": "c8", "kind": "chart", "check": "text_vs_chart", "target": "n15",
+     "chart": "g1", "mark": {"label": "Aug", "series": null},
+     "say": "The prose figure for August marketing spend should match the August point in Figure 1."},
+    {"id": "c9", "kind": "chart", "check": "parts_sum", "target": "n20",
+     "chart": "g2", "marks": [{"label": "Suburban", "series": "Online"}, {"label": "Suburban", "series": "Stores"}],
+     "say": "The Suburban total in the prose should equal the two stacked segments in Figure 2."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "line",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "900", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Aug", "series": null, "read_a": {"lo": "130", "hi": "148"}, "read_b": {"lo": "133", "hi": "145"}, "printed_label": null}
+     ],
+     "notes": []},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "300", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Suburban", "series": "Online", "read_a": {"lo": "113", "hi": "120"}, "read_b": {"lo": "114", "hi": "119"}, "printed_label": null},
+       {"label": "Suburban", "series": "Stores", "read_a": {"lo": "82", "hi": "91"}, "read_b": {"lo": "84", "hi": "89"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s2", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "reason": "figure number / reference index"},
+    {"text": "2", "reason": "figure number / reference index / DOI fragment"},
+    {"text": "2017", "reason": "year"},
+    {"text": "2016", "reason": "year"},
+    {"text": "1985", "reason": "year"},
+    {"text": "2013", "reason": "year"},
+    {"text": "10.1177", "reason": "DOI (checked as source)"},
+    {"text": "1948550616673876", "reason": "DOI (checked as source)"},
+    {"text": "10.3758", "reason": "DOI (checked as source)"},
+    {"text": "015", "reason": "DOI (checked as source)"},
+    {"text": "0664", "reason": "DOI (checked as source)"}
+  ]
+}

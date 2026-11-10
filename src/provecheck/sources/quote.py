@@ -14,7 +14,7 @@ from difflib import SequenceMatcher
 from provecheck import CONTRADICTED, UNVERIFIED, VERIFIED
 from provecheck.grounding import normalize
 from provecheck.sources import Outcome, unreachable
-from provecheck.sources.client import Client
+from provecheck.sources.client import Client, is_public_web_address
 
 MIN_PAGE_CHARS = 500  # less than this is a stub, a login wall or a script shell
 NEAR = 0.75  # at or above: the same passage, altered
@@ -57,8 +57,10 @@ def closest(quote: str, text: str) -> tuple[float, str]:
 
 def resolve(source: dict, client: Client) -> Outcome:
     address, quote = source["value"].strip(), source.get("quote") or ""
-    if not address.lower().startswith(("http://", "https://")):
-        return Outcome(UNVERIFIED, "The source of the quotation is not a web address.", "not-a-url")
+    if not is_public_web_address(address):
+        return Outcome(
+            UNVERIFIED, "The source of the quotation is not a public web address.", "not-a-url"
+        )
     reply = client.get(address)
     if not reply.ok:
         if reply.missing:

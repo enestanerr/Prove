@@ -1,0 +1,89 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "tr"},
+  "numbers": [
+    {"id": "r2", "text": "6,16M", "value": "6160000", "decimals": 2, "unit": "EUR", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from €6,16M in Q2 to €6,38M in Q3, up 4%."}},
+    {"id": "r3", "text": "6,38M", "value": "6380000", "decimals": 2, "unit": "EUR", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from €6,16M in Q2 to €6,38M in Q3, up 4%."}},
+    {"id": "rg", "text": "4%", "value": "4", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from €6,16M in Q2 to €6,38M in Q3, up 4%."}},
+    {"id": "m2", "text": "53,7%", "value": "53.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Gross margin improved from 53,7% to 57,8%, a gain of 4,1 percentage points."}},
+    {"id": "m3", "text": "57,8%", "value": "57.8", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Gross margin improved from 53,7% to 57,8%, a gain of 4,1 percentage points."}},
+    {"id": "mg", "text": "4,1", "value": "4.1", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 4,1 percentage points."}},
+    {"id": "wp", "text": "22%", "value": "22", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 22% of enrolments came from the West region."}},
+    {"id": "e1", "text": "354", "value": "354", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Valley 354"}},
+    {"id": "e2", "text": "902", "value": "902", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Central 902"}},
+    {"id": "e3", "text": "2.214", "value": "2214", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "South 2.214"}},
+    {"id": "e4", "text": "1.518", "value": "1518", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "East 1.518"}},
+    {"id": "e5", "text": "1.349", "value": "1349", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "West 1.349"}},
+    {"id": "et", "text": "6.447", "value": "6447", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Total 6.447"}},
+    {"id": "cp", "text": "14,2%", "value": "14.2", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Central region accounted for 14,2% of enrolments."}},
+    {"id": "h638", "text": "638", "value": "638", "decimals": 0, "unit": "k hours", "exact": null, "loc": {"page": 2, "quote": "Training hours reached 638 thousand in Jul."}},
+    {"id": "k1", "text": "86,8", "value": "86800", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Rent 86,8"}},
+    {"id": "k2", "text": "64,2", "value": "64200", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Software 64,2"}},
+    {"id": "k3", "text": "16,4", "value": "16400", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Travel 16,4"}},
+    {"id": "k4", "text": "59,2", "value": "59200", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Staff 59,2"}},
+    {"id": "k5", "text": "20,2", "value": "20200", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Utilities 20,2"}},
+    {"id": "kt", "text": "246,8", "value": "246800", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Total 246,8"}},
+    {"id": "s343", "text": "343", "value": "343", "decimals": 0, "unit": "k", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 343 thousand in the Suburban area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "rg", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "r2"}, {"ref": "r3"}]},
+     "say": "Revenue growth should be the change from €6,16M to €6,38M."},
+    {"id": "c2", "kind": "derived", "target": "mg", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "m3"}, {"ref": "m2"}]},
+     "say": "The margin gain should be 57,8% minus 53,7% in percentage points."},
+    {"id": "c3", "kind": "derived", "target": "wp", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "e5"}, {"op": "sum", "args": [{"ref": "e1"}, {"ref": "e2"}, {"ref": "e3"}, {"ref": "e4"}, {"ref": "e5"}]}]},
+     "say": "The West share should be West enrolments over the sum of the five regions."},
+    {"id": "c4", "kind": "derived", "target": "cp", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "e2"}, {"op": "sum", "args": [{"ref": "e1"}, {"ref": "e2"}, {"ref": "e3"}, {"ref": "e4"}, {"ref": "e5"}]}]},
+     "say": "The Central share should be Central enrolments over the sum of the five regions."},
+    {"id": "c5", "kind": "derived", "target": "et", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "e1"}, {"ref": "e2"}, {"ref": "e3"}, {"ref": "e4"}, {"ref": "e5"}]},
+     "say": "The enrolment total should equal the sum of the five regions."},
+    {"id": "c6", "kind": "derived", "target": "kt", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "k1"}, {"ref": "k2"}, {"ref": "k3"}, {"ref": "k4"}, {"ref": "k5"}]},
+     "say": "The cost total should equal the sum of the five items."},
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "h638",
+     "chart": "g1", "mark": {"label": "Jul"},
+     "say": "The prose figure for July training hours should match the Jul point in Figure 1."},
+    {"id": "c8", "kind": "chart", "check": "parts_sum", "target": "s343",
+     "chart": "g2", "marks": [{"label": "Suburban", "series": "Online"}, {"label": "Suburban", "series": "Stores"}],
+     "say": "Online plus store sales in Suburban should match the stated 343 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "line",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "300", "max": "800", "scale": "linear", "unit": "thousand hours"},
+     "marks": [
+       {"label": "Jul", "read_a": {"lo": "630", "hi": "646"}, "read_b": {"lo": "632", "hi": "644"}, "printed_label": null}
+     ],
+     "notes": ["The value axis starts at 300, not zero."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "350", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Suburban", "series": "Online", "read_a": {"lo": "140", "hi": "150"}, "read_b": {"lo": "141", "hi": "149"}, "printed_label": null},
+       {"label": "Suburban", "series": "Stores", "read_a": {"lo": "125", "hi": "138"}, "read_b": {"lo": "127", "hi": "136"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.5555/prove.synth.0016", "cited_title": "Reconciling quarterly service figures in small organisations", "cited_year": 2021, "quote": null, "loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0016"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Training hours by month, thousands"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel, thousands"}, "reason": "figure number"},
+    {"text": "2026", "reason": "year"},
+    {"text": "2016", "reason": "year"},
+    {"text": "2021", "reason": "year"},
+    {"text": "1985", "reason": "year"},
+    {"text": "2013", "reason": "year"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016). The prevalence of statistical reporting"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Okafor, T., & Lindqvist, A. (2021). Reconciling quarterly service figures in small"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "organisations. doi:10.5555/prove.synth.0016"}, "reason": "reference list"}
+  ]
+}

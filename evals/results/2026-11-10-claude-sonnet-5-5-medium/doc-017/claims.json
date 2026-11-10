@@ -1,0 +1,601 @@
+{
+ "schema": "prove.claims.v1",
+ "document": {
+  "path": "report.pdf",
+  "locale": "en"
+ },
+ "numbers": [
+  {
+   "id": "n1",
+   "text": "$6.4M",
+   "value": "6400000",
+   "decimals": 1,
+   "unit": "USD",
+   "exact": null,
+   "loc": {
+    "page": 1,
+    "quote": "Revenue rose from $6.4M in Q2 to $7.2M in Q3, up 13%."
+   }
+  },
+  {
+   "id": "n2",
+   "text": "$7.2M",
+   "value": "7200000",
+   "decimals": 1,
+   "unit": "USD",
+   "exact": null,
+   "loc": {
+    "page": 1,
+    "quote": "Revenue rose from $6.4M in Q2 to $7.2M in Q3, up 13%."
+   }
+  },
+  {
+   "id": "n3",
+   "text": "13%",
+   "value": "13",
+   "decimals": 0,
+   "unit": "%",
+   "exact": null,
+   "loc": {
+    "page": 1,
+    "quote": "Revenue rose from $6.4M in Q2 to $7.2M in Q3, up 13%."
+   }
+  },
+  {
+   "id": "n4",
+   "text": "51.2%",
+   "value": "51.2",
+   "decimals": 1,
+   "unit": "%",
+   "exact": null,
+   "loc": {
+    "page": 1,
+    "quote": "Retention rate improved from 51.2% to 54.5%, an increase of 3.3%."
+   }
+  },
+  {
+   "id": "n5",
+   "text": "54.5%",
+   "value": "54.5",
+   "decimals": 1,
+   "unit": "%",
+   "exact": null,
+   "loc": {
+    "page": 1,
+    "quote": "Retention rate improved from 51.2% to 54.5%, an increase of 3.3%."
+   }
+  },
+  {
+   "id": "n6",
+   "text": "3.3%",
+   "value": "3.3",
+   "decimals": 1,
+   "unit": "pp",
+   "exact": null,
+   "loc": {
+    "page": 1,
+    "quote": "Retention rate improved from 51.2% to 54.5%, an increase of 3.3%."
+   }
+  },
+  {
+   "id": "n7",
+   "text": "25%",
+   "value": "25",
+   "decimals": 0,
+   "unit": "%",
+   "exact": null,
+   "loc": {
+    "page": 1,
+    "quote": "About 25% of shipments came from the South region."
+   }
+  },
+  {
+   "id": "n8",
+   "text": "2,392",
+   "value": "2392",
+   "decimals": 0,
+   "unit": "shipments",
+   "exact": "count",
+   "loc": {
+    "page": 2,
+    "quote": "West 2,392"
+   }
+  },
+  {
+   "id": "n9",
+   "text": "2,171",
+   "value": "2171",
+   "decimals": 0,
+   "unit": "shipments",
+   "exact": "count",
+   "loc": {
+    "page": 2,
+    "quote": "South 2,171"
+   }
+  },
+  {
+   "id": "n10",
+   "text": "2,157",
+   "value": "2157",
+   "decimals": 0,
+   "unit": "shipments",
+   "exact": "count",
+   "loc": {
+    "page": 2,
+    "quote": "North 2,157"
+   }
+  },
+  {
+   "id": "n11",
+   "text": "1,795",
+   "value": "1795",
+   "decimals": 0,
+   "unit": "shipments",
+   "exact": "count",
+   "loc": {
+    "page": 2,
+    "quote": "Valley 1,795"
+   }
+  },
+  {
+   "id": "n12",
+   "text": "8,625",
+   "value": "8625",
+   "decimals": 0,
+   "unit": "shipments",
+   "exact": "count",
+   "loc": {
+    "page": 2,
+    "quote": "Total 8,625"
+   }
+  },
+  {
+   "id": "n13",
+   "text": "24.9%",
+   "value": "24.9",
+   "decimals": 1,
+   "unit": "%",
+   "exact": null,
+   "loc": {
+    "page": 2,
+    "quote": "The West region accounted for 24.9% of shipments."
+   }
+  },
+  {
+   "id": "n14",
+   "text": "819 thousand",
+   "value": "819000",
+   "decimals": 0,
+   "unit": "thousand tickets",
+   "exact": null,
+   "loc": {
+    "page": 2,
+    "quote": "Support tickets reached 819 thousand in Jun."
+   }
+  },
+  {
+   "id": "n15",
+   "text": "78.2",
+   "value": "78200",
+   "decimals": 1,
+   "unit": "USD thousands",
+   "scale": "1000",
+   "exact": null,
+   "loc": {
+    "page": 3,
+    "quote": "Travel 78.2"
+   }
+  },
+  {
+   "id": "n16",
+   "text": "58.2",
+   "value": "58200",
+   "decimals": 1,
+   "unit": "USD thousands",
+   "scale": "1000",
+   "exact": null,
+   "loc": {
+    "page": 3,
+    "quote": "Rent 58.2"
+   }
+  },
+  {
+   "id": "n17",
+   "text": "17.0",
+   "value": "17000",
+   "decimals": 1,
+   "unit": "USD thousands",
+   "scale": "1000",
+   "exact": null,
+   "loc": {
+    "page": 3,
+    "quote": "Staff 17.0"
+   }
+  },
+  {
+   "id": "n18",
+   "text": "91.4",
+   "value": "91400",
+   "decimals": 1,
+   "unit": "USD thousands",
+   "scale": "1000",
+   "exact": null,
+   "loc": {
+    "page": 3,
+    "quote": "Utilities 91.4"
+   }
+  },
+  {
+   "id": "n19",
+   "text": "84.5",
+   "value": "84500",
+   "decimals": 1,
+   "unit": "USD thousands",
+   "scale": "1000",
+   "exact": null,
+   "loc": {
+    "page": 3,
+    "quote": "Insurance 84.5"
+   }
+  },
+  {
+   "id": "n20",
+   "text": "331.3",
+   "value": "331300",
+   "decimals": 1,
+   "unit": "USD thousands",
+   "scale": "1000",
+   "exact": null,
+   "loc": {
+    "page": 3,
+    "quote": "Total 331.3"
+   }
+  },
+  {
+   "id": "n21",
+   "text": "292 thousand",
+   "value": "292000",
+   "decimals": 0,
+   "unit": "thousand",
+   "exact": null,
+   "loc": {
+    "page": 3,
+    "quote": "reached 292 thousand in the Rural area"
+   }
+  }
+ ],
+ "claims": [
+  {
+   "id": "c1",
+   "kind": "derived",
+   "target": "n3",
+   "hedge": null,
+   "derivation": {
+    "op": "pct_change",
+    "args": [
+     {
+      "ref": "n1"
+     },
+     {
+      "ref": "n2"
+     }
+    ]
+   },
+   "say": "Revenue growth should be the change from $6.4M to $7.2M."
+  },
+  {
+   "id": "c2",
+   "kind": "derived",
+   "target": "n6",
+   "hedge": null,
+   "derivation": {
+    "op": "pp_diff",
+    "args": [
+     {
+      "ref": "n5"
+     },
+     {
+      "ref": "n4"
+     }
+    ]
+   },
+   "say": "The retention increase, read as percentage points, should be 54.5% minus 51.2%."
+  },
+  {
+   "id": "c3",
+   "kind": "derived",
+   "target": "n7",
+   "hedge": "approx",
+   "derivation": {
+    "op": "pct_of",
+    "args": [
+     {
+      "ref": "n9"
+     },
+     {
+      "op": "sum",
+      "args": [
+       {
+        "ref": "n8"
+       },
+       {
+        "ref": "n9"
+       },
+       {
+        "ref": "n10"
+       },
+       {
+        "ref": "n11"
+       }
+      ]
+     }
+    ]
+   },
+   "say": "South's share should be South shipments over the sum of the four regions."
+  },
+  {
+   "id": "c4",
+   "kind": "derived",
+   "target": "n12",
+   "hedge": null,
+   "derivation": {
+    "op": "sum",
+    "args": [
+     {
+      "ref": "n8"
+     },
+     {
+      "ref": "n9"
+     },
+     {
+      "ref": "n10"
+     },
+     {
+      "ref": "n11"
+     }
+    ]
+   },
+   "say": "The shipments total should be the sum of the four regions."
+  },
+  {
+   "id": "c5",
+   "kind": "derived",
+   "target": "n13",
+   "hedge": null,
+   "derivation": {
+    "op": "pct_of",
+    "args": [
+     {
+      "ref": "n8"
+     },
+     {
+      "op": "sum",
+      "args": [
+       {
+        "ref": "n8"
+       },
+       {
+        "ref": "n9"
+       },
+       {
+        "ref": "n10"
+       },
+       {
+        "ref": "n11"
+       }
+      ]
+     }
+    ]
+   },
+   "say": "West's share should be West shipments over the sum of the four regions."
+  },
+  {
+   "id": "c6",
+   "kind": "derived",
+   "target": "n20",
+   "hedge": null,
+   "derivation": {
+    "op": "sum",
+    "args": [
+     {
+      "ref": "n15"
+     },
+     {
+      "ref": "n16"
+     },
+     {
+      "ref": "n17"
+     },
+     {
+      "ref": "n18"
+     },
+     {
+      "ref": "n19"
+     }
+    ]
+   },
+   "say": "The cost total should be the sum of the five items."
+  },
+  {
+   "id": "c7",
+   "kind": "chart",
+   "check": "text_vs_chart",
+   "target": "n14",
+   "chart": "g1",
+   "mark": {
+    "label": "Jun"
+   },
+   "say": "The prose figure for June tickets should match the Jun point in Figure 1."
+  },
+  {
+   "id": "c8",
+   "kind": "chart",
+   "check": "parts_sum",
+   "target": "n21",
+   "chart": "g2",
+   "marks": [
+    {
+     "label": "Rural",
+     "series": "Online"
+    },
+    {
+     "label": "Rural",
+     "series": "Stores"
+    }
+   ],
+   "say": "The Rural stacked segments should add up to the stated 292 thousand."
+  }
+ ],
+ "charts": [
+  {
+   "id": "g1",
+   "loc": {
+    "page": 2,
+    "figure": "Figure 1"
+   },
+   "type": "line",
+   "image": "prove-work/crops/g1.png",
+   "y_axis": {
+    "min": "0",
+    "max": "1000",
+    "scale": "linear",
+    "unit": "thousands",
+    "multiplier": "1000"
+   },
+   "marks": [
+    {
+     "label": "Jun",
+     "read_a": {
+      "lo": "800",
+      "hi": "830"
+     },
+     "read_b": {
+      "lo": "805",
+      "hi": "828"
+     },
+     "printed_label": null
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "g2",
+   "loc": {
+    "page": 3,
+    "figure": "Figure 2"
+   },
+   "type": "stacked_bar",
+   "image": "prove-work/crops/g2.png",
+   "y_axis": {
+    "min": "0",
+    "max": "350",
+    "scale": "linear",
+    "unit": "thousands",
+    "multiplier": "1000"
+   },
+   "marks": [
+    {
+     "label": "Rural",
+     "series": "Online",
+     "read_a": {
+      "lo": "108",
+      "hi": "120"
+     },
+     "read_b": {
+      "lo": "110",
+      "hi": "118"
+     },
+     "printed_label": null
+    },
+    {
+     "label": "Rural",
+     "series": "Stores",
+     "read_a": {
+      "lo": "170",
+      "hi": "184"
+     },
+     "read_b": {
+      "lo": "173",
+      "hi": "181"
+     },
+     "printed_label": null
+    }
+   ],
+   "notes": []
+  }
+ ],
+ "sources": [
+  {
+   "id": "s1",
+   "kind": "doi",
+   "value": "10.1177/1948550616673876",
+   "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+   "cited_year": 2017,
+   "quote": null,
+   "loc": {
+    "page": 3,
+    "quote": "doi:10.1177/1948550616673876"
+   }
+  },
+  {
+   "id": "s2",
+   "kind": "doi",
+   "value": "10.5555/prove.synth.0017",
+   "cited_title": "Reconciling quarterly service figures in small organisations",
+   "cited_year": 2021,
+   "quote": null,
+   "loc": {
+    "page": 3,
+    "quote": "doi:10.5555/prove.synth.0017"
+   }
+  },
+  {
+   "id": "s3",
+   "kind": "quote",
+   "value": "https://www.iana.org/help/example-domains",
+   "cited_title": null,
+   "cited_year": null,
+   "quote": "These domains may be used as illustrative examples in documents only with prior coordination with us.",
+   "loc": {
+    "page": 3,
+    "quote": "These domains may be used as illustrative"
+   }
+  }
+ ],
+ "skipped": [
+  {
+   "text": "2026",
+   "reason": "year"
+  },
+  {
+   "text": "2017",
+   "reason": "year in reference"
+  },
+  {
+   "text": "2021",
+   "reason": "year in reference"
+  },
+  {
+   "text": "1",
+   "reason": "figure/reference number"
+  },
+  {
+   "text": "2",
+   "reason": "figure/reference number"
+  },
+  {
+   "loc": {
+    "page": 3,
+    "quote": "doi:10.1177/1948550616673876"
+   },
+   "reason": "DOI identifier"
+  },
+  {
+   "loc": {
+    "page": 3,
+    "quote": "doi:10.5555/prove.synth.0017"
+   },
+   "reason": "DOI identifier"
+  }
+ ]
+}

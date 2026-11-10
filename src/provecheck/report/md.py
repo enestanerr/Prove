@@ -17,10 +17,12 @@ def by_assurance(summary: dict) -> list[str]:
     return lines
 
 
-def where(rec: dict) -> str:
+def where(rec: dict, assurance: bool = True) -> str:
     target, chart = rec.get("target") or {}, rec.get("chart") or {}
     page = target.get("page") or chart.get("page") or rec.get("page")
-    bits = [rec["id"], ASSURANCE_LABEL.get(rec["assurance"], rec["assurance"])]
+    bits = [rec["id"]]
+    if assurance:
+        bits.append(ASSURANCE_LABEL.get(rec["assurance"], rec["assurance"]))
     if chart.get("figure"):
         bits.append(chart["figure"])
     if page:

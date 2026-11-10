@@ -1,0 +1,81 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "3.1M", "value": "3100000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $3.1M in Q2 to $3.4M in Q3, up 9%."}},
+    {"id": "n2", "text": "3.4M", "value": "3400000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $3.1M in Q2 to $3.4M in Q3, up 9%."}},
+    {"id": "n3", "text": "9%", "value": "9", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $3.1M in Q2 to $3.4M in Q3, up 9%."}},
+    {"id": "n4", "text": "48.4%", "value": "48.4", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 48.4% to 53.7%"}},
+    {"id": "n5", "text": "53.7%", "value": "53.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 48.4% to 53.7%"}},
+    {"id": "n6", "text": "5.3", "value": "5.3", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 5.3 percentage points"}},
+    {"id": "n7", "text": "12%", "value": "12", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 12% of enrolments came from the Coastal region."}},
+    {"id": "n8", "text": "622", "value": "622", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Coastal 622"}},
+    {"id": "n9", "text": "388", "value": "388", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "East 388"}},
+    {"id": "n10", "text": "1,339", "value": "1339", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "West 1,339"}},
+    {"id": "n11", "text": "1,853", "value": "1853", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Highland 1,853"}},
+    {"id": "n12", "text": "430", "value": "430", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "South 430"}},
+    {"id": "n13", "text": "4,602", "value": "4602", "decimals": 0, "unit": "enrolments", "exact": "count", "loc": {"page": 2, "quote": "Total 4,602"}},
+    {"id": "n14", "text": "8.4%", "value": "8.4", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The East region accounted for 8.4% of enrolments."}},
+    {"id": "n15", "text": "313 thousand", "value": "313000", "decimals": 0, "unit": "k hours", "exact": null, "loc": {"page": 2, "quote": "Training hours reached 313 thousand in Jun."}},
+    {"id": "n16", "text": "10.3", "value": "10300", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Staff 10.3"}},
+    {"id": "n17", "text": "59.3", "value": "59300", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Insurance 59.3"}},
+    {"id": "n18", "text": "17.4", "value": "17400", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Software 17.4"}},
+    {"id": "n19", "text": "87.0", "value": "87000", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Total 87.0"}},
+    {"id": "n20", "text": "276 thousand", "value": "276000", "decimals": 0, "unit": "k", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 276 thousand in the Rural area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $3.1M to $3.4M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The occupancy gain should be 53.7% minus 48.4%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n8"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]}]},
+     "say": "The Coastal share should be Coastal enrolments over the sum of the five regions."},
+    {"id": "c4", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The enrolment total should equal the sum of the five regions."},
+    {"id": "c5", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n9"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]}]},
+     "say": "The East share should be East enrolments over the sum of the five regions."},
+    {"id": "c6", "kind": "derived", "target": "n19", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}]},
+     "say": "The cost total should equal staff plus insurance plus software."},
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "n15",
+     "chart": "g1", "mark": {"label": "Jun"},
+     "say": "The prose figure for June training hours should match the June point in Figure 1."},
+    {"id": "c8", "kind": "chart", "check": "parts_sum", "target": "n20",
+     "chart": "g2", "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "The Rural online and store segments in Figure 2 should add up to the 276 thousand stated in the text."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "line",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "100", "max": "700", "scale": "linear", "unit": "thousand hours", "multiplier": "1000"},
+     "marks": [
+       {"label": "Jun", "series": null, "read_a": {"lo": "305", "hi": "322"}, "read_b": {"lo": "306", "hi": "320"}, "printed_label": null}
+     ],
+     "notes": ["The value axis starts at 100, not 0."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "400", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "144", "hi": "160"}, "read_b": {"lo": "146", "hi": "158"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "54", "hi": "68"}, "read_b": {"lo": "56", "hi": "66"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s2", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Training hours by month"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Brown, N. J. L., & Heathers, J. A. J. (2017). The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology. doi:10.1177/1948550616673876"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016). The prevalence of statistical reporting errors in psychology (1985-2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"}
+  ]
+}

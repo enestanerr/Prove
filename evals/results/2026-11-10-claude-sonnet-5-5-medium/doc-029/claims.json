@@ -1,0 +1,84 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "4.58M", "value": "4580000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $4.58M in Q2 to $5.36M in Q3, up 17%."}},
+    {"id": "n2", "text": "5.36M", "value": "5360000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $4.58M in Q2 to $5.36M in Q3, up 17%."}},
+    {"id": "n3", "text": "17%", "value": "17", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $4.58M in Q2 to $5.36M in Q3, up 17%."}},
+    {"id": "n4", "text": "21.4%", "value": "21.4", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 21.4% to 26.7%, an increase of 5.3%."}},
+    {"id": "n5", "text": "26.7%", "value": "26.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 21.4% to 26.7%, an increase of 5.3%."}},
+    {"id": "n6", "text": "5.3%", "value": "5.3", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 21.4% to 26.7%, an increase of 5.3%."}},
+    {"id": "n7", "text": "27%", "value": "27", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 27% of service calls came from the West region."}},
+    {"id": "n8", "text": "1,726", "value": "1726", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "Coastal 1,726"}},
+    {"id": "n9", "text": "1,333", "value": "1333", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "Valley 1,333"}},
+    {"id": "n10", "text": "1,543", "value": "1543", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "Central 1,543"}},
+    {"id": "n11", "text": "1,529", "value": "1529", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "East 1,529"}},
+    {"id": "n12", "text": "2,290", "value": "2290", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "West 2,290"}},
+    {"id": "n13", "text": "8,401", "value": "8401", "decimals": 0, "unit": "calls", "exact": "count", "loc": {"page": 2, "quote": "Total 8,401"}},
+    {"id": "n14", "text": "19.5%", "value": "19.5", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Valley region accounted for 19.5% of service calls."}},
+    {"id": "n15", "text": "434 thousand", "value": "434000", "decimals": 0, "unit": "tickets", "exact": null, "loc": {"page": 2, "quote": "Support tickets reached 434 thousand in Q1."}},
+    {"id": "n16", "text": "27.7", "value": "27700", "decimals": 1, "unit": "USD thousands", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Utilities 27.7"}},
+    {"id": "n17", "text": "80.4", "value": "80400", "decimals": 1, "unit": "USD thousands", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Travel 80.4"}},
+    {"id": "n18", "text": "89.4", "value": "89400", "decimals": 1, "unit": "USD thousands", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Software 89.4"}},
+    {"id": "n19", "text": "18.5", "value": "18500", "decimals": 1, "unit": "USD thousands", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Insurance 18.5"}},
+    {"id": "n20", "text": "213.4", "value": "213400", "decimals": 1, "unit": "USD thousands", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Total 213.4"}},
+    {"id": "n21", "text": "134 thousand", "value": "134000", "decimals": 0, "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 134 thousand in the Rural area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $4.58M to $5.36M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n4"}, {"ref": "n5"}]},
+     "say": "An 'increase of 5.3%' in retention, read literally as a relative change from 21.4% to 26.7%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n12"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]}]},
+     "say": "West's share should be its calls divided by the sum of the five regions."},
+    {"id": "c4", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The total should be the sum of the five regions."},
+    {"id": "c5", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n9"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]}]},
+     "say": "Valley's share should be its calls divided by the sum of the five regions."},
+    {"id": "c6", "kind": "derived", "target": "n20", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}, {"ref": "n19"}]},
+     "say": "The cost total should be the sum of the four items."},
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "n15",
+     "chart": "g1", "mark": {"label": "Q1"},
+     "say": "The prose figure for Q1 support tickets should match the Q1 bar in Figure 1."},
+    {"id": "c8", "kind": "chart", "check": "parts_sum", "target": "n21",
+     "chart": "g2", "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "Online plus store sales for Rural should match the stated 134 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "800", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Q1", "read_a": {"lo": "420", "hi": "445"}, "read_b": {"lo": "425", "hi": "440"}, "printed_label": null}
+     ],
+     "notes": []},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "350", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "69", "hi": "77"}, "read_b": {"lo": "70", "hi": "76"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "58", "hi": "66"}, "read_b": {"lo": "59", "hi": "64"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Support tickets by quarter"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Brown, N. J. L., & Heathers, J. A. J. (2017)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}, "reason": "reference list"}
+  ]
+}

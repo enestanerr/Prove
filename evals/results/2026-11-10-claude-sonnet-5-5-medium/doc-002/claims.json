@@ -1,0 +1,92 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "1.6M", "value": "1600000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $1.6M in Q2"}},
+    {"id": "n2", "text": "1.6M", "value": "1600000", "decimals": 1, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "to $1.6M in Q3"}},
+    {"id": "n3", "text": "4%", "value": "4", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "in Q3, up 4%"}},
+    {"id": "n4", "text": "38.2%", "value": "38.2", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "improved from 38.2% to 40.1%"}},
+    {"id": "n5", "text": "40.1%", "value": "40.1", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "improved from 38.2% to 40.1%"}},
+    {"id": "n6", "text": "1.9", "value": "1.9", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 1.9 percentage points"}},
+    {"id": "n7", "text": "5,692", "value": "5692", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 1, "quote": "In total, 5,692 shipments were recorded"}},
+    {"id": "n8", "text": "30%", "value": "30", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 30% of shipments came from the North region"}},
+    {"id": "n9", "text": "1,750", "value": "1750", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Valley 1,750"}},
+    {"id": "n10", "text": "417", "value": "417", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "West 417"}},
+    {"id": "n11", "text": "1,742", "value": "1742", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Highland 1,742"}},
+    {"id": "n12", "text": "1,783", "value": "1783", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "North 1,783"}},
+    {"id": "n13", "text": "5,692", "value": "5692", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Total 5,692"}},
+    {"id": "n14", "text": "35.3%", "value": "35.3", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Highland region accounted for 35.3% of shipments"}},
+    {"id": "n15", "text": "537 thousand", "value": "537000", "decimals": 0, "unit": "tickets", "exact": null, "loc": {"page": 2, "quote": "Support tickets reached 537 thousand in Q2"}},
+    {"id": "n16", "text": "749", "value": "749000", "decimals": 0, "unit": "tickets", "exact": null, "scale": "1000", "loc": {"page": 2, "quote": "749", "image": true}},
+    {"id": "n17", "text": "62.0", "value": "62000", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Staff 62.0"}},
+    {"id": "n18", "text": "69.6", "value": "69600", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Utilities 69.6"}},
+    {"id": "n19", "text": "71.2", "value": "71200", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Rent 71.2"}},
+    {"id": "n20", "text": "202.8", "value": "202800", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Total 202.8"}},
+    {"id": "n21", "text": "298 thousand", "value": "298000", "decimals": 0, "unit": "USD", "exact": null, "loc": {"page": 3, "quote": "together reached 298 thousand in the Metro area"}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $1.6M to $1.6M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The on-time gain should be 40.1% minus 38.2%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "Total shipments should be the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The table total should be the sum of the four regions."},
+    {"id": "c5", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n13"}]},
+     "say": "The total on page 1 should equal the table total on page 2."},
+    {"id": "c6", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n12"}, {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]}]},
+     "say": "North's share should be North shipments over the sum of the regions."},
+    {"id": "c7", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n11"}, {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]}]},
+     "say": "Highland's share should be Highland shipments over the sum of the regions."},
+    {"id": "c8", "kind": "derived", "target": "n20", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n17"}, {"ref": "n18"}, {"ref": "n19"}]},
+     "say": "The cost total should be Staff + Utilities + Rent."},
+    {"id": "c9", "kind": "chart", "check": "text_vs_chart", "target": "n15", "chart": "g1", "mark": {"label": "Q2"},
+     "say": "The prose figure for Q2 tickets should match the Q2 bar in Figure 1."},
+    {"id": "c10", "kind": "chart", "check": "label_vs_mark", "target": "n16", "chart": "g1", "mark": {"label": "Q2"},
+     "say": "The value label on the Q2 bar should match where the bar ends."},
+    {"id": "c11", "kind": "chart", "check": "parts_sum", "target": "n21", "chart": "g2",
+     "marks": [{"label": "Metro", "series": "Online"}, {"label": "Metro", "series": "Stores"}],
+     "say": "The Metro Online and Stores segments should add to the stated 298 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar", "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "1000", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Q2", "series": null, "read_a": {"lo": "528", "hi": "545"}, "read_b": {"lo": "530", "hi": "543"}, "printed_label": "n16"}
+     ],
+     "notes": ["Quarter order on the x axis is Q4, Q1, Q2, Q3."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar", "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "350", "scale": "linear", "unit": "thousands", "multiplier": "1000"},
+     "marks": [
+       {"label": "Metro", "series": "Online", "read_a": {"lo": "172", "hi": "180"}, "read_b": {"lo": "173", "hi": "179"}, "printed_label": null},
+       {"label": "Metro", "series": "Stores", "read_a": {"lo": "117", "hi": "127"}, "read_b": {"lo": "119", "hi": "125"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985–2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2}, "reason": "figure number"},
+    {"text": "1", "loc": {"page": 3}, "reason": "reference number"},
+    {"text": "2", "loc": {"page": 3}, "reason": "figure number / reference number / DOI part"},
+    {"text": "2016", "reason": "year"},
+    {"text": "2017", "reason": "year"},
+    {"text": "1985", "reason": "year"},
+    {"text": "2013", "reason": "year"},
+    {"loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}, "reason": "DOI identifier"},
+    {"loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}, "reason": "DOI identifier"}
+  ]
+}

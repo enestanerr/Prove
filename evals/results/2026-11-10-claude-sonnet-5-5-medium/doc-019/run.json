@@ -1,0 +1,159 @@
+{
+  "document": "report.pdf",
+  "status": "ok",
+  "wall_seconds": 74.0,
+  "turns": 22,
+  "cost_usd": 0.31576139999999997,
+  "tokens": {
+    "input_tokens": 30,
+    "output_tokens": 8888,
+    "cache_read_input_tokens": 704624,
+    "cache_creation_input_tokens": 39058
+  },
+  "permission_denials": 1,
+  "score": {
+    "planted": [
+      {
+        "id": "e1",
+        "type": "crossref",
+        "outcome": "contradicted"
+      },
+      {
+        "id": "e2",
+        "type": "chart_label",
+        "outcome": "contradicted"
+      }
+    ],
+    "traps": [
+      {
+        "id": "t1",
+        "type": "rounding",
+        "outcome": "not-flagged"
+      },
+      {
+        "id": "t2",
+        "type": "hedge",
+        "outcome": "not-flagged"
+      },
+      {
+        "id": "t3",
+        "type": "rounding",
+        "outcome": "suspect"
+      }
+    ],
+    "planted_total": 2,
+    "caught": 2,
+    "caught_as_suspect": 0,
+    "false_alarms": [],
+    "cascades": [],
+    "trap_total": 3,
+    "traps_flagged": 0,
+    "claims": 10,
+    "verdicts": {
+      "contradicted": 2,
+      "suspect": 1,
+      "unverified": 3,
+      "verified": 7
+    },
+    "coverage": {
+      "found": 32,
+      "checked": 21,
+      "skipped": 11,
+      "missed": 0
+    }
+  },
+  "charts": [
+    {
+      "figure": "Figure 1",
+      "label": "Q4",
+      "true": 152,
+      "status": "not-read"
+    },
+    {
+      "figure": "Figure 1",
+      "label": "Q1",
+      "true": 775,
+      "status": "not-read"
+    },
+    {
+      "figure": "Figure 1",
+      "label": "Q2",
+      "true": 805,
+      "status": "not-read"
+    },
+    {
+      "figure": "Figure 1",
+      "label": "Q3",
+      "true": 814,
+      "status": "ok",
+      "error_share_of_span": 0.0015,
+      "contains_true_value": true
+    },
+    {
+      "figure": "Figure 2",
+      "label": "Metro",
+      "true": 183,
+      "status": "not-read",
+      "series": "Online"
+    },
+    {
+      "figure": "Figure 2",
+      "label": "Suburban",
+      "true": 44,
+      "status": "not-read",
+      "series": "Online"
+    },
+    {
+      "figure": "Figure 2",
+      "label": "Rural",
+      "true": 78,
+      "status": "ok",
+      "series": "Online",
+      "error_share_of_span": 0.0,
+      "contains_true_value": true
+    },
+    {
+      "figure": "Figure 2",
+      "label": "Metro",
+      "true": 66,
+      "status": "not-read",
+      "series": "Stores"
+    },
+    {
+      "figure": "Figure 2",
+      "label": "Suburban",
+      "true": 94,
+      "status": "not-read",
+      "series": "Stores"
+    },
+    {
+      "figure": "Figure 2",
+      "label": "Rural",
+      "true": 142,
+      "status": "ok",
+      "series": "Stores",
+      "error_share_of_span": 0.0,
+      "contains_true_value": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "type": "quote",
+      "planted": false,
+      "outcome": "verified"
+    },
+    {
+      "id": "s2",
+      "type": "doi",
+      "planted": false,
+      "outcome": "verified"
+    },
+    {
+      "id": "s3",
+      "type": "doi_missing",
+      "planted": true,
+      "outcome": "contradicted"
+    }
+  ]
+}

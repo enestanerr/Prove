@@ -1,0 +1,53 @@
+{
+  "schema": "prove.sources.v1",
+  "offline": false,
+  "sources": [
+    {
+      "id": "s1",
+      "kind": "doi",
+      "value": "10.1177/1948550616673876",
+      "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology",
+      "page": 3,
+      "verdict": "verified",
+      "assurance": "resolved",
+      "reason": null,
+      "message": "DOI 10.1177/1948550616673876 resolves to “The GRIM Test” (2016), matching the cited title.",
+      "found": {
+        "title": "The GRIM Test",
+        "year": 2016,
+        "similarity": 1.0
+      }
+    },
+    {
+      "id": "s2",
+      "kind": "doi",
+      "value": "10.3758/s13428-015-0664-2",
+      "cited_title": "The prevalence of statistical reporting errors in psychology (1985–2013)",
+      "page": 3,
+      "verdict": "verified",
+      "assurance": "resolved",
+      "reason": null,
+      "message": "DOI 10.3758/s13428-015-0664-2 resolves to “The prevalence of statistical reporting errors in psychology (1985–2013)” (2015), matching the cited title.",
+      "found": {
+        "title": "The prevalence of statistical reporting errors in psychology (1985–2013)",
+        "year": 2015,
+        "similarity": 1.0
+      }
+    },
+    {
+      "id": "s3",
+      "kind": "quote",
+      "value": "https://www.iana.org/help/example-domains",
+      "cited_title": null,
+      "page": 3,
+      "verdict": "contradicted",
+      "assurance": "resolved",
+      "reason": null,
+      "message": "The quoted words are not on the source page. The closest passage reads: “these domains may be used as illustrative examples in documents without prior coordination with us they”.",
+      "found": {
+        "closest": "these domains may be used as illustrative examples in documents without prior coordination with us they",
+        "similarity": 0.94
+      }
+    }
+  ]
+}

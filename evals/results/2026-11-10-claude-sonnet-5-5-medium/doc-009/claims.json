@@ -1,0 +1,88 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "de"},
+  "numbers": [
+    {"id": "n1", "text": "5,6M", "value": "5600000", "decimals": 1, "unit": "EUR", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from €5,6M in Q2 to €6,0M in Q3, up 6%."}},
+    {"id": "n2", "text": "6,0M", "value": "6000000", "decimals": 1, "unit": "EUR", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from €5,6M in Q2 to €6,0M in Q3, up 6%."}},
+    {"id": "n3", "text": "6%", "value": "6", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from €5,6M in Q2 to €6,0M in Q3, up 6%."}},
+    {"id": "n4", "text": "54,6%", "value": "54.6", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 54,6% to 60,4%, a gain of 5,8 percentage points."}},
+    {"id": "n5", "text": "60,4%", "value": "60.4", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 54,6% to 60,4%, a gain of 5,8 percentage points."}},
+    {"id": "n6", "text": "5,8", "value": "5.8", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "Retention rate improved from 54,6% to 60,4%, a gain of 5,8 percentage points."}},
+    {"id": "n7", "text": "7.277", "value": "7277", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 1, "quote": "In total, 7.277 shipments were recorded in the quarter."}},
+    {"id": "n8", "text": "16%", "value": "16", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 16% of shipments came from the Highland region."}},
+    {"id": "n9", "text": "2.470", "value": "2470", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Central 2.470"}},
+    {"id": "n10", "text": "2.226", "value": "2226", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "East 2.226"}},
+    {"id": "n11", "text": "1.485", "value": "1485", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Valley 1.485"}},
+    {"id": "n12", "text": "1.096", "value": "1096", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Highland 1.096"}},
+    {"id": "n13", "text": "7.277", "value": "7277", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Total 7.277"}},
+    {"id": "n14", "text": "26,1%", "value": "26.1", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Valley region accounted for 26,1% of shipments."}},
+    {"id": "n15", "text": "544", "value": "544", "decimals": 0, "unit": "k", "exact": null, "loc": {"page": 2, "quote": "Marketing spend reached 544 thousand in Q2."}},
+    {"id": "n16", "text": "31,5", "value": "31500", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Rent 31,5"}},
+    {"id": "n17", "text": "51,5", "value": "51500", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Travel 51,5"}},
+    {"id": "n18", "text": "25,5", "value": "25500", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Software 25,5"}},
+    {"id": "n19", "text": "108,5", "value": "108500", "decimals": 1, "unit": "USD", "scale": "1000", "exact": null, "loc": {"page": 3, "quote": "Total 108,5"}},
+    {"id": "n20", "text": "306", "value": "306", "decimals": 0, "unit": "k", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 306 thousand in the Rural area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from 5,6M to 6,0M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The retention gain should be 60,4% minus 54,6% in points."},
+    {"id": "c3", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The table total should be the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n13"}]},
+     "say": "The summary total should equal the table total."},
+    {"id": "c5", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n12"}, {"ref": "n13"}]},
+     "say": "Highland's share should be Highland shipments over the total."},
+    {"id": "c6", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n11"}, {"ref": "n13"}]},
+     "say": "Valley's share should be Valley shipments over the total."},
+    {"id": "c7", "kind": "derived", "target": "n19", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}]},
+     "say": "The cost total should be rent plus travel plus software."},
+    {"id": "c8", "kind": "chart", "check": "text_vs_chart", "target": "n15",
+     "chart": "g1", "mark": {"label": "Q2"},
+     "say": "The prose figure for Q2 marketing spend should match the Q2 bar in Figure 1."},
+    {"id": "c9", "kind": "chart", "check": "parts_sum", "target": "n20",
+     "chart": "g2", "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "The Rural online and store segments should sum to the stated 306 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "1000", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Q2", "series": null, "read_a": {"lo": "535", "hi": "552"}, "read_b": {"lo": "537", "hi": "550"}, "printed_label": null}
+     ],
+     "notes": []},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "400", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "115", "hi": "127"}, "read_b": {"lo": "117", "hi": "125"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "176", "hi": "194"}, "read_b": {"lo": "179", "hi": "192"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985–2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.5555/prove.synth.0009", "cited_title": "Reconciling quarterly service figures in small organisations", "cited_year": 2021, "quote": null, "loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0009"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1985", "reason": "year"},
+    {"text": "2013", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Marketing spend by quarter, thousands"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel, thousands"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Okafor, T., & Lindqvist, A. (2021)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}, "reason": "DOI, checked as source"},
+    {"loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0009"}, "reason": "DOI, checked as source"}
+  ]
+}

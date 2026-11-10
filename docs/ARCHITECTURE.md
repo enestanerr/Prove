@@ -30,22 +30,24 @@ prove/                              repo root
 ├── src/provecheck/
 │   ├── __main__.py  cli.py
 │   ├── numbers.py                  parse printed numbers, locale, exactness
-│   ├── intervals.py                Interval over Fraction
+│   ├── intervals.py                Interval over Fraction; Target for hedged claims
 │   ├── relations/                  one file per op (sum.py, pct_change.py, …) + registry
 │   ├── grounding.py                quote/text/parse checks
 │   ├── scan.py                     find every numeric token (coverage)
-│   ├── verdict.py                  the rule in SPEC §2
+│   ├── verdict.py                  the rule in SPEC §2, its guards, the check pipeline
 │   ├── charts.py                   two-read merge, min width, chart checks
+│   ├── display.py                  exact fractions -> the text a reader sees
 │   ├── sources/                    doi.py, arxiv.py, url.py, quote.py, client.py (cache)
 │   ├── logic.py                    v0.2, Z3 (optional extra)
-│   ├── ingest/                     text.py, markdown.py, html.py, pdf.py*, xlsx.py*  (*extras)
-│   ├── report/                     html.py, md.py, json.py, card.py, templates/
-│   └── schema/                     claims.v1.schema.json, report.v1.schema.json
+│   ├── ingest/                     text.py, markdown.py, html.py, png.py, pdf.py*, xlsx.py*  (*extras)
+│   ├── report/                     html.py, md.py, card.py; __init__ builds prove.report.v1
+│   └── schema/                     the validator, claims.v1.schema.json, report.v1.schema.json
 ├── tests/                          unit, property (Hypothesis), golden reports, fixtures/
-├── evals/                          synthetic corpus generator, runners, results/
-├── examples/                       kestrel-q3/ (fictional company), expected reports
+├── evals/                          synth/generate.py, run_judge.py, run_e2e.py, score.py, results/
+├── examples/                       three fictional documents with claims, truth, expected reports
 ├── reference/                      the tested reference of the verdict rule
-└── tools/build_pyz.py              builds the zipapp from src/provecheck (core only)
+└── tools/                          build_pyz.py, build_skill_zip.py, build_examples.py, mdpdf.py,
+                                    readme_table.py, validate_examples.py, record_source_fixtures.py
 ```
 
 Why the plugin is in `./plugin/` and not at the repo root: the repo root holds a
@@ -57,6 +59,8 @@ Why there is no `bin/`: claude.ai and Cowork refuse plugins that ship one.
 ```
 provecheck ingest <doc> [-o doc.json] [--render-pages DIR]   text, tables, page images
 provecheck scan   <doc|doc.json>                              every numeric token
+provecheck text   <doc|doc.json> [--page N]                   page text, to copy quotes from
+provecheck relations                                          the ops a derivation can use
 provecheck check  claims.json --doc doc.json [-o verdicts.json]
 provecheck crop   --doc <pdf> --page N --box x0,y0,x1,y1 --upscale 2 -o crop.png
 provecheck sources claims.json [--offline]

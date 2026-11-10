@@ -1,0 +1,87 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "5.34M", "value": "5340000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $5.34M in Q2"}},
+    {"id": "n2", "text": "6.02M", "value": "6020000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "$6.02M in Q3, up 13%"}},
+    {"id": "n3", "text": "13%", "value": "13", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "$6.02M in Q3, up 13%"}},
+    {"id": "n4", "text": "20.8%", "value": "20.8", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "improved from 20.8% to 24.9%"}},
+    {"id": "n5", "text": "24.9%", "value": "24.9", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "improved from 20.8% to 24.9%"}},
+    {"id": "n6", "text": "4.1", "value": "4.1", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 4.1 percentage points"}},
+    {"id": "n7", "text": "7,179", "value": "7179", "decimals": 0, "unit": "visits", "exact": "count", "loc": {"page": 1, "quote": "In total, 7,179 visits were recorded"}},
+    {"id": "n8", "text": "27%", "value": "27", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 27% of visits came from the Coastal region"}},
+    {"id": "n9", "text": "2,451", "value": "2451", "decimals": 0, "unit": "visits", "exact": "count", "loc": {"page": 2, "quote": "South 2,451"}},
+    {"id": "n10", "text": "1,097", "value": "1097", "decimals": 0, "unit": "visits", "exact": "count", "loc": {"page": 2, "quote": "North 1,097"}},
+    {"id": "n11", "text": "1,671", "value": "1671", "decimals": 0, "unit": "visits", "exact": "count", "loc": {"page": 2, "quote": "Central 1,671"}},
+    {"id": "n12", "text": "1,960", "value": "1960", "decimals": 0, "unit": "visits", "exact": "count", "loc": {"page": 2, "quote": "Coastal 1,960"}},
+    {"id": "n13", "text": "7,179", "value": "7179", "decimals": 0, "unit": "visits", "exact": "count", "loc": {"page": 2, "quote": "Total 7,179"}},
+    {"id": "n14", "text": "29.2%", "value": "29.2", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Central region accounted for 29.2% of visits"}},
+    {"id": "n15", "text": "625", "value": "625", "decimals": 0, "unit": "thousand", "exact": null, "loc": {"page": 2, "quote": "Energy use reached 625 thousand in Q2"}},
+    {"id": "n16", "text": "46.7", "value": "46.7", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Travel 46.7"}},
+    {"id": "n17", "text": "59.6", "value": "59.6", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Rent 59.6"}},
+    {"id": "n18", "text": "47.5", "value": "47.5", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Software 47.5"}},
+    {"id": "n19", "text": "23.7", "value": "23.7", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Insurance 23.7"}},
+    {"id": "n20", "text": "177.5", "value": "177.5", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Total 177.5"}},
+    {"id": "n21", "text": "275", "value": "275", "decimals": 0, "unit": "thousand", "exact": null, "loc": {"page": 3, "quote": "together reached 275 thousand in the Rural area"}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $5.34M to $6.02M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The on-time gain should be 24.9% minus 20.8%, in points."},
+    {"id": "c3", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}, {"ref": "n12"}]},
+     "say": "The table total should be the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n13"}]},
+     "say": "The total visits in the summary should equal the table total."},
+    {"id": "c5", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n12"}, {"ref": "n13"}]},
+     "say": "The Coastal share should be Coastal visits divided by total visits."},
+    {"id": "c6", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n11"}, {"ref": "n13"}]},
+     "say": "The Central share should be Central visits divided by total visits."},
+    {"id": "c7", "kind": "derived", "target": "n20", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}, {"ref": "n19"}]},
+     "say": "The cost total should be the sum of the four items."},
+    {"id": "c8", "kind": "chart", "check": "text_vs_chart", "target": "n15",
+     "chart": "g1", "mark": {"label": "Q2"},
+     "say": "The prose figure for Q2 energy use should match the Q2 bar in Figure 1."},
+    {"id": "c9", "kind": "chart", "check": "parts_sum", "target": "n21",
+     "chart": "g2", "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "The Rural total should match the sum of its Online and Stores segments in Figure 2."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "800", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Q2", "series": null, "read_a": {"lo": "615", "hi": "640"}, "read_b": {"lo": "618", "hi": "632"}, "printed_label": null}
+     ],
+     "notes": []},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "350", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "170", "hi": "182"}, "read_b": {"lo": "173", "hi": "180"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "92", "hi": "104"}, "read_b": {"lo": "95", "hi": "102"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985–2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.5555/prove.synth.0025", "cited_title": "Reconciling quarterly service figures in small organisations", "cited_year": 2021, "quote": null, "loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0025"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null,
+     "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.",
+     "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "loc": {"page": 1, "quote": "Q3 2026 report"}, "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Energy use by quarter"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016). The prevalence of statistical reporting errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Okafor, T., & Lindqvist, A. (2021). Reconciling quarterly service figures in small organisations. doi:10.5555/prove.synth.0025"}, "reason": "reference list"}
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "1.38M", "value": "1380000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $1.38M in Q2 to $1.57M in Q3, up 17%."}},
+    {"id": "n2", "text": "1.57M", "value": "1570000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $1.38M in Q2 to $1.57M in Q3, up 17%."}},
+    {"id": "n3", "text": "17%", "value": "17", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $1.38M in Q2 to $1.57M in Q3, up 17%."}},
+    {"id": "n4", "text": "33.7%", "value": "33.7", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Gross margin improved from 33.7% to 37.0%, a gain of 3.3 percentage points."}},
+    {"id": "n5", "text": "37.0%", "value": "37.0", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Gross margin improved from 33.7% to 37.0%, a gain of 3.3 percentage points."}},
+    {"id": "n6", "text": "3.3", "value": "3.3", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "a gain of 3.3 percentage points"}},
+    {"id": "n7", "text": "38%", "value": "38", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 38% of shipments came from the South region."}},
+    {"id": "n8", "text": "1,720", "value": "1720", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "South 1,720"}},
+    {"id": "n9", "text": "1,485", "value": "1485", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "North 1,485"}},
+    {"id": "n10", "text": "547", "value": "547", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Central 547"}},
+    {"id": "n11", "text": "772", "value": "772", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Valley 772"}},
+    {"id": "n12", "text": "4,544", "value": "4544", "decimals": 0, "unit": "shipments", "exact": "count", "loc": {"page": 2, "quote": "Total 4,544"}},
+    {"id": "n13", "text": "14.9%", "value": "14.9", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Valley region accounted for 14.9% of shipments."}},
+    {"id": "n14", "text": "839", "value": "839", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 2, "quote": "Marketing spend reached 839 thousand in Q2."}},
+    {"id": "n15", "text": "61.0", "value": "61.0", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Rent 61.0"}},
+    {"id": "n16", "text": "26.7", "value": "26.7", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Travel 26.7"}},
+    {"id": "n17", "text": "24.9", "value": "24.9", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Software 24.9"}},
+    {"id": "n18", "text": "49.5", "value": "49.5", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Utilities 49.5"}},
+    {"id": "n19", "text": "162.0", "value": "162.0", "decimals": 1, "unit": "USD thousands", "exact": null, "loc": {"page": 3, "quote": "Total 162.0"}},
+    {"id": "n20", "text": "225", "value": "225", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 3, "quote": "Online and store sales together reached 225 thousand in the Rural area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $1.38M to $1.57M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The margin gain should be 37.0% minus 33.7%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "n8"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]}]},
+     "say": "South's share should be South shipments over the sum of the four regions."},
+    {"id": "c4", "kind": "derived", "target": "n12", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]},
+     "say": "The shipments total should equal the sum of the four regions."},
+    {"id": "c5", "kind": "derived", "target": "n13", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n11"}, {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n10"}, {"ref": "n11"}]}]},
+     "say": "Valley's share should be Valley shipments over the sum of the four regions."},
+    {"id": "c6", "kind": "derived", "target": "n19", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "n15"}, {"ref": "n16"}, {"ref": "n17"}, {"ref": "n18"}]},
+     "say": "The cost total should equal the sum of the four items."},
+    {"id": "c7", "kind": "chart", "check": "text_vs_chart", "target": "n14",
+     "chart": "g1", "mark": {"label": "Q2"},
+     "say": "The prose figure for Q2 marketing spend should match the Q2 bar in Figure 1."},
+    {"id": "c8", "kind": "chart", "check": "parts_sum", "target": "n20",
+     "chart": "g2", "marks": [{"label": "Rural", "series": "Online"}, {"label": "Rural", "series": "Stores"}],
+     "say": "The Rural online and store segments in Figure 2 should add up to the stated 225 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "900", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Q2", "series": null, "read_a": {"lo": "650", "hi": "680"}, "read_b": {"lo": "655", "hi": "672"}, "printed_label": null}
+     ],
+     "notes": ["Bars are ordered Q4, Q1, Q2, Q3 on the x axis."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "400", "scale": "linear", "unit": "thousands"},
+     "marks": [
+       {"label": "Rural", "series": "Online", "read_a": {"lo": "88", "hi": "99"}, "read_b": {"lo": "89", "hi": "97"}, "printed_label": null},
+       {"label": "Rural", "series": "Stores", "read_a": {"lo": "125", "hi": "138"}, "read_b": {"lo": "127", "hi": "136"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.1177/1948550616673876", "cited_title": "The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology", "cited_year": 2017, "quote": null, "loc": {"page": 3, "quote": "doi:10.1177/1948550616673876"}},
+    {"id": "s3", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3}, "reason": "figure number / reference marker"},
+    {"text": "1", "loc": {"page": 3}, "reason": "reference marker"},
+    {"text": "2016", "reason": "year in reference"},
+    {"text": "1985", "reason": "year range in reference title"},
+    {"text": "2013", "reason": "year range in reference title"},
+    {"text": "2017", "reason": "year in reference"},
+    {"text": "10.3758", "reason": "DOI (checked under sources)"},
+    {"text": "015", "reason": "DOI (checked under sources)"},
+    {"text": "0664", "reason": "DOI (checked under sources)"},
+    {"text": "10.1177", "reason": "DOI (checked under sources)"},
+    {"text": "1948550616673876", "reason": "DOI (checked under sources)"}
+  ]
+}

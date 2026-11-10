@@ -1,0 +1,89 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "report.pdf", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "7.80M", "value": "7800000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.80M in Q2 to $8.26M in Q3, up 1%."}},
+    {"id": "n2", "text": "8.26M", "value": "8260000", "decimals": 2, "unit": "USD", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.80M in Q2 to $8.26M in Q3, up 1%."}},
+    {"id": "n3", "text": "1%", "value": "1", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Revenue rose from $7.80M in Q2 to $8.26M in Q3, up 1%."}},
+    {"id": "n4", "text": "35.0%", "value": "35.0", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 35.0% to 36.9%, a gain of 1.9 percentage points."}},
+    {"id": "n5", "text": "36.9%", "value": "36.9", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 35.0% to 36.9%, a gain of 1.9 percentage points."}},
+    {"id": "n6", "text": "1.9", "value": "1.9", "decimals": 1, "unit": "pp", "exact": null, "loc": {"page": 1, "quote": "Occupancy rate improved from 35.0% to 36.9%, a gain of 1.9 percentage points."}},
+    {"id": "n7", "text": "6,680", "value": "6680", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 1, "quote": "In total, 6,680 orders were recorded in the quarter."}},
+    {"id": "n8", "text": "24%", "value": "24", "decimals": 0, "unit": "%", "exact": null, "loc": {"page": 1, "quote": "About 24% of orders came from the East region."}},
+    {"id": "t1", "text": "483", "value": "483", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Highland 483"}},
+    {"id": "t2", "text": "1,264", "value": "1264", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Coastal 1,264"}},
+    {"id": "t3", "text": "1,696", "value": "1696", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "East 1,696"}},
+    {"id": "t4", "text": "1,162", "value": "1162", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Valley 1,162"}},
+    {"id": "t5", "text": "2,075", "value": "2075", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Central 2,075"}},
+    {"id": "t6", "text": "6,680", "value": "6680", "decimals": 0, "unit": "orders", "exact": "count", "loc": {"page": 2, "quote": "Total 6,680"}},
+    {"id": "n9", "text": "34.6%", "value": "34.6", "decimals": 1, "unit": "%", "exact": null, "loc": {"page": 2, "quote": "The Central region accounted for 34.6% of orders."}},
+    {"id": "n10", "text": "522", "value": "522", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 2, "quote": "Marketing spend reached 522 thousand in Q4."}},
+    {"id": "k1", "text": "66.1", "value": "66100", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Rent 66.1"}},
+    {"id": "k2", "text": "90.2", "value": "90200", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Insurance 90.2"}},
+    {"id": "k3", "text": "64.7", "value": "64700", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Staff 64.7"}},
+    {"id": "k4", "text": "21.9", "value": "21900", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Software 21.9"}},
+    {"id": "k5", "text": "240.2", "value": "240200", "decimals": 1, "unit": "USD", "exact": null, "scale": "1000", "loc": {"page": 3, "quote": "Total 240.2"}},
+    {"id": "n11", "text": "166", "value": "166", "decimals": 0, "unit": "k USD", "exact": null, "loc": {"page": 3, "quote": "together reached 166 thousand in the Suburban area."}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "Revenue growth should be the change from $7.80M to $8.26M."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pp_diff", "args": [{"ref": "n5"}, {"ref": "n4"}]},
+     "say": "The occupancy gain should be 36.9% minus 35.0%."},
+    {"id": "c3", "kind": "derived", "target": "n7", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "t6"}]},
+     "say": "The total orders in the summary should match the table total."},
+    {"id": "c4", "kind": "derived", "target": "t6", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "t1"}, {"ref": "t2"}, {"ref": "t3"}, {"ref": "t4"}, {"ref": "t5"}]},
+     "say": "The orders total should be the sum of the five regions."},
+    {"id": "c5", "kind": "derived", "target": "n8", "hedge": "approx",
+     "derivation": {"op": "pct_of", "args": [{"ref": "t3"}, {"op": "sum", "args": [{"ref": "t1"}, {"ref": "t2"}, {"ref": "t3"}, {"ref": "t4"}, {"ref": "t5"}]}]},
+     "say": "The East share should be East orders over the sum of regions."},
+    {"id": "c6", "kind": "derived", "target": "n9", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "t5"}, {"op": "sum", "args": [{"ref": "t1"}, {"ref": "t2"}, {"ref": "t3"}, {"ref": "t4"}, {"ref": "t5"}]}]},
+     "say": "The Central share should be Central orders over the sum of regions."},
+    {"id": "c7", "kind": "derived", "target": "k5", "hedge": null,
+     "derivation": {"op": "sum", "args": [{"ref": "k1"}, {"ref": "k2"}, {"ref": "k3"}, {"ref": "k4"}]},
+     "say": "The cost total should be the sum of the four items."},
+    {"id": "c8", "kind": "chart", "check": "text_vs_chart", "target": "n10",
+     "chart": "g1", "mark": {"label": "Q4"},
+     "say": "The prose figure for Q4 marketing spend should match the Q4 bar in Figure 1."},
+    {"id": "c9", "kind": "chart", "check": "parts_sum", "target": "n11",
+     "chart": "g2", "marks": [{"label": "Suburban", "series": "Online"}, {"label": "Suburban", "series": "Stores"}],
+     "say": "Online plus store sales in Suburban should match the stated 166 thousand."}
+  ],
+  "charts": [
+    {"id": "g1", "loc": {"page": 2, "figure": "Figure 1"}, "type": "bar",
+     "image": "prove-work/crops/g1.png",
+     "y_axis": {"min": "0", "max": "700", "scale": "linear", "unit": "USD thousands"},
+     "marks": [
+       {"label": "Q4", "read_a": {"lo": "515", "hi": "530"}, "read_b": {"lo": "517", "hi": "527"}, "printed_label": null}
+     ],
+     "notes": ["Quarters are ordered Q4, Q1, Q2, Q3 on the x axis."]},
+    {"id": "g2", "loc": {"page": 3, "figure": "Figure 2"}, "type": "stacked_bar",
+     "image": "prove-work/crops/g2.png",
+     "y_axis": {"min": "0", "max": "300", "scale": "linear", "unit": "USD thousands"},
+     "marks": [
+       {"label": "Suburban", "series": "Online", "read_a": {"lo": "106", "hi": "118"}, "read_b": {"lo": "108", "hi": "116"}, "printed_label": null},
+       {"label": "Suburban", "series": "Stores", "read_a": {"lo": "47", "hi": "60"}, "read_b": {"lo": "49", "hi": "58"}, "printed_label": null}
+     ],
+     "notes": []}
+  ],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "10.3758/s13428-015-0664-2", "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)", "cited_year": 2016, "quote": null, "loc": {"page": 3, "quote": "doi:10.3758/s13428-015-0664-2"}},
+    {"id": "s2", "kind": "doi", "value": "10.5555/prove.synth.0007", "cited_title": "Reconciling quarterly service figures in small organisations", "cited_year": 2021, "quote": null, "loc": {"page": 3, "quote": "doi:10.5555/prove.synth.0007"}},
+    {"id": "s3", "kind": "url", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": null, "loc": {"page": 3, "quote": "example-domains"}},
+    {"id": "s4", "kind": "quote", "value": "https://www.iana.org/help/example-domains", "cited_title": null, "cited_year": null, "quote": "These domains may be used as illustrative examples in documents without prior coordination with us.", "loc": {"page": 3, "quote": "These domains may be used as illustrative"}}
+  ],
+  "skipped": [
+    {"text": "2026", "reason": "year"},
+    {"text": "1", "loc": {"page": 2, "quote": "Figure 1: Marketing spend by quarter"}, "reason": "figure number"},
+    {"text": "2", "loc": {"page": 3, "quote": "Figure 2: Sales by area and channel"}, "reason": "figure number"},
+    {"loc": {"page": 3, "quote": "[1] Nuijten, M. B., Hartgerink, C. H. J., et al. (2016)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "errors in psychology (1985–2013). doi:10.3758/s13428-015-0664-2"}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "[2] Okafor, T., & Lindqvist, A. (2021)."}, "reason": "reference list"},
+    {"loc": {"page": 3, "quote": "organisations. doi:10.5555/prove.synth.0007"}, "reason": "reference list"}
+  ]
+}

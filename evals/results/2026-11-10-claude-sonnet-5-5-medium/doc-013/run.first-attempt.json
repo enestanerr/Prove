@@ -1,0 +1,15 @@
+{
+  "document": "report.pdf",
+  "status": "ok | no claims.json or verdicts.json was produced",
+  "wall_seconds": 14.8,
+  "turns": 8,
+  "cost_usd": 0.0879106,
+  "tokens": {
+    "input_tokens": 16,
+    "output_tokens": 1010,
+    "cache_read_input_tokens": 276316,
+    "cache_creation_input_tokens": 12505
+  },
+  "permission_denials": 4,
+  "score": null
+}

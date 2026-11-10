@@ -1,0 +1,69 @@
+{
+  "schema": "prove.claims.v1",
+  "document": {"path": "README.md", "locale": "en"},
+  "numbers": [
+    {"id": "n1", "text": "2.10M", "value": "2100000", "decimals": 2, "unit": "USD", "exact": null,
+     "loc": {"page": 1, "quote": "2.30M ÷ 2.10M − 1 = 9.52%; possible range 9.03%–10.02%; the document says 14%"}},
+    {"id": "n2", "text": "2.30M", "value": "2300000", "decimals": 2, "unit": "USD", "exact": null,
+     "loc": {"page": 1, "quote": "2.30M ÷ 2.10M − 1 = 9.52%; possible range 9.03%–10.02%; the document says 14%"}},
+    {"id": "n3", "text": "9.52%", "value": "9.52", "decimals": 2, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "2.30M ÷ 2.10M − 1 = 9.52%; possible range 9.03%–10.02%; the document says 14%"}},
+
+    {"id": "n4", "text": "2.1M", "value": "2100000", "decimals": 1, "unit": "subscribers", "exact": null,
+     "loc": {"page": 1, "quote": "2.3M ÷ 2.1M − 1 = 9.52%; possible range 4.65%–14.63%; the document says 14%"}},
+    {"id": "n5", "text": "2.3M", "value": "2300000", "decimals": 1, "unit": "subscribers", "exact": null,
+     "loc": {"page": 1, "quote": "2.3M ÷ 2.1M − 1 = 9.52%; possible range 4.65%–14.63%; the document says 14%"}},
+    {"id": "n6", "text": "9.52%", "value": "9.52", "decimals": 2, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "2.3M ÷ 2.1M − 1 = 9.52%; possible range 4.65%–14.63%; the document says 14%"}},
+
+    {"id": "n7", "text": "1,356", "value": "1356", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 1, "quote": "1,356 ÷ (1,204 + 988 + 1,356 + 1,244) = 28.30%; the document says 28.3%"}},
+    {"id": "n8", "text": "1,204", "value": "1204", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 1, "quote": "1,356 ÷ (1,204 + 988 + 1,356 + 1,244) = 28.30%; the document says 28.3%"}},
+    {"id": "n9", "text": "988", "value": "988", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 1, "quote": "1,356 ÷ (1,204 + 988 + 1,356 + 1,244) = 28.30%; the document says 28.3%"}},
+    {"id": "n10", "text": "1,244", "value": "1244", "decimals": 0, "unit": "orders", "exact": "count",
+     "loc": {"page": 1, "quote": "1,356 ÷ (1,204 + 988 + 1,356 + 1,244) = 28.30%; the document says 28.3%"}},
+    {"id": "n11", "text": "28.30%", "value": "28.30", "decimals": 2, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "1,356 ÷ (1,204 + 988 + 1,356 + 1,244) = 28.30%; the document says 28.3%"}},
+
+    {"id": "n12", "text": "2.05M", "value": "2050000", "decimals": 2, "unit": null, "exact": "defined",
+     "loc": {"page": 1, "quote": "2.05M → 2.349M is a 14.6% rise"}},
+    {"id": "n13", "text": "2.349M", "value": "2349000", "decimals": 3, "unit": null, "exact": "defined",
+     "loc": {"page": 1, "quote": "2.05M → 2.349M is a 14.6% rise"}},
+    {"id": "n14", "text": "14.6%", "value": "14.6", "decimals": 1, "unit": "%", "exact": null,
+     "loc": {"page": 1, "quote": "2.05M → 2.349M is a 14.6% rise"}},
+
+    {"id": "n15", "text": "2.05M", "value": "2050000", "decimals": 2, "unit": null, "exact": "defined",
+     "loc": {"page": 1, "quote": "from 2.05M to 2.15M"}},
+    {"id": "n16", "text": "2.15M", "value": "2150000", "decimals": 2, "unit": null, "exact": "defined",
+     "loc": {"page": 1, "quote": "from 2.05M to 2.15M"}}
+  ],
+  "claims": [
+    {"id": "c1", "kind": "derived", "target": "n3", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n1"}, {"ref": "n2"}]},
+     "say": "The quoted computation for the first example should hold."},
+    {"id": "c2", "kind": "derived", "target": "n6", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n4"}, {"ref": "n5"}]},
+     "say": "The quoted computation for the second example should hold."},
+    {"id": "c3", "kind": "derived", "target": "n11", "hedge": null,
+     "derivation": {"op": "pct_of", "args": [{"ref": "n7"},
+        {"op": "sum", "args": [{"ref": "n8"}, {"ref": "n9"}, {"ref": "n7"}, {"ref": "n10"}]}]},
+     "say": "The quoted share for the third example should hold."},
+    {"id": "c4", "kind": "derived", "target": "n14", "hedge": null,
+     "derivation": {"op": "pct_change", "args": [{"ref": "n12"}, {"ref": "n13"}]},
+     "say": "The rise from 2.05M to 2.349M used to explain the rule should be what the README says."},
+    {"id": "c5", "kind": "derived", "target": "n12", "hedge": null,
+     "derivation": {"op": "eq", "args": [{"ref": "n15"}]},
+     "say": "The lower edge of 2.1M is quoted twice and should be the same number."}
+  ],
+  "charts": [],
+  "sources": [
+    {"id": "s1", "kind": "doi", "value": "https://doi.org/10.1177/1948550616673876",
+     "cited_title": "The GRIM Test", "loc": {"page": 1, "quote": "GRIM test"}},
+    {"id": "s2", "kind": "doi", "value": "https://doi.org/10.3758/s13428-015-0664-2",
+     "cited_title": "The prevalence of statistical reporting errors in psychology (1985–2013)",
+     "loc": {"page": 1, "quote": "statcheck"}}
+  ],
+  "skipped": []
+}

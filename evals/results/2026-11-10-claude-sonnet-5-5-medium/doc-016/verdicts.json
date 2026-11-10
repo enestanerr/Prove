@@ -1,0 +1,440 @@
+{
+  "schema": "prove.verdicts.v1",
+  "provecheck": "0.1.0",
+  "document": {
+    "path": "report.pdf",
+    "sha256": "60d087da86dc5da6f93e22539758db4cb3f04e4ffa1a5b9b93b887221d1b6956",
+    "locale": "eu",
+    "pages": 3
+  },
+  "summary": {
+    "contradicted": 2,
+    "suspect": 0,
+    "unverified": 3,
+    "verified": 6,
+    "by_assurance": {
+      "computed": {
+        "contradicted": 1,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 5
+      },
+      "read": {
+        "contradicted": 1,
+        "suspect": 0,
+        "unverified": 0,
+        "verified": 1
+      },
+      "resolved": {
+        "contradicted": 0,
+        "suspect": 0,
+        "unverified": 3,
+        "verified": 0
+      }
+    }
+  },
+  "coverage": {
+    "found": 39,
+    "checked": 22,
+    "skipped": 17,
+    "missed": 0,
+    "missed_tokens": []
+  },
+  "claims": [
+    {
+      "id": "c1",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "Revenue growth should be the change from €6,16M to €6,38M.",
+      "hedge": null,
+      "target": {
+        "id": "rg",
+        "text": "4%",
+        "page": 1,
+        "quote": "Revenue rose from €6,16M in Q2 to €6,38M in Q3, up 4%."
+      },
+      "computation": "6,38M ÷ 6,16M − 1",
+      "point": "25/7",
+      "range": [
+        "1400/411",
+        "4600/1231"
+      ],
+      "display": {
+        "point": "3.57%",
+        "range": "3.41%–3.74%",
+        "printed": "4%"
+      },
+      "sentence": "6,38M ÷ 6,16M − 1 = 3.57%; possible range 3.41%–3.74%; the document says 4%",
+      "notes": [],
+      "numbers": [
+        "r2",
+        "r3",
+        "rg"
+      ]
+    },
+    {
+      "id": "c2",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The margin gain should be 57,8% minus 53,7% in percentage points.",
+      "hedge": null,
+      "target": {
+        "id": "mg",
+        "text": "4,1",
+        "page": 1,
+        "quote": "a gain of 4,1 percentage points."
+      },
+      "computation": "57,8% − 53,7%",
+      "point": "41/10",
+      "range": [
+        "4",
+        "21/5"
+      ],
+      "display": {
+        "point": "4.10 pp",
+        "range": "4.00 pp–4.20 pp",
+        "printed": "4,1 pp"
+      },
+      "sentence": "57,8% − 53,7% = 4.10 pp; possible range 4.00 pp–4.20 pp; the document says 4,1 pp",
+      "notes": [],
+      "numbers": [
+        "m3",
+        "m2",
+        "mg"
+      ]
+    },
+    {
+      "id": "c3",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The West share should be West enrolments over the sum of the five regions.",
+      "hedge": "approx",
+      "target": {
+        "id": "wp",
+        "text": "22%",
+        "page": 1,
+        "quote": "About 22% of enrolments came from the West region."
+      },
+      "computation": "1.349 ÷ (354 + 902 + 2.214 + 1.518 + 1.349)",
+      "point": "134900/6337",
+      "range": [
+        "134900/6337",
+        "134900/6337"
+      ],
+      "display": {
+        "point": "21.29%",
+        "range": null,
+        "printed": "about 22%"
+      },
+      "sentence": "1.349 ÷ (354 + 902 + 2.214 + 1.518 + 1.349) = 21.29%; the document says about 22%",
+      "notes": [],
+      "numbers": [
+        "e5",
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "wp"
+      ]
+    },
+    {
+      "id": "c4",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The Central share should be Central enrolments over the sum of the five regions.",
+      "hedge": null,
+      "target": {
+        "id": "cp",
+        "text": "14,2%",
+        "page": 2,
+        "quote": "The Central region accounted for 14,2% of enrolments."
+      },
+      "computation": "902 ÷ (354 + 902 + 2.214 + 1.518 + 1.349)",
+      "point": "90200/6337",
+      "range": [
+        "90200/6337",
+        "90200/6337"
+      ],
+      "display": {
+        "point": "14.23%",
+        "range": null,
+        "printed": "14,2%"
+      },
+      "sentence": "902 ÷ (354 + 902 + 2.214 + 1.518 + 1.349) = 14.23%; the document says 14,2%",
+      "notes": [],
+      "numbers": [
+        "e2",
+        "e1",
+        "e3",
+        "e4",
+        "e5",
+        "cp"
+      ]
+    },
+    {
+      "id": "c5",
+      "kind": "derived",
+      "verdict": "contradicted",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The enrolment total should equal the sum of the five regions.",
+      "hedge": null,
+      "target": {
+        "id": "et",
+        "text": "6.447",
+        "page": 2,
+        "quote": "Total 6.447"
+      },
+      "computation": "354 + 902 + 2.214 + 1.518 + 1.349",
+      "point": "6337",
+      "range": [
+        "6337",
+        "6337"
+      ],
+      "display": {
+        "point": "6,337",
+        "range": null,
+        "printed": "6.447"
+      },
+      "sentence": "354 + 902 + 2.214 + 1.518 + 1.349 = 6,337; the document says 6.447",
+      "notes": [],
+      "numbers": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "et"
+      ]
+    },
+    {
+      "id": "c6",
+      "kind": "derived",
+      "verdict": "verified",
+      "assurance": "computed",
+      "reason": null,
+      "message": null,
+      "say": "The cost total should equal the sum of the five items.",
+      "hedge": null,
+      "target": {
+        "id": "kt",
+        "text": "246,8",
+        "page": 3,
+        "quote": "Total 246,8"
+      },
+      "computation": "86,8 + 64,2 + 16,4 + 59,2 + 20,2",
+      "point": "246800",
+      "range": [
+        "246550",
+        "247050"
+      ],
+      "display": {
+        "point": "246.8",
+        "range": "246.55–247.05",
+        "printed": "246,8"
+      },
+      "sentence": "86,8 + 64,2 + 16,4 + 59,2 + 20,2 = 246.8; possible range 246.55–247.05; the document says 246,8",
+      "notes": [],
+      "numbers": [
+        "k1",
+        "k2",
+        "k3",
+        "k4",
+        "k5",
+        "kt"
+      ]
+    },
+    {
+      "id": "c7",
+      "kind": "chart",
+      "check": "text_vs_chart",
+      "verdict": "verified",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "The prose figure for July training hours should match the Jul point in Figure 1.",
+      "hedge": null,
+      "target": {
+        "id": "h638",
+        "text": "638",
+        "page": 2,
+        "quote": "Training hours reached 638 thousand in Jul."
+      },
+      "chart": {
+        "id": "g1",
+        "figure": "Figure 1",
+        "page": 2,
+        "type": "line",
+        "unit": "thousand hours",
+        "image": "prove-work/crops/g1.png",
+        "notes": [
+          "The value axis starts at 300, not zero."
+        ]
+      },
+      "marks": [
+        {
+          "label": "Jul",
+          "series": null,
+          "status": "ok",
+          "read_a": "630–646",
+          "read_b": "632–644",
+          "final": "630–646"
+        }
+      ],
+      "display": {
+        "reading": "630–646",
+        "printed": "638"
+      },
+      "sentence": "the Jul point in Figure 1 reads 630–646 (first reading 630–646, second reading 632–644); the document says 638",
+      "notes": [],
+      "numbers": [
+        "h638"
+      ]
+    },
+    {
+      "id": "c8",
+      "kind": "chart",
+      "check": "parts_sum",
+      "verdict": "contradicted",
+      "assurance": "read",
+      "reason": null,
+      "message": null,
+      "say": "Online plus store sales in Suburban should match the stated 343 thousand.",
+      "hedge": null,
+      "target": {
+        "id": "s343",
+        "text": "343",
+        "page": 3,
+        "quote": "Online and store sales together reached 343 thousand in the Suburban area."
+      },
+      "chart": {
+        "id": "g2",
+        "figure": "Figure 2",
+        "page": 3,
+        "type": "stacked_bar",
+        "unit": "thousands",
+        "image": "prove-work/crops/g2.png",
+        "notes": []
+      },
+      "marks": [
+        {
+          "label": "Suburban",
+          "series": "Online",
+          "status": "ok",
+          "read_a": "140–150",
+          "read_b": "141–149",
+          "final": "140–150"
+        },
+        {
+          "label": "Suburban",
+          "series": "Stores",
+          "status": "ok",
+          "read_a": "125–138",
+          "read_b": "127–136",
+          "final": "125–138"
+        }
+      ],
+      "display": {
+        "reading": "265–288",
+        "printed": "343"
+      },
+      "sentence": "the 2 segments in Figure 2 add up to 265–288; the document says 343",
+      "notes": [],
+      "numbers": [
+        "s343"
+      ]
+    }
+  ],
+  "unchecked_numbers": [],
+  "sources": [
+    {
+      "id": "s1",
+      "kind": "doi",
+      "value": "10.3758/s13428-015-0664-2",
+      "cited_title": "The prevalence of statistical reporting errors in psychology (1985-2013)",
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    },
+    {
+      "id": "s2",
+      "kind": "doi",
+      "value": "10.5555/prove.synth.0016",
+      "cited_title": "Reconciling quarterly service figures in small organisations",
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    },
+    {
+      "id": "s3",
+      "kind": "quote",
+      "value": "https://www.iana.org/help/example-domains",
+      "cited_title": null,
+      "page": 3,
+      "verdict": "unverified",
+      "assurance": "resolved",
+      "reason": "not-run",
+      "message": "Sources were not checked. Run `provecheck sources`."
+    }
+  ],
+  "skipped": [
+    {
+      "text": "1",
+      "reason": "figure number",
+      "count": 1
+    },
+    {
+      "text": "2",
+      "reason": "figure number",
+      "count": 1
+    },
+    {
+      "text": "2026",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "2016",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "2021",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "1985",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "2013",
+      "reason": "year",
+      "count": 1
+    },
+    {
+      "text": "(passage)",
+      "reason": "reference list",
+      "count": 4
+    }
+  ],
+  "warnings": []
+}

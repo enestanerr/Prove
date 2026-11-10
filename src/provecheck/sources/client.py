@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import hashlib
+import ipaddress
 import json
 import os
 import urllib.error
+import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
@@ -39,6 +41,25 @@ class Response:
         except ValueError:
             return None
         return data if isinstance(data, dict) else None
+
+
+def is_public_web_address(url: str) -> bool:
+    """http(s) to a host that is not this machine or a private network.
+
+    A document chooses which addresses get fetched, so local and private ones are
+    refused: a citation must not be able to probe the reader's own network.
+    """
+    parts = urllib.parse.urlsplit(url.strip())
+    host = (parts.hostname or "").lower()
+    if parts.scheme not in ("http", "https") or not host:
+        return False
+    if host == "localhost" or host.endswith((".localhost", ".local", ".internal")):
+        return False
+    try:
+        address = ipaddress.ip_address(host)
+    except ValueError:
+        return True
+    return address.is_global
 
 
 class Client:
